@@ -244,7 +244,7 @@ public:
 // Edit Widget은 한 번에 하나의 대상에 입력할 수 있으므로 그것의 처리를 해주며,
 // 외부에서는 EditManager로 그들로 통하는 단일한 인터페이스를 구성한다.
 //-----------------------------------------------------------------------------
-/*
+
 class EditManager : public SimpleDataList<DocumentEditor *>
 {
 private:
@@ -260,6 +260,6 @@ public:
 	void	Unregister(DocumentEditor * p_de);
 
 	void	Show(HDC hdc) const;
-};*/
+};
 
 #endif
