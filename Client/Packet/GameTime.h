@@ -87,7 +87,7 @@ public :
 			case 5 : return "MAY";
 			case 6 : return "JUN";
 			case 7 : return "JUL";
-			case 8 : return "OUG";
+			case 8 : return "AUG";
 			case 9 : return "SEP";
 			case 10 : return "OCT";
 			case 11 : return "NOV";
