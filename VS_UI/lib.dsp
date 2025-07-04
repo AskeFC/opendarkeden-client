@@ -41,10 +41,10 @@ RSC=rc.exe
 # PROP Intermediate_Dir "Release"
 # PROP Target_Dir ""
 # ADD BASE CPP /nologo /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_MBCS" /D "_LIB" /YX /FD /c
-# ADD CPP /nologo /MT /W3 /GX /O1 /I "." /I "..\client" /I "..\client\dxlib" /I "..\client\spriteLib" /I "..\client\frameLib" /I "src\widget" /I "src\hangul" /I "src\header" /I "src\imm" /I "lib\ui" /I "..\client\sxml" /I "..\basic" /D "WIN32" /D "NDEBUG" /D "_MBCS" /D "_LIB" /D "__TEST_SUB_INVENTORY__" /FD /c
-# SUBTRACT CPP /Z<none> /Fr /YX
+# ADD CPP /nologo /MT /W3 /GX /O2 /I "." /I "..\client" /I "..\client\dxlib" /I "..\client\spriteLib" /I "..\client\frameLib" /I "src\widget" /I "src\hangul" /I "src\header" /I "src\imm" /I "lib\ui" /I "..\client\sxml" /I "..\basic" /D "WIN32" /D "NDEBUG" /D "_MBCS" /D "_LIB" /D "__TEST_SUB_INVENTORY__" /FD /c
+# SUBTRACT CPP /Fr /YX
 # ADD BASE RSC /l 0x412 /d "NDEBUG"
-# ADD RSC /l 0x412 /d "NDEBUG"
+# ADD RSC /l 0x409 /d "NDEBUG"
 BSC32=bscmake.exe
 # ADD BASE BSC32 /nologo
 # ADD BSC32 /nologo

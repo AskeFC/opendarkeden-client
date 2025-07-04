@@ -407,7 +407,7 @@ RemoveProgressBar()
 DARKEDEN_LANGUAGE CheckDarkEdenLanguage()
 {
 	if( g_pFileDef == NULL )
-		return DARKEDEN_KOREAN;
+		return DARKEDEN_ENGLISH;
 
 	int num = 0;
 	const char* fileName = g_pFileDef->getProperty("FILE_LANGUAGE_INFO").c_str();
