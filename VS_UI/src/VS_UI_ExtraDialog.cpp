@@ -67,7 +67,9 @@ C_VS_UI_EDIT_DIALOG::C_VS_UI_EDIT_DIALOG(int _x, int _y, int center_x, int cente
 
 	m_max_val = max_val;	
 	m_lev_value.SetDigitOnlyMode(true);
-	for(int digit_count = 0, number = max_val; number > 0; number/=10, digit_count++);
+	int digit_count;
+	int number;
+	for(digit_count = 0, number = max_val; number > 0; number/=10, digit_count++);
 	m_lev_value.SetByteLimit(digit_count);
 	Attach(&m_lev_value);
 	m_default_val = cur_val;
@@ -257,7 +259,7 @@ void C_VS_UI_EDIT_DIALOG::Show()
 //-----------------------------------------------------------------------------
 void	C_VS_UI_EDIT_DIALOG::ScrollButton(bool up)
 {
-	const _MAX_NUM = m_max_val;
+	const int _MAX_NUM = m_max_val;
 
 	int cur_val;
 	char * p_temp = NULL;
@@ -306,7 +308,9 @@ void	C_VS_UI_EDIT_DIALOG::KeyboardControl(UINT message, UINT key, long extra)
 //			num[0] = (char)key;
 //			m_lev_value.AddString(num);
 //		}
-	for(int digit_count = 0, number = m_max_val; number > 0; number/=10, digit_count++);
+	int digit_count;
+	int number;
+	for(digit_count = 0, number = m_max_val; number > 0; number/=10, digit_count++);
 	if (message == WM_CHAR)
 		if ((char)key >= '0' && (char)key <= '9')
 		{
@@ -2431,7 +2435,7 @@ void C_VS_UI_FILE_DIALOG::Start(char *type)
 			
 			memcpy(name,p_type,p_type_end-p_type);
 			name[p_type_end-p_type+1]='\0';
-			m_filter.insert(&m_filter[i],name);
+			m_filter.insert(m_filter.begin() + i, name);
 			p_type=p_type_end+1;
 		}
 		//m_filter = type;
@@ -2629,7 +2633,7 @@ bool C_VS_UI_FILE_DIALOG::MouseControl(UINT message, int _x, int _y)
 						{
 							m_select_file_num.clear();
 						}						
-						m_select_file_num.insert(&m_select_file_num[m_select_file_num.size()], m_select);
+						m_select_file_num.insert(m_select_file_num.begin() + m_select_file_num.size(), m_select);
 					} 
 					else		// 그냥 클릭했을경우
 					{
@@ -3219,20 +3223,21 @@ void C_VS_UI_FILE_DIALOG::RefreshFileList(char *sz_dirname)
 		{
 			sz_filename = "\\";
 			sz_filename += fd.cFileName;
+			int i;
 
-			for(int i = 0; i < m_vs_file_list.size(); i++)
+			for(i = 0; i < m_vs_file_list.size(); i++)
 			{
 				if(m_vs_file_list[i] > sz_filename || m_vs_file_list[i][0] != '\\')
 				{
-					m_vs_file_list.insert(&m_vs_file_list[i], sz_filename);
-					m_vs_file_list_attr.insert(&m_vs_file_list_attr[i], fd.dwFileAttributes);
+					m_vs_file_list.insert(m_vs_file_list.begin() + i, sz_filename);
+					m_vs_file_list_attr.insert(m_vs_file_list_attr.begin() + i, fd.dwFileAttributes);
 					break;
 				}
 			}
 			if(i == m_vs_file_list.size())
 			{
-				m_vs_file_list.insert(&m_vs_file_list[i], sz_filename);
-				m_vs_file_list_attr.insert(&m_vs_file_list_attr[i], fd.dwFileAttributes);
+				m_vs_file_list.insert(m_vs_file_list.begin() + i, sz_filename);
+				m_vs_file_list_attr.insert(m_vs_file_list_attr.begin() + i, fd.dwFileAttributes);
 			}
 		}
 		else
@@ -3265,15 +3270,15 @@ void C_VS_UI_FILE_DIALOG::RefreshFileList(char *sz_dirname)
 			{
 				if(m_vs_file_list[i] > sz_filename && m_vs_file_list[i][0] != '\\')
 				{
-					m_vs_file_list.insert(&m_vs_file_list[i], sz_filename);
-					m_vs_file_list_attr.insert(&m_vs_file_list_attr[i], fd.dwFileAttributes);
+					m_vs_file_list.insert(m_vs_file_list.begin() + i, sz_filename);
+					m_vs_file_list_attr.insert(m_vs_file_list_attr.begin() + i, fd.dwFileAttributes);
 					break;
 				}
 			}
 			if(i == m_vs_file_list.size())
 			{
-				m_vs_file_list.insert(&m_vs_file_list[i], sz_filename);
-				m_vs_file_list_attr.insert(&m_vs_file_list_attr[i], fd.dwFileAttributes);
+				m_vs_file_list.insert(m_vs_file_list.begin() + i, sz_filename);
+				m_vs_file_list_attr.insert(m_vs_file_list_attr.begin() + i, fd.dwFileAttributes);
 			}
 		}
 

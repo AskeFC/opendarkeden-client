@@ -20,7 +20,7 @@
 #include <Windows.h>
 #include <map>
 #include <string>
-#include <fstream.h>
+#include <fstream>
 
 //--------------------------------------------------------------------------
 // Pack FileInfo
@@ -46,9 +46,9 @@ class PackFileInfo {
 		//-------------------------------------------------------------
 		// File I/O
 		//-------------------------------------------------------------
-		virtual void		SaveToFile(class ofstream& file);
-		virtual void		LoadFromFile(class ifstream& file);
-		virtual bool		SaveToFileData(class ofstream& file);
+		virtual void		SaveToFile(std::ofstream& file);
+		virtual void		LoadFromFile(std::ifstream& file);
+		virtual bool		SaveToFileData(std::ofstream& file);
 
 	protected :
 		DWORD				m_ID;			// ID
@@ -88,8 +88,8 @@ class PackFileManager {
 		// Load Data
 		//---------------------------------------------------------------
 		void				SetDataFilename(const char* pFilename)	{ m_DataFilename = pFilename; }
-		bool				GetInputFileStream(const char* pFilename, class ifstream& file) const;
-		bool				GetInputFileStream(DWORD id, class ifstream& file) const;
+		bool				GetInputFileStream(const char* pFilename, std::ifstream& file) const;
+		bool				GetInputFileStream(DWORD id, std::ifstream& file) const;
 
 		//---------------------------------------------------------------
 		// Merge
@@ -348,7 +348,7 @@ template <class FileInfoType>
 bool					
 PackFileManager<FileInfoType>::SaveToFileInfo(const char* pFilename)
 {
-	class ofstream file(pFilename, ios::binary | ios::trunc);
+	std::ofstream file(pFilename, std::ios::binary | std::ios::trunc);
 
 	// 개수
 	WORD num = m_IDInfos.size();
@@ -380,7 +380,7 @@ PackFileManager<FileInfoType>::LoadFromFileInfo(const char* pFilename)
 {
 	Release();
 
-	class ifstream file(pFilename, ios::binary | ios::nocreate);
+	std::ifstream file(pFilename, std::ios::binary);
 
 	// 개수
 	if (file.is_open())
@@ -413,7 +413,7 @@ template <class FileInfoType>
 bool					
 PackFileManager<FileInfoType>::SaveToFileData(const char* pFilename)
 {
-	class ofstream file(pFilename, ios::binary | ios::trunc);
+	std::ofstream file(pFilename, std::ios::binary | std::ios::trunc);
 
 	// 개수
 	WORD num = m_IDInfos.size();
@@ -446,7 +446,7 @@ PackFileManager<FileInfoType>::SaveToFileData(const char* pFilename)
 //--------------------------------------------------------------------------
 template <class FileInfoType>
 bool
-PackFileManager<FileInfoType>::GetInputFileStream(const char* pFilename, class ifstream& file) const
+PackFileManager<FileInfoType>::GetInputFileStream(const char* pFilename, std::ifstream& file) const
 {
 	if (m_DataFilename.c_str()==NULL 
 		|| pFilename==NULL)
@@ -460,7 +460,7 @@ PackFileManager<FileInfoType>::GetInputFileStream(const char* pFilename, class i
 	{
 		FileInfoType* pInfo = iInfo->second;
 
-		file.open(m_DataFilename.c_str(), ios::binary);
+		file.open(m_DataFilename.c_str(), std::ios::binary);
 
 		file.seekg( pInfo->GetFilePosition() );
 
@@ -475,7 +475,7 @@ PackFileManager<FileInfoType>::GetInputFileStream(const char* pFilename, class i
 //--------------------------------------------------------------------------
 template <class FileInfoType>
 bool
-PackFileManager<FileInfoType>::GetInputFileStream(DWORD id, class ifstream& file) const
+PackFileManager<FileInfoType>::GetInputFileStream(DWORD id, std::ifstream& file) const
 {
 	if (m_DataFilename.c_str()==NULL)
 	{
@@ -488,7 +488,7 @@ PackFileManager<FileInfoType>::GetInputFileStream(DWORD id, class ifstream& file
 	{
 		FileInfoType* pInfo = iInfo->second;
 
-		file.open(m_DataFilename.c_str(), ios::binary);
+		file.open(m_DataFilename.c_str(), std::ios::binary);
 
 		file.seekg( pInfo->GetFilePosition() );
 

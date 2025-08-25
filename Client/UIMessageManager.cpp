@@ -45,6 +45,8 @@
 #include "ProfileManager.h"
 #include "CGameUpdate.h"
 #include "MTestDef.h"
+#include <fstream>
+#include <iostream>
 
 #include "Packet\CPackets\CGRequestNewbieItem.h"
 #include "Packet\CPackets\CGSilverCoating.h"
@@ -2223,7 +2225,7 @@ UIMessageManager::Execute_UI_CONNECT(int left, int right, void* void_ptr)
 
 	#ifdef OUTPUT_DEBUG
 		DEBUG_ADD("MasterCheck");
-		class ifstream file("master.txt", ios::nocreate);
+		std::ifstream file("master.txt", std::ios::in);
 
 		char str[256];
 		while (!file.eof())
@@ -2237,7 +2239,7 @@ UIMessageManager::Execute_UI_CONNECT(int left, int right, void* void_ptr)
 			
 			str[n] = '\0';
 
-			g_pUserInformation->IsMaster |= (strstr(g_pUserInformation->CharacterID, str)!=NULL);
+			g_pUserInformation->IsMaster |= (strstr((const char *)g_pUserInformation->CharacterID, (const char *) str)!=NULL);
 		}
 		
 		file.close();
@@ -2561,7 +2563,7 @@ UIMessageManager::Execute_UI_CHAT_RETURN(int left, int right, void* void_ptr)
 						//break;
 
 					}					
-					else // 으음.. 이 부분 코드가 안 이쁘네.. - -;;
+					else {// 으음.. 이 부분 코드가 안 이쁘네.. - -;;
 					switch ( str[0] )
 					{
 						//------------------------------
@@ -3169,6 +3171,7 @@ UIMessageManager::Execute_UI_CHAT_RETURN(int left, int right, void* void_ptr)
 						//delete [] str;
 						//delete [] pWansungString;
 					}
+				  }
 				}
 			}
 

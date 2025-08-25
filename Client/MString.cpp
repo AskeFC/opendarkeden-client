@@ -5,6 +5,7 @@
 #include "Client_PCH.h"
 #include <stdarg.h>
 #include "MString.h"
+#include <fstream>
 
 //#include "DebugInfo.h"
 //#define	new			DEBUG_NEW
@@ -168,7 +169,7 @@ MString::Format(const char* format, ...)
 // Save To File
 //--------------------------------------------------------------------------
 void		
-MString::SaveToFile(class ofstream& file)
+MString::SaveToFile(std::ofstream& file)
 {
 	file.write((const char*)&m_Length, 4);
 
@@ -183,7 +184,7 @@ MString::SaveToFile(class ofstream& file)
 // Load From File
 //--------------------------------------------------------------------------
 void		
-MString::LoadFromFile(class ifstream& file)
+MString::LoadFromFile(std::ifstream& file)
 {
 	if (m_pString!=NULL)
 	{

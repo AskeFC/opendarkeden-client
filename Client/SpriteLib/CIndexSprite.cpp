@@ -5,6 +5,7 @@
 #include "CSprite.h"
 #include "CSpriteSurface.h"
 #include "CIndexSprite.h"
+#include <fstream>
 
 //-----------------------------------------------------------------------------
 // Static Member
@@ -260,7 +261,7 @@ CIndexSprite::SetColorSet()
 // Save IndexTable To File
 //----------------------------------------------------------------------
 BOOL
-CIndexSprite::SaveIndexTableToFile(class ofstream& file)
+CIndexSprite::SaveIndexTableToFile(std::ofstream& file)
 {
 	int i,j,k;
 
@@ -315,7 +316,7 @@ CIndexSprite::SaveIndexTableToFile(class ofstream& file)
 // Load IndexTable From File
 //----------------------------------------------------------------------
 BOOL
-CIndexSprite::LoadIndexTableFromFile(class ifstream& file)
+CIndexSprite::LoadIndexTableFromFile(std::ifstream& file)
 {
 	int i,j,k;
 
@@ -573,7 +574,8 @@ CIndexSprite::GetColorToGradation(BYTE spriteGradation)
 	// spriteGradation값과 가장 가까운 
 	// GradationValue를 찾아야 한다.
 	//-------------------------------------------------------
-	for (int g=0; g<MAX_COLORGRADATION; g++)
+	int g=0;
+	for (g=0; g<MAX_COLORGRADATION; g++)
 	{			
 		if (spriteGradation > GradationValue[g])
 		{
@@ -645,7 +647,7 @@ CIndexSprite::SetPixel(WORD* pSource, WORD sourcePitch,
 	WORD	*pSourceTemp2;
 	pSourceTemp = pSource;
 
-	for (register i=0; i<height; i++)
+	for (register int i=0; i<height; i++)
 	{
 		pSourceTemp2 = pSourceTemp;
 
@@ -687,7 +689,7 @@ CIndexSprite::SetPixel(WORD* pSource, WORD sourcePitch,
 	//--------------------------------------------------
 	// 체크 체크~
 	//--------------------------------------------------
-	for (i=0; i<height; i++)
+	for (int i=0; i<height; i++)
 	{
 		//--------------------------------------------------
 		// 메모리 잡기
@@ -797,7 +799,7 @@ CIndexSprite::SetPixel(WORD* pSource, WORD sourcePitch,
 	//--------------------------------------------------
 	// ppColor와 ppIndex를 지워준다.
 	//--------------------------------------------------
-	for (i=0; i<height; i++)
+	for (int i=0; i<height; i++)
 	{
 		delete [] ppColor[i];
 		delete [] ppIndex[i];

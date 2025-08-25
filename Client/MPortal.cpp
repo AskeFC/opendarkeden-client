@@ -3,6 +3,7 @@
 //----------------------------------------------------------------------
 #include "Client_PCH.h"
 #include "MPortal.h"
+#include <fstream>
 
 //----------------------------------------------------------------------
 //
@@ -47,7 +48,7 @@ MPortal::~MPortal()
 // Save To File
 //----------------------------------------------------------------------
 void	
-MPortal::SaveToFile(ofstream& file)
+MPortal::SaveToFile(std::ofstream& file)
 {
 	file.write((const char*)&m_Type, 1);
 
@@ -68,7 +69,7 @@ MPortal::SaveToFile(ofstream& file)
 // Load From File
 //----------------------------------------------------------------------
 void	
-MPortal::LoadFromFile(ifstream& file)
+MPortal::LoadFromFile(std::ifstream& file)
 {
 	file.read((char*)&m_Type, 1);
 	WORD z;

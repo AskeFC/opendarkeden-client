@@ -4,6 +4,7 @@
 #include "Client_PCH.h"
 #include "MString.h"
 #include "MStringMap.h"
+#include <fstream>
 
 //----------------------------------------------------------------------
 // 
@@ -240,7 +241,7 @@ MStringMap::Get(const char* pKey) const
 // Save To File
 //----------------------------------------------------------------------
 void				
-MStringMap::SaveToFile(class ofstream& file)
+MStringMap::SaveToFile(std::ofstream& file)
 {
 	int num = size();
 
@@ -291,7 +292,7 @@ MStringMap::SaveToFile(class ofstream& file)
 // Load From File
 //----------------------------------------------------------------------
 void				
-MStringMap::LoadFromFile(class ifstream& file)
+MStringMap::LoadFromFile(std::ifstream& file)
 {	
 	int num;
 

@@ -1,5 +1,7 @@
 #include "Client_PCH.h"
 #include "MHelpMessageManager.h"
+#include <fstream>
+#include <iostream>
 
 #define dSTRING_LEN 2048
 
@@ -40,7 +42,7 @@ MHelpMessageManager:: ~MHelpMessageManager()
 
 void MHelpMessageManager::LoadFromFile(const char * filename)
 {	
-	ifstream file(filename, ios::binary| ios::nocreate);
+	std::ifstream file(filename, std::ios::binary);
 	if(!file)
 	{
 		return;
@@ -55,7 +57,7 @@ void MHelpMessageManager::LoadFromFile(const char * filename)
 
 void MHelpMessageManager::SaveToFile(const char * filename)
 {
-	ofstream file(filename, ios::binary);
+	std::ofstream file(filename, std::ios::binary);
 	if(file)
 	{
 		SaveToFile(file);
@@ -192,7 +194,7 @@ bool MHelpMessageManager::LoadHelpMessageRpk(const char *helprpkfilename)
 			message.m_iAttrMax[current_race]=   levtemp[5];
             isLevel = NULL;
 		}
-		isDetailEnd = strstr(temp.c_str(), "{End}"); 
+		isDetailEnd = (char *)strstr(temp.c_str(), "{End}"); 
 
 		if(isDetail)
 		{
@@ -214,15 +216,15 @@ bool MHelpMessageManager::LoadHelpMessageRpk(const char *helprpkfilename)
 			}
 		}
 
-		iskeyword = strstr(temp.c_str(),"[===KeyWord===]");					
-		isMessagetype = strstr(temp.c_str(),"[===MessageType===]");
-		isEvent   = strstr(temp.c_str(),"[===Event===]");
-		isTitle  = strstr(temp.c_str(),"[==Title==]");
-		isSender = strstr(temp.c_str(),"[==Sender==]");
-		isLevel  = strstr(temp.c_str(),"[==Level 조건표==]");
+		iskeyword = (char *)strstr(temp.c_str(),"[===KeyWord===]");					
+		isMessagetype = (char *)strstr(temp.c_str(),"[===MessageType===]");
+		isEvent   = (char *)strstr(temp.c_str(),"[===Event===]");
+		isTitle  = (char *)strstr(temp.c_str(),"[==Title==]");
+		isSender = (char *)strstr(temp.c_str(),"[==Sender==]");
+		isLevel  = (char *)strstr(temp.c_str(),"[==Level 조건표==]");
 		if(detail_flag == false) 
 		{
-			isDetail = strstr(temp.c_str(),"[==Detail==]");
+			isDetail = (char *)strstr(temp.c_str(),"[==Detail==]");
 		}
 		temp = "";
 		if(current_race == 3)
@@ -237,7 +239,7 @@ bool MHelpMessageManager::LoadHelpMessageRpk(const char *helprpkfilename)
 }
 
 
-void MHelpMessageManager::LoadFromFile(class ifstream &file)
+void MHelpMessageManager::LoadFromFile(std::ifstream &file)
 {
 	MHelpMessage message;
 	MString		 m_sender;
@@ -373,7 +375,7 @@ void MHelpMessageManager::LoadFromFile(class ifstream &file)
 			message.m_iAttrMax[current_race]=   levtemp[5];
             isLevel = NULL;
 		}
-		isDetailEnd = strstr(temp.c_str(), "{End}"); 
+		isDetailEnd = (char *)strstr(temp.c_str(), "{End}"); 
 
 		if(isDetail)
 		{
@@ -395,15 +397,15 @@ void MHelpMessageManager::LoadFromFile(class ifstream &file)
 			}
 		}
 
-		iskeyword = strstr(temp.c_str(),"[===KeyWord===]");					
-		isMessagetype = strstr(temp.c_str(),"[===MessageType===]");
-		isEvent   = strstr(temp.c_str(),"[===Event===]");
-		isTitle  = strstr(temp.c_str(),"[==Title==]");
-		isSender = strstr(temp.c_str(),"[==Sender==]");
-		isLevel  = strstr(temp.c_str(),"[==Level 조건표==]");
+		iskeyword = (char *)strstr(temp.c_str(),"[===KeyWord===]");					
+		isMessagetype = (char *)strstr(temp.c_str(),"[===MessageType===]");
+		isEvent   = (char *)strstr(temp.c_str(),"[===Event===]");
+		isTitle  = (char *)strstr(temp.c_str(),"[==Title==]");
+		isSender = (char *)strstr(temp.c_str(),"[==Sender==]");
+		isLevel  = (char *)strstr(temp.c_str(),"[==Level 조건표==]");
 		if(detail_flag == false) 
 		{
-			isDetail = strstr(temp.c_str(),"[==Detail==]");
+			isDetail = (char *)strstr(temp.c_str(),"[==Detail==]");
 		}
 		temp = "";
 		if(current_race == 3)
@@ -415,7 +417,7 @@ void MHelpMessageManager::LoadFromFile(class ifstream &file)
 	file.close();
 }
 
-void MHelpMessageManager::SaveToFile(class ofstream &file)
+void MHelpMessageManager::SaveToFile(std::ofstream &file)
 {
 	int i;
 	size_t strlen = 0;

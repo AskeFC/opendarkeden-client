@@ -18,6 +18,8 @@
 #include "Packet.h"
 #include "MinTr.h"
 #include <cstdio>
+#include <fstream>
+#include <iostream>
 
 #if __LINUX__
 	#include <sys/ioctl.h>
@@ -233,9 +235,9 @@ void SocketInputStream::read ( Packet * pPacket )
 
 	//  By tiancaiamao
 	#ifdef __DEBUG_OUTPUT__
-	ofstream ofile("lalala.log", ios::out | ios::app);
+	std::ofstream ofile("lalala.log", std::ios::out | std::ios::app);
 		ofile << "SocketInputStream read packet: ";
-		ofile << pPacket->toString().c_str() << endl;
+		ofile << pPacket->toString().c_str() << std::endl;
 		ofile.close();
 	#endif
 
@@ -701,8 +703,8 @@ void SocketInputStream::resize ( int size )
 	m_Tail = len;	// m_Tail 은 들어있는 데이타의 길이와 같다.
 
 	#ifdef __DEBUG_OUTPUT__
-		ofstream ofile("buffer_resized.log",ios::app);
-		ofile << "SocketInputStream resized " << size << " bytes!" << endl;
+		std::ofstream ofile("buffer_resized.log", std::ios::app);
+		ofile << "SocketInputStream resized " << size << " bytes!" << std::endl;
 		ofile.close();
 	#endif
 
@@ -772,7 +774,7 @@ WORD SocketInputStream::EncryptData(WORD EncryptKey, char* buf, int len)
 	
 	if(m_HashTable == NULL) return EncryptKey;
 
-	for(i = 0; i<len; i++)
+	for(int i = 0; i<len; i++)
 	{
 		*(buf + i) ^= m_HashTable[EncryptKey];
 		if(++EncryptKey == 512)	EncryptKey = 0;

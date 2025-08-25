@@ -77,12 +77,13 @@
 template <class IndexType, class PartIndexType, class DataType>
 class CPartManager {
 	public :
-		typedef	std::list<PartIndexType>	PARTINDEX_LIST;				// PartIndex의 ID
-		typedef	PARTINDEX_LIST::iterator	PARTINDEX_LIST_ITERATOR;
-		
-	public :
 		CPartManager();
 		~CPartManager();
+
+//	public :
+		typedef	std::list<PartIndexType>	PARTINDEX_LIST;				// PartIndex의 ID
+		typedef typename PARTINDEX_LIST::iterator	PARTINDEX_LIST_ITERATOR;
+		
 
 		//-------------------------------------------------------
 		// Init/Release
@@ -117,7 +118,7 @@ class CPartManager {
 		DataType&		GetPartData(PartIndexType partIndex)	{ return m_pData[partIndex]; }
 
 
-	protected :
+//	protected :
 		//-------------------------------------------------------
 		// [Index] ( PartIndex )
 		//-------------------------------------------------------
@@ -134,16 +135,16 @@ class CPartManager {
 		DWORD*				m_pLastTime;		// 최종 사용 시간
 
 		//-------------------------------------------------------
-		// LRU list
-		//-------------------------------------------------------
-		PARTINDEX_LIST				m_listLRU;			// LRU list
-		PARTINDEX_LIST_ITERATOR*	m_pPartIterator;	// iterator for LRU list
-		
-		//-------------------------------------------------------
 		// 기타 필요한 값
 		//-------------------------------------------------------
 		IndexType			m_IndexNULL;		// index NULL 값
 		PartIndexType		m_PartIndexNULL;	// part index NULL 값
+
+		//-------------------------------------------------------
+		// LRU list
+		//-------------------------------------------------------
+		PARTINDEX_LIST				m_listLRU;			// LRU list
+		PARTINDEX_LIST_ITERATOR*	m_pPartIterator;	// iterator for LRU list
 
 		//-------------------------------------------------------
 		// count
@@ -235,7 +236,7 @@ CPartManager<IndexType, PartIndexType, DataType>::Init(IndexType maxIndex, PartI
 	m_listLRU.clear();
 	m_pPartIterator		= new PARTINDEX_LIST_ITERATOR [m_nPart];	// iterator
 
-	for (i=0; i<m_nPart; i++)
+	for (int i=0; i<m_nPart; i++)
 	{
 		m_pData[i] = NULL;
 		m_pParentIndex[i] = m_IndexNULL;
@@ -506,7 +507,7 @@ CPartManager<IndexType, PartIndexType, DataType>::GetData(IndexType index, DataT
 
 		// 모두 가장 작은 시간만큼 뺀다.
 		int leastTime = m_pLastTime[leastTimeIndex];
-		for (i=0; i<m_nPart; i++)
+		for (int i=0; i<m_nPart; i++)
 		{
 			m_pLastTime[i] -= m_pLastTime[leastTimeIndex];
 		}

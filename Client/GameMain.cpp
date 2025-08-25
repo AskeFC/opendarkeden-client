@@ -61,6 +61,8 @@
 #include "MNpc.h"
 #include "packet\Cpackets\CGVerifyTime.h"
 #include "UtilityFunction.h"
+#include <fstream>
+#include <iostream>
 
 // 2002.6.28 [UDP수정]
 #include "packet\Cpackets\CGPortCheck.h"
@@ -493,9 +495,9 @@ CheckTime()
 			
 			if ((g_dSHGetTime > 0) && (g_dSHGetTime1 > 0))
 			{
-				if (abs((dCount1 - g_dSHGetTime1) - (dTimer - g_dSHTimerTime)) > 70)
+				if (abs(((long)dCount1 - (long)g_dSHGetTime1) - ((long)dTimer - (long)g_dSHTimerTime)) > 70)
 					g_iSHFakeCount ++;
-				else if (abs((dCount - g_dSHGetTime) - (dTimer - g_dSHTimerTime)) > 70)
+				else if (abs(((long)dCount - (long)g_dSHGetTime) - ((long)dTimer - (long)g_dSHTimerTime)) > 70)
 					g_iSHFakeCount ++;
 				else
 					g_iSHFakeCount = 0;
@@ -2446,7 +2448,7 @@ LoadZone(int n)
 					filename = pZoneInfo->TeenFilename;
 			}
 
-			class ifstream file;
+			std::ifstream file;
 			if (!FileOpenBinary(filename, file))
 			{
 				// priority를 정상으로
@@ -2513,13 +2515,13 @@ LoadZone(int n)
 				filename = (*g_pZoneTable).Get(g_nZoneSmall)->TeenFilename;
 		}
 
-		class ifstream file;
-		file.open(filename, ios::binary);
+		std::ifstream file;
+		file.open(filename, std::ios::binary);
 
-		file.seekg(g_pZone->GetTileFilePosition(), ios::beg);
+		file.seekg(g_pZone->GetTileFilePosition(), std::ios::beg);
 		g_pTopView->LoadFromFileTileSPKSmallZone( file );
 
-		file.seekg(g_pZone->GetImageObjectFilePosition(), ios::beg);				
+		file.seekg(g_pZone->GetImageObjectFilePosition(), std::ios::beg);				
 		g_pTopView->LoadFromFileImageObjectSPKSmallZone( file );
 
 		file.close();		
@@ -2665,7 +2667,7 @@ LoadZone(int n)
 					filename = pZoneInfo->TeenFilename;
 			}
 			
-			class ifstream file;
+			std::ifstream file;
 			if (!FileOpenBinary(filename, file))
 			{
 				// priority를 정상으로
@@ -2728,13 +2730,13 @@ LoadZone(int n)
 				filename = (*g_pZoneTable).Get(g_nZoneLarge)->TeenFilename;
 		}
 
-		class ifstream file;
-		file.open(filename, ios::binary);
+		std::ifstream file;
+		file.open(filename, std::ios::binary);
 
-		file.seekg(g_pZone->GetTileFilePosition(), ios::beg);
+		file.seekg(g_pZone->GetTileFilePosition(), std::ios::beg);
 		g_pTopView->LoadFromFileTileSPKLargeZone( file );
 
-		file.seekg(g_pZone->GetImageObjectFilePosition(), ios::beg);				
+		file.seekg(g_pZone->GetImageObjectFilePosition(), std::ios::beg);				
 		g_pTopView->LoadFromFileImageObjectSPKLargeZone( file );
 
 		file.close();		
@@ -3044,7 +3046,7 @@ LoadZoneInfo(int n)
 	// ZoneInfo
 	//------------------------------------------------
 //	MZoneInfo zoneInfo;
-	class ifstream zoneInfoFile(pZoneInfo->InfoFilename.GetString(), ios::binary | ios::nocreate);
+	std::ifstream zoneInfoFile(pZoneInfo->InfoFilename.GetString(), std::ios::binary);
 
 	//------------------------------------------------
 	// File이 있는 경우만 loading한다.
@@ -3144,7 +3146,7 @@ LoadZoneInfo(int n)
 			Race MyRace = g_pPlayer->GetRace();
 			DEBUG_ADD("bSlayer OK");
 
-			for (i=0; i<numSafe; i++)
+			for (int i=0; i<numSafe; i++)
 			{			
 				zoneInfoFile.read((char*)&rect2, SIZE_B_RECT);
 
@@ -3209,7 +3211,7 @@ LoadZoneInfo(int n)
 			// ousters horn을 맵에 심는다
 			UI_PORTAL_LIST portalList;
 			
-			for(i = 0; i < g_pZone->GetHorn().size(); i++)
+			for(int i = 0; i < g_pZone->GetHorn().size(); i++)
 			{
 				portalList = g_pZone->GetHorn()[i];
 				
@@ -4508,14 +4510,14 @@ SetLightning(DWORD delay)
 // Open File
 //---------------------------------------------------------------------------
 bool 
-FileOpenBinary(const char* filename, class ifstream& file)
+FileOpenBinary(const char* filename, std::ifstream& file)
 {
 	if (file.is_open())
 	{
 		file.close();
 	}
 
-	file.open(filename, ios::binary | ios::nocreate);
+	file.open(filename, std::ios::binary);
 	
 	if (!file.is_open())
 	{
@@ -4801,7 +4803,7 @@ UpdateDisconnected()
 	CSpritePack		SPK;
 	CFileIndexTable	FIT;
 	
-	class ifstream indexFile(g_pFileDef->getProperty("FILE_SPRITEINDEX_UI").c_str(), ios::binary);
+	std::ifstream indexFile(g_pFileDef->getProperty("FILE_SPRITEINDEX_UI").c_str(), std::ios::binary);
 	FIT.LoadFromFile( indexFile );
 	indexFile.close();
 
@@ -4816,23 +4818,23 @@ UpdateDisconnected()
 		|| pSpriteDisconectedCloseFocused->IsNotInit()
 		|| pSpriteDisconectedClosePushed->IsNotInit())
 	{
-		class ifstream spkFile(g_pFileDef->getProperty("FILE_SPRITE_UI").c_str(), ios::binary);
+		std::ifstream spkFile(g_pFileDef->getProperty("FILE_SPRITE_UI").c_str(), std::ios::binary);
 		
 		if (pSpriteDisconected->IsNotInit())
 		{
-			spkFile.seekg(FIT[SPRITEID_DISCONNECTED], ios::beg);
+			spkFile.seekg(FIT[SPRITEID_DISCONNECTED], std::ios::beg);
 			pSpriteDisconected->LoadFromFile( spkFile );
 		}
 
 		if (pSpriteDisconectedCloseFocused->IsNotInit())
 		{
-			spkFile.seekg(FIT[SPRITEID_DISCONNECTED_CLOSE_FOCUSED], ios::beg);
+			spkFile.seekg(FIT[SPRITEID_DISCONNECTED_CLOSE_FOCUSED], std::ios::beg);
 			pSpriteDisconectedCloseFocused->LoadFromFile( spkFile );		
 		}
 
 		if (pSpriteDisconectedClosePushed->IsNotInit())
 		{
-			spkFile.seekg(FIT[SPRITEID_DISCONNECTED_CLOSE_PUSHED], ios::beg);
+			spkFile.seekg(FIT[SPRITEID_DISCONNECTED_CLOSE_PUSHED], std::ios::beg);
 			pSpriteDisconectedClosePushed->LoadFromFile( spkFile );		
 		}
 

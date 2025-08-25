@@ -40,7 +40,7 @@
 #include <string>
 #include <list>
 #include <map>
-#include <fstream.h>
+#include <fstream>
 #include "types\RequestTypes.h"
 class RequestClientPlayer;
 class RequestServerPlayer;
@@ -69,11 +69,11 @@ class SendFileInfo
 		REQUEST_FILE_MODE		m_Mode;
 
 		// 보내기 전에
-		std::string				m_Filename;		// 보내주는 file이름		
+		std::string				m_Filename;		// 보내주는 file이름
 		REQUEST_FILE_TYPE		m_FileType;		// 어떤 file인가?
 		
-		// 보내는 동안		
-		ifstream			m_FileStream;	// 보내주는 Filename을 open한 것		
+		// 보내는 동안
+		std::ifstream			m_FileStream;	// 보내주는 Filename을 open한 것
 		DWORD					m_FileSizeLeft;
 
 	public :
@@ -106,7 +106,7 @@ class ReceiveFileInfo
 		
 		// 받는 동안
 		std::string				m_FilenameTemp;	// 요청한 file을 받아서 잠시 저장해둘 filename
-		ofstream				m_FileStream;		// FilenameTemp를 open한 것..		
+		std::ofstream			m_FileStream;		// FilenameTemp를 open한 것..		
 		DWORD					m_FileSizeLeft;
 
 	public :

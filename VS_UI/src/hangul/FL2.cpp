@@ -211,11 +211,11 @@ int g_DBCSLen(const char_t * p_dbcs)
 }
 int	g_GetByteLenth(const char_t * p_dbcs, int dbcs_len)
 {
-
+	int c = 0;
 	if (p_dbcs == NULL || dbcs_len <= 0)
 		return 0;
 	// convert
-	for (int i=0, c=0; i < dbcs_len; i++)
+	for (int i=0; i < dbcs_len; i++)
 	{
 		// check high byte
 		if ((p_dbcs[i]&0xFF00) != 0)

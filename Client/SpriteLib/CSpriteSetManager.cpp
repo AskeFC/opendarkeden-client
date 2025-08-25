@@ -3,6 +3,8 @@
 //----------------------------------------------------------------------		
 #include "client_PCH.h"
 #include "CSpriteSetManager.h"
+#include <fstream>
+
 //----------------------------------------------------------------------		
 //
 // member functions
@@ -34,7 +36,7 @@ CSpriteSetManager::~CSpriteSetManager()
 // 이 함수에서 저장하는데 이용할 것이다.
 //----------------------------------------------------------------------
 bool		
-CSpriteSetManager::SaveSpriteSetIndex(ofstream& setIndex, ifstream& spkIndex)
+CSpriteSetManager::SaveSpriteSetIndex(std::ofstream& setIndex, std::ifstream& spkIndex)
 {
 	// m_List에 아무것도 없으면..
 	if (m_List.size() == 0)

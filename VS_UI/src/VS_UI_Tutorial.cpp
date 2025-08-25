@@ -12,6 +12,9 @@
 #include "MGameStringTable.H"
 //#define dSTRING_LEN 256 
 #include "SXml.h"
+#include <fstream>
+#include <iostream>
+
 extern RECT g_GameRect;
 
 //-----------------------------------------------------------------------------
@@ -1456,7 +1459,7 @@ bool	C_VS_UI_COMPUTER::LoadTree(const char* szFilename)
 
 		CSpritePack *temp;
 		temp = new CSpritePack;
-		ifstream file(spkname.c_str(), ios::binary | ios::nocreate);
+		std::ifstream file(spkname.c_str(), std::ios::binary);
 		if (!file)
 			_Error(FILE_OPEN);
 		temp->LoadFromFile( file );

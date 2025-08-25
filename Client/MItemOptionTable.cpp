@@ -3,6 +3,7 @@
 //--------------------------------------------------------------------------
 #include "Client_PCH.h"
 #include "MItemOptionTable.h"
+#include <fstream>
 
 //--------------------------------------------------------------------------
 // Global
@@ -118,7 +119,7 @@ ITEMOPTION_INFO::~ITEMOPTION_INFO()
 // Load From File
 //--------------------------------------------------------------------------
 void			
-ITEMOPTION_INFO::LoadFromFile(class ifstream& file)
+ITEMOPTION_INFO::LoadFromFile(std::ifstream& file)
 {
 	EName.LoadFromFile(file);							// ItemOption 이름	
 	Name.LoadFromFile(file);							// ItemOption 이름
@@ -143,7 +144,7 @@ ITEMOPTION_INFO::LoadFromFile(class ifstream& file)
 // Load From File
 //--------------------------------------------------------------------------
 void			
-ITEMOPTION_INFO::SaveToFile(class ofstream& file)
+ITEMOPTION_INFO::SaveToFile(std::ofstream& file)
 {
 }
 
@@ -151,7 +152,7 @@ ITEMOPTION_INFO::SaveToFile(class ofstream& file)
 // Load From File
 //--------------------------------------------------------------------------
 void
-ITEMOPTION_TABLE::LoadFromFile(class ifstream& file)
+ITEMOPTION_TABLE::LoadFromFile(std::ifstream& file)
 {
 	int size;
 

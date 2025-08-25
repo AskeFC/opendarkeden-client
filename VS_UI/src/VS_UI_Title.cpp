@@ -22,6 +22,8 @@
 
 //add by zdj 
 #include <process.h>
+#include <fstream>
+#include <iostream>
 
 #define LOGIN_ID_X 59 // 상대값
 #define LOGIN_ID_Y 49
@@ -778,7 +780,7 @@ void C_VS_UI_CHAR_DELETE::Run(id_t id)
 				if (
 					 ( ( gC_ci->IsKorean()&& (	m_lev_ssn_part1.Size() == SSN_PART1_CHAR_COUNT &&
 					 m_lev_ssn_part2.Size() == SSN_PART2_CHAR_COUNT ) ) ||
-					 ( !gC_ci->IsKorean() && ( wcscmp( m_lev_ssn_part1.GetString(), _L("DeletePc")) == 0 ) )
+					 ( !gC_ci->IsKorean() && ( wcscmp( (const wchar_t *)m_lev_ssn_part1.GetString(), _T((const wchar_t *)"DeletePc")) == 0 ) )
 					 )
 					 || g_pUserInformation->IsNetmarble)
 				{
@@ -1190,11 +1192,11 @@ C_VS_UI_NEWCHAR::C_VS_UI_NEWCHAR()
 	m_AdvancementSlayerManIspk.LoadFromFileRunning( ISPK_ADVANCEMENT_SLAYER_MAN );
 	m_AdvancementSlayerWomanIspk.LoadFromFileRunning( ISPK_ADVANCEMENT_SLAYER_WOMAN );
 
-	ifstream file_man(CFPK_SLAYER, ios::binary|ios::nocreate);
+	std::ifstream file_man(CFPK_SLAYER, std::ios::binary);
 	if (!file_man)
 		_Error(FILE_OPEN);
 	m_slayer_cfpk.LoadFromFile(file_man);
-	ifstream file_vampire(CFPK_VAMPIRE, ios::binary|ios::nocreate);
+	std::ifstream file_vampire(CFPK_VAMPIRE, std::ios::binary);
 	file_man.close();
 
 	if (!file_vampire)
@@ -1202,38 +1204,38 @@ C_VS_UI_NEWCHAR::C_VS_UI_NEWCHAR()
 	m_vampire_cfpk.LoadFromFile(file_vampire);
 	file_vampire.close();
 
-	ifstream file_ousters(CFPK_OUSTERS, ios::binary|ios::nocreate);
+	std::ifstream file_ousters(CFPK_OUSTERS, std::ios::binary);
 	if (!file_ousters)
 		_Error(FILE_OPEN);
 	m_ousters_cfpk.LoadFromFile(file_ousters);
 	file_ousters.close();
 	
-	ifstream file_ac_ousters( CFPK_ADVANCEMENT_OUSTERS, ios::binary|ios::nocreate );
+	std::ifstream file_ac_ousters( CFPK_ADVANCEMENT_OUSTERS, std::ios::binary);
 	if( !file_ac_ousters )
 		_Error( FILE_OPEN );
 	m_AdvancementOustersCfpk.LoadFromFile( file_ac_ousters );
 	file_ac_ousters.close();
 
-	ifstream file_ac_vampire( CFPK_ADVANCEMENT_VAMPIRE_MAN, ios::binary|ios::nocreate );
+	std::ifstream file_ac_vampire( CFPK_ADVANCEMENT_VAMPIRE_MAN, std::ios::binary);
 	if( !file_ac_vampire )
 		_Error( FILE_OPEN );
 	m_AdvancementVampireManCfpk.LoadFromFile( file_ac_vampire );
 	file_ac_vampire.close();
 
-	ifstream file_ac_vampire2( CFPK_ADVANCEMENT_VAMPIRE_WOMAN, ios::binary|ios::nocreate );
+	std::ifstream file_ac_vampire2( CFPK_ADVANCEMENT_VAMPIRE_WOMAN, std::ios::binary);
 	if( !file_ac_vampire2 )
 		_Error( FILE_OPEN );
 	m_AdvancementVampireWomanCfpk.LoadFromFile( file_ac_vampire2 );
 	file_ac_vampire2.close();
 
 
-	ifstream file_ac_slayerman( CFPK_ADVANCEMENT_SLAYER_MAN,ios::binary|ios::nocreate );
+	std::ifstream file_ac_slayerman( CFPK_ADVANCEMENT_SLAYER_MAN, std::ios::binary);
 	if( !file_ac_slayerman )
 		_Error( FILE_OPEN );
 	m_AdvancementSlayerManCfpk.LoadFromFile( file_ac_slayerman );
 	file_ac_slayerman.close();
 
-	ifstream file_ac_slayerwoman( CFPK_ADVANCEMENT_SLAYER_WOMAN,ios::binary|ios::nocreate );
+	std::ifstream file_ac_slayerwoman( CFPK_ADVANCEMENT_SLAYER_WOMAN, std::ios::binary);
 	if( !file_ac_slayerwoman )
 		_Error( FILE_OPEN );
 	m_AdvancementSlayerWomanCfpk.LoadFromFile( file_ac_slayerwoman );
@@ -5527,7 +5529,7 @@ C_VS_UI_OPTION::C_VS_UI_OPTION(bool IsTitle)
 
 	// close버튼
 	//int close_button_x = pSkin->GetPoint(0).x, close_button_y = pSkin->GetPoint(0).y;
-	int i = 0;
+	//int i = 0;
 	
 	if(false == m_IsTitle)
 	{
@@ -5555,21 +5557,21 @@ C_VS_UI_OPTION::C_VS_UI_OPTION(bool IsTitle)
 		m_pC_control_button_group->Add( new C_VS_UI_EVENT_BUTTON(m_check_x+10, m_check_y, m_pC_etc_spk->GetWidth(RADIO_BACK_DISABLE), m_pC_etc_spk->GetHeight(RADIO_BACK_DISABLE), CHECK_NORMAL_CHAT, this, RADIO_BACK_DISABLE) );
 		m_pC_control_button_group->Add( new C_VS_UI_EVENT_BUTTON(m_check_x+120, m_check_y, m_pC_etc_spk->GetWidth(RADIO_BACK_DISABLE), m_pC_etc_spk->GetHeight(RADIO_BACK_DISABLE), CHECK_ENTER_CHAT, this, RADIO_BACK_DISABLE) );
 
-		for(i = 0; i < CHECK_CONTROL_MAX; i++)
+		for(int i = 0; i < CHECK_CONTROL_MAX; i++)
 			m_pC_control_button_group->Add( new C_VS_UI_EVENT_BUTTON(m_check_x, m_check_y+m_check_gap*(8+i), m_pC_etc_spk->GetWidth(CHECK_BACK_DISABLE), m_pC_etc_spk->GetHeight(CHECK_BACK_DISABLE), CHECK_CONTROL_TAB+i+2, this, CHECK_BACK_DISABLE) );
 
 		// graphic_tab 버튼들
 		m_pC_graphic_button_group = new ButtonGroup(this);
-		for(i = 0; i < CHECK_GRAPHIC_MAX; i++)
+		for(int i = 0; i < CHECK_GRAPHIC_MAX; i++)
 			m_pC_graphic_button_group->Add( new C_VS_UI_EVENT_BUTTON(m_check_x, m_check_y+m_check_gap*i, m_pC_etc_spk->GetWidth(CHECK_BACK_DISABLE), m_pC_etc_spk->GetHeight(CHECK_BACK_DISABLE), CHECK_GRAPHIC_TAB+i, this, CHECK_BACK_DISABLE) );
 		// sound_tab 버튼들
 		m_pC_sound_button_group = new ButtonGroup(this);
-		for(i = 0; i < CHECK_SOUND_MAX; i++)
+		for(int i = 0; i < CHECK_SOUND_MAX; i++)
 			m_pC_sound_button_group->Add( new C_VS_UI_EVENT_BUTTON(m_check_x, m_check_y+m_check_gap*i, m_pC_etc_spk->GetWidth(CHECK_BACK_DISABLE), m_pC_etc_spk->GetHeight(CHECK_BACK_DISABLE), CHECK_SOUND_TAB+i, this, CHECK_BACK_DISABLE) );
 
 		// game_tab 버튼들
 		m_pC_game_button_group = new ButtonGroup(this);
-		for(i = 0; i < CHECK_GAME_MAX; i++)
+		for(int i = 0; i < CHECK_GAME_MAX; i++)
 			m_pC_game_button_group->Add( new C_VS_UI_EVENT_BUTTON(m_check_x, m_check_y+m_check_gap*i, m_pC_etc_spk->GetWidth(CHECK_BACK_DISABLE), m_pC_etc_spk->GetHeight(CHECK_BACK_DISABLE), CHECK_GAME_TAB+i, this, CHECK_BACK_DISABLE) );
 
 		m_rt_value[1].Set(m_check_x+120, m_check_y+m_check_gap*(CHECK_GAMMA-CHECK_GRAPHIC_TAB) , m_pC_etc_spk->GetWidth(VOLUME_BAR), 15);
@@ -5601,20 +5603,20 @@ C_VS_UI_OPTION::C_VS_UI_OPTION(bool IsTitle)
 		m_pC_control_button_group->Add( new C_VS_UI_EVENT_BUTTON(m_check_x+10, m_check_y, m_pC_main_spk->GetWidth(TITLE_RADIO_BACK), m_pC_main_spk->GetHeight(TITLE_RADIO_BACK), CHECK_NORMAL_CHAT, this, TITLE_RADIO_BACK) );
 		m_pC_control_button_group->Add( new C_VS_UI_EVENT_BUTTON(m_check_x+120, m_check_y, m_pC_main_spk->GetWidth(TITLE_RADIO_BACK), m_pC_main_spk->GetHeight(TITLE_RADIO_BACK), CHECK_ENTER_CHAT, this, TITLE_RADIO_BACK) );
 
-		for(i = 0; i < CHECK_CONTROL_MAX; i++)
+		for(int i = 0; i < CHECK_CONTROL_MAX; i++)
 			m_pC_control_button_group->Add( new C_VS_UI_EVENT_BUTTON(m_check_x, m_check_y+m_check_gap*(8+i), m_pC_main_spk->GetWidth(TITLE_CHECK_BACK), m_pC_main_spk->GetHeight(TITLE_CHECK_BACK), CHECK_CONTROL_TAB+i+2, this, TITLE_CHECK_BACK) );
 
 		// graphic_tab 버튼들
 		m_pC_graphic_button_group = new ButtonGroup(this);
-		for(i = 0; i < CHECK_GRAPHIC_MAX; i++)
+		for(int i = 0; i < CHECK_GRAPHIC_MAX; i++)
 			m_pC_graphic_button_group->Add( new C_VS_UI_EVENT_BUTTON(m_check_x, m_check_y+m_check_gap*i, m_pC_main_spk->GetWidth(TITLE_CHECK_BACK), m_pC_main_spk->GetHeight(TITLE_CHECK_BACK), CHECK_GRAPHIC_TAB+i, this, TITLE_CHECK_BACK) );
 		// sound_tab 버튼들
 		m_pC_sound_button_group = new ButtonGroup(this);
-		for(i = 0; i < CHECK_SOUND_MAX; i++)
+		for(int i = 0; i < CHECK_SOUND_MAX; i++)
 			m_pC_sound_button_group->Add( new C_VS_UI_EVENT_BUTTON(m_check_x, m_check_y+m_check_gap*i, m_pC_main_spk->GetWidth(TITLE_CHECK_BACK), m_pC_main_spk->GetHeight(TITLE_CHECK_BACK), CHECK_SOUND_TAB+i, this, TITLE_CHECK_BACK) );
 		// game_tab 버튼들
 		m_pC_game_button_group = new ButtonGroup(this);
-		for(i = 0; i < CHECK_GAME_MAX; i++)
+		for(int i = 0; i < CHECK_GAME_MAX; i++)
 			m_pC_game_button_group->Add( new C_VS_UI_EVENT_BUTTON(m_check_x, m_check_y+m_check_gap*i, m_pC_main_spk->GetWidth(TITLE_CHECK_BACK), m_pC_main_spk->GetHeight(TITLE_CHECK_BACK), CHECK_GAME_TAB+i, this, TITLE_CHECK_BACK) );
 
 		m_rt_value[1].Set(m_check_x+120, m_check_y+m_check_gap*(CHECK_GAMMA-CHECK_GRAPHIC_TAB) , m_pC_main_spk->GetWidth(TITLE_VOLUME_BAR), 15);

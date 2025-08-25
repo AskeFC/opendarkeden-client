@@ -9,6 +9,7 @@
 //----------------------------------------------------------------------
 #include "Client_PCH.h"
 #include "MSkillManager.h"
+#include <fstream>
 
 #ifdef __INIT_INFO__
 	#include "MActionInfoTable.h"
@@ -2387,7 +2388,7 @@ MSkillInfoTable::Init()
 // Save From File  ServerSkillInfo
 //----------------------------------------------------------------------
 void			
-MSkillInfoTable::SaveFromFileServerSkillInfo(class ofstream& file)
+MSkillInfoTable::SaveFromFileServerSkillInfo(std::ofstream& file)
 {
 	int num =MAGIC_BLOODY_TUNNEL_INTO-1;
 	file.write((char*)&num, 4);
@@ -2401,7 +2402,7 @@ MSkillInfoTable::SaveFromFileServerSkillInfo(class ofstream& file)
 // Load From File  ServerSkillInfo
 //----------------------------------------------------------------------
 void			
-MSkillInfoTable::LoadFromFileServerSkillInfo(class ifstream& file)
+MSkillInfoTable::LoadFromFileServerSkillInfo(std::ifstream& file)
 {
 	int num, skillType;
 

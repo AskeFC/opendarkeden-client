@@ -8,6 +8,8 @@
 #include "CSpritePack.h"
 #include "UserInformation.h"
 //#include "MFileDef.h"
+#include <fstream>
+#include <iostream>
 
 #ifdef __GAME_CLIENT__
 	#include "Properties.h"
@@ -504,8 +506,8 @@ ProfileManager::InitProfiles()
 				strcpy(spkiFilename, spkFilename);
 				strcat(spkiFilename, "i");
 
-				class ofstream	spkFile(spkFilename, ios::binary);	
-				class ofstream	spkiFile(spkiFilename, ios::binary);	
+				std::ofstream	spkFile(spkFilename, std::ios::binary);	
+				std::ofstream	spkiFile(spkiFilename, std::ios::binary);	
 				SPK.SaveToFile( spkFile, spkiFile );
 				spkFile.close();
 				spkiFile.close();

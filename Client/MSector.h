@@ -61,8 +61,7 @@
 
 #pragma warning(disable:4786)
 
-class ofstream;
-class ifstream;
+#include <fstream>
 #include "DrawTypeDef.h"
 #include "MTypeDef.h"
 #include "MObject.h"
@@ -154,8 +153,8 @@ class MSector {
 		// file I/O
 		//
 		//------------------------------------------------
-		void	SaveToFile(class ofstream& file);
-		void	LoadFromFile(class ifstream& file);
+		void	SaveToFile(std::ofstream& file);
+		void	LoadFromFile(std::ifstream& file);
 
 		//------------------------------------------------
 		//

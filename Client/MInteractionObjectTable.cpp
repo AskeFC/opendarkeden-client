@@ -3,6 +3,7 @@
 //----------------------------------------------------------------------
 #include "Client_PCH.h"
 #include "MInteractionObjectTable.h"
+#include <fstream>
 
 //----------------------------------------------------------------------
 // Global
@@ -14,7 +15,7 @@ INTERACTIONOBJECT_TABLE* 	g_pInteractionObjectTable = NULL;
 // Save To File
 //----------------------------------------------------------------------
 void		
-INTERACTIONOBJECTTABLE_INFO::SaveToFile(class ofstream& file)
+INTERACTIONOBJECTTABLE_INFO::SaveToFile(std::ofstream& file)
 {
 	file.write((const char*)&Type, 1);
 	file.write((const char*)&FrameID, SIZE_FRAMEID);			
@@ -26,7 +27,7 @@ INTERACTIONOBJECTTABLE_INFO::SaveToFile(class ofstream& file)
 // Load From File
 //----------------------------------------------------------------------
 void			
-INTERACTIONOBJECTTABLE_INFO::LoadFromFile(class ifstream& file)
+INTERACTIONOBJECTTABLE_INFO::LoadFromFile(std::ifstream& file)
 {
 	file.read((char*)&Type, 1);
 	file.read((char*)&FrameID, SIZE_FRAMEID);			

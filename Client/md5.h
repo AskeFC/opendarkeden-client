@@ -1,7 +1,7 @@
 ////////////////////////////////////////////////////////////////////
 ///md5.h this is the head of the class md5.
 #include <windows.h>
-#include <fstream.h>
+#include <fstream>
 
 #ifndef __MD5CLASS__
 #define __MD5CLASS__
@@ -59,7 +59,7 @@ private:
 	void SetErr(int nErr);
 	void JustifytoStr();
 protected:
-	fstream Sfile;
+	std::fstream Sfile;
 	ULONG *pM;
 	LPVOID Pointer;
 	ULONG T[4];

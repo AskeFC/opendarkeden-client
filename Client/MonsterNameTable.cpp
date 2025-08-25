@@ -3,6 +3,7 @@
 //----------------------------------------------------------------------
 #include "Client_PCH.h"
 #include "MonsterNameTable.h"
+#include <fstream>
 
 //----------------------------------------------------------------------
 // Global
@@ -26,7 +27,7 @@ MonsterNameTable::~MonsterNameTable()
 // Load From File
 //----------------------------------------------------------------------
 void
-MonsterNameTable::LoadFromFile(class ifstream& file)
+MonsterNameTable::LoadFromFile(std::ifstream& file)
 {
 	m_FirstNames.LoadFromFile( file );
 	m_MiddleNames.LoadFromFile( file );

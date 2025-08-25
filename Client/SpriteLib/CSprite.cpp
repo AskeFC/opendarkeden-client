@@ -5,7 +5,7 @@
 #include "CDirectDraw.h"
 #include "CFilter.h"
 #include "CSprite.h"
-
+#include <fstream>
 
 //----------------------------------------------------------------------
 // Static member

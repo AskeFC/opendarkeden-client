@@ -1,13 +1,15 @@
 #include "Client_PCH.h"
-#include <fstream.h>
+#include <fstream>
 #include "NicknameInfo.h"
 #include "Assert.h"
+
 NicknameInfo::NicknameInfo()
 {
 	m_NicknameID = 0;
 	m_NicknameType = 0;
 	m_NicknameIndex = 0;
 }
+
 PacketSize_t NicknameInfo::getSize() const
 {
 	switch ( m_NicknameType )

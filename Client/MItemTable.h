@@ -41,6 +41,7 @@
 #include "SoundDef.h"
 //#include "SkillDef.h"
 #include <list>
+#include <fstream>
 
 //----------------------------------------------------------------------
 // 필요능력치 Flag
@@ -188,8 +189,8 @@ class ITEMTABLE_INFO {
 		//-------------------------------------------------------
 		// File I/O
 		//-------------------------------------------------------
-		void			SaveToFile(class ofstream& file);		
-		void			LoadFromFile(class ifstream& file);		
+		void			SaveToFile(std::ofstream& file);
+		void			LoadFromFile(std::ifstream& file);
 };
 
 
@@ -199,7 +200,7 @@ class ITEMTABLE_INFO {
 class ITEMTYPE_TABLE : public CTypeTable<ITEMTABLE_INFO>
 {
 public :
-	void	LoadFromFile(class ifstream& file);
+	void	LoadFromFile(std::ifstream& file);
 
 	int		GetAveragePrice() const	{ return m_AveragePrice; }
 

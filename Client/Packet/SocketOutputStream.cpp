@@ -309,8 +309,8 @@ void SocketOutputStream::resize ( int size )
 	m_Tail = len;	
 
 	#ifdef __DEBUG_OUTPUT__
-		ofstream ofile("buffer_resized.log",ios::app);
-		ofile << "SocketOutputStream resized " << size << " bytes!" << endl;
+		std::ofstream ofile("buffer_resized.log", std::ios::app);
+		ofile << "SocketOutputStream resized " << size << " bytes!" << std::endl;
 		ofile.close();
 	#endif
 
@@ -343,7 +343,7 @@ WORD SocketOutputStream::EncryptData(WORD EncryptKey, char* buf, int len)
 
 	if(m_HashTable == NULL)	return EncryptKey;
 	
-	for(i = 0; i<len; i++)
+	for(int i = 0; i<len; i++)
 	{
 		*(buf + i) ^= m_HashTable[EncryptKey];
 		if(++EncryptKey == 512)	EncryptKey = 0;

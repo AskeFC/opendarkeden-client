@@ -53,7 +53,7 @@ MRisingEffectGenerator::Generate( const EFFECTGENERATOR_INFO& egInfo )
 		float Radian = float( angle ) * ( PI / 180.0f );
 		float sinValue = float(coord_z) * sinf( Radian );
 		float cosValue = float(coord_z) * cosf( Radian );
-		int step_count = sqrt(int(sinValue * sinValue)+ int(cosValue)*int(cosValue)) / egInfo.count;		
+		int step_count = sqrt((double)int(sinValue * sinValue)+ int(cosValue)*int(cosValue)) / egInfo.count;		
 		
 		tx[0] = egInfo.x0 + int(sinValue);
 		tz[0] = egInfo.z0 + int(cosValue);
@@ -62,7 +62,7 @@ MRisingEffectGenerator::Generate( const EFFECTGENERATOR_INFO& egInfo )
 		tz[2] = egInfo.z0 + int(cosValue);
 		step[2] = step_count;
 				
-		for(i=0;i<3;i++)
+		for(int i=0;i<3;i++)
 		{
 			MLinearEffect* pEffect = new MLinearEffect(bltType);
 			
@@ -114,7 +114,7 @@ MRisingEffectGenerator::Generate( const EFFECTGENERATOR_INFO& egInfo )
 		float Radian = float( angle1 ) * ( PI / 180.0f );
 		float sinValue = float(coord_z) * sinf( Radian );
 		float cosValue = float(coord_z) * cosf( Radian );
-		int step_count = sqrt(int(sinValue * sinValue)+ int(cosValue)*int(cosValue)) / egInfo.count;		
+		int step_count = sqrt((double)int(sinValue * sinValue)+ int(cosValue)*int(cosValue)) / egInfo.count;		
 		
 		tx[0] = egInfo.x0 + int(sinValue);
 		tz[0] = egInfo.z0 + int(cosValue);
@@ -126,7 +126,7 @@ MRisingEffectGenerator::Generate( const EFFECTGENERATOR_INFO& egInfo )
 		Radian = float( angle2 ) * (PI / 180.0f);
 		sinValue = float(coord_z) * sinf( Radian );
 		cosValue = float(coord_z) * cosf( Radian );
-		step_count = sqrt(int(sinValue * sinValue) + int(cosValue)*int(cosValue)) / egInfo.count;
+		step_count = sqrt((double)int(sinValue * sinValue) + int(cosValue)*int(cosValue)) / egInfo.count;
 
 		tx[1] = egInfo.x0 + int(sinValue);
 		tz[1] = egInfo.z0 + int(cosValue);
@@ -134,7 +134,7 @@ MRisingEffectGenerator::Generate( const EFFECTGENERATOR_INFO& egInfo )
 		tz[2] = egInfo.z0 + int(cosValue);
 		step[1] = step[2] = step_count;
 				
-		for(i=0;i<4;i++)
+		for(int i=0;i<4;i++)
 		{
 			MLinearEffect* pEffect = new MLinearEffect(bltType);
 			pEffect->SetFrameID( frameID, maxFrame );

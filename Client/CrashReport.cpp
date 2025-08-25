@@ -100,6 +100,7 @@ static const TCHAR *GetExceptionDescription(DWORD ExceptionCode)
 	return "an Unknown exception type";
 }
 
+#if !defined(_IMAGEHLP_)
 typedef struct _tagADDRESS64 {
     DWORD64       Offset;
     WORD          Segment;
@@ -168,6 +169,7 @@ typedef struct _tagSTACKFRAME64 {
     DWORD64     Reserved[3];
     KDHELP64    KdHelp;
 } STACKFRAME64, *LPSTACKFRAME64;
+#endif
 
 typedef
 BOOL
@@ -263,7 +265,7 @@ LONG __stdcall RecordExceptionInfo( _EXCEPTION_POINTERS* pExp )
 	}
 
 	int version = 0;
-	class ifstream versionFile(g_pFileDef->getProperty("FILE_INFO_VERSION").c_str(), ios::binary | ios::nocreate);
+	std::ifstream versionFile(g_pFileDef->getProperty("FILE_INFO_VERSION").c_str(), std::ios::binary);
 
 	if (versionFile.is_open())
 	{

@@ -1,5 +1,7 @@
 // VS_UI_GameCommon.cpp
 
+#include <fstream>
+#include <iostream>
 #include "client_PCH.h"
 #include "VS_UI_GameCommon.h"
 #include "VS_UI_GameCommon2.h"
@@ -139,7 +141,7 @@ int g_HISTORY_LINE = 4;
 
 #define FONT_GAP							17
 
-char g_mark[MARK_MAX][9][3] =
+char g_mark[MARK_MAX][9][5] =
 {
 	{"＃","＆","＊","＠","§","※","☆","★","○"},
 	{"●","◎","◇","◆","□","■","△","▲","▽"},
@@ -2326,7 +2328,7 @@ bool C_VS_UI_TRIBE::MouseControl(UINT message, int _x, int _y)
 						int level = (*g_pSkillManager)[domainIndex].GetDomainLevel();
 						int exp_remain = (*g_pSkillManager)[domainIndex].GetDomainExpRemain();
 						
-						if(level >= 0 && exp >= 0)
+						if(level >= 0 && exp_remain >= 0)
 						{
 //							int next_exp = (*g_pSkillManager)[domainIndex].GetExpInfo(level).AccumExp;
 							const __int64 goal_exp = (*g_pSkillManager)[domainIndex].GetExpInfo(level).GoalExp;
@@ -2350,7 +2352,7 @@ bool C_VS_UI_TRIBE::MouseControl(UINT message, int _x, int _y)
 						int level = (*g_pSkillManager)[domainIndex].GetDomainLevel();
 						int exp_remain = (*g_pSkillManager)[domainIndex].GetDomainExpRemain();
 						
-						if(level >= 0 && exp >= 0)
+						if(level >= 0 && exp_remain >= 0)
 						{
 //							int next_exp = (*g_pSkillManager)[domainIndex].GetExpInfo(level).AccumExp;
 							const __int64 goal_exp = (*g_pSkillManager)[domainIndex].GetExpInfo(level).GoalExp;
@@ -2374,7 +2376,7 @@ bool C_VS_UI_TRIBE::MouseControl(UINT message, int _x, int _y)
 						int level = (*g_pSkillManager)[domainIndex].GetDomainLevel();
 						int exp_remain = (*g_pSkillManager)[domainIndex].GetDomainExpRemain();
 						
-						if(level >= 0 && exp >= 0)
+						if(level >= 0 && exp_remain >= 0)
 						{
 //							int next_exp = (*g_pSkillManager)[domainIndex].GetExpInfo(level).AccumExp;
 							const __int64 goal_exp = (*g_pSkillManager)[domainIndex].GetExpInfo(level).GoalExp;
@@ -2460,7 +2462,7 @@ bool C_VS_UI_TRIBE::MouseControl(UINT message, int _x, int _y)
 					wsprintf(szTemp,"%d",(goal_exp-g_char_slot_ingame.EXP_REMAIN)*100/max(1, (goal_exp)));
 					
 					temp[1] = szTemp;
-					for(i = 3; i <= 13; i += 4)
+					for(int i = 3; i <= 13; i += 4)
 					{
 						if(temp[1].size() > i)temp[1].insert(temp[1].size()-i, ",");
 					}
@@ -4449,7 +4451,7 @@ void C_VS_UI_CHATTING::KeyboardControl(UINT message, UINT key, long extra)
 				{
 					if(m_history.size() == 20)
 					{
-						m_history.erase(&m_history[0]);
+						m_history.erase(m_history.cbegin());
 					}
 					
 					PAPERING_HISTORY temp_history;
@@ -4474,13 +4476,11 @@ void C_VS_UI_CHATTING::KeyboardControl(UINT message, UINT key, long extra)
 						}
 						else
 						{
-							temp_history.m_timer.erase(&temp_history.m_timer[0]);
+							temp_history.m_timer.erase(temp_history.m_timer.cbegin());
 						}
 					}
 
-
-					
-					m_history.erase(&m_history[m_history_line]);
+					m_history.erase(m_history.cbegin());
 					temp_history.m_string = sz_chat_str;
 					temp_history.m_timer.push_back(GetTickCount());
 					m_history.push_back(temp_history);
@@ -4520,7 +4520,7 @@ void C_VS_UI_CHATTING::KeyboardControl(UINT message, UINT key, long extra)
 				
 				if(m_dw_rep_tickcount.size() == 5)
 				{
-					m_dw_rep_tickcount.erase(&m_dw_rep_tickcount[0]);
+					m_dw_rep_tickcount.erase(m_dw_rep_tickcount.begin());
 				}
 				m_dw_rep_tickcount.push_back(GetTickCount());
 				
@@ -6652,7 +6652,7 @@ bool C_VS_UI_CHATTING::AddWhisperID(const char *sz_ID)
 	{
 		if(m_sz_whisper_id[i] == temp)
 		{
-			m_sz_whisper_id.erase(&m_sz_whisper_id[i]);
+			m_sz_whisper_id.erase(m_sz_whisper_id.begin() + i);
 			break;
 		}
 	}
@@ -8170,10 +8170,11 @@ void C_VS_UI_INVENTORY::Show()
 		if(p_item->IsPileItem() || p_item->IsChargeItem())
 		{
 			RECT rt;
+			int depth = 0;
 			
 			rt.right = x+GetFocusedItemGridX(p_item) + p_item->GetGridWidth()*GRID_UNIT_PIXEL_X-1;
 			
-			for(int depth = 0, number = p_item->GetNumber(); number > 0; number/=10, depth++);
+			for(int number = p_item->GetNumber(); number > 0; number/=10, depth++);
 			
 			if(depth == 0) depth = 1;
 			rt.left = rt.right - 7*depth;
@@ -8227,7 +8228,7 @@ void C_VS_UI_INVENTORY::Show()
 			
 			std::string sstr = money_buf;
 			
-			for(i = 3; i <= 13; i += 4)
+			for(int i = 3; i <= 13; i += 4)
 				if(sstr.size() > i)sstr.insert(sstr.size()-i, ",");
 			
 			WriteLogLine(__LINE__);
@@ -9444,8 +9445,9 @@ void	C_VS_UI_SKILL::SetHotkey(HOTKEY hotkey, ACTIONINFO id)
 		{
 			if (m_skill_hotkey_buf[i][j] == id)
 			{
+				int k;
 				//				m_skill_hotkey_buf[i][j] = NOT_SELECTED;
-				for(int k = j; k < GRADE_MAX-1; k++)
+				for(k = j; k < GRADE_MAX-1; k++)
 					m_skill_hotkey_buf[i][k] = m_skill_hotkey_buf[i][k+1];
 				m_skill_hotkey_buf[i][k] = NOT_SELECTED;
 				return;
@@ -11279,8 +11281,8 @@ void	C_VS_UI_PARTY_MANAGER::Show()
 				}
 			}
 			
-			
-			for(int find = 0; find < m_v_face_name.size(); find++)
+			int find;
+			for(find = 0; find < m_v_face_name.size(); find++)
 			{
 				if(strcmp(m_v_face_name[find].c_str(), name.c_str()) == 0)break;
 			}
@@ -12173,7 +12175,7 @@ C_VS_UI_INFO::C_VS_UI_INFO()
 						Button_ID+i, this, i));
 				}
 
-				for(i=0 ;i<3;i++)
+				for(int i=0 ;i<3;i++)
 				{
 					int eeg = button_x+10+C_VS_UI_SKILL::m_C_spk[0].GetWidth()+(C_VS_UI_SKILL::m_C_spk[0].GetWidth()*(i/4))+gap_x*(i/4);
 					m_pC_grade3_button_group->Add(new C_VS_UI_EVENT_BUTTON(
@@ -12271,7 +12273,7 @@ C_VS_UI_INFO::C_VS_UI_INFO()
 						Button_ID+i, this, i));			
 				}
 				
-				for(i=0 ;i<3;i++)
+				for(int i=0 ;i<3;i++)
 				{
 					m_pC_grade3_button_group->Add(new C_VS_UI_EVENT_BUTTON(
 						button_x+10+C_VS_UI_SKILL::m_C_spk[0].GetWidth()+(C_VS_UI_SKILL::m_C_spk[0].GetWidth()*(i/4))+gap_x*(i/4),
@@ -12313,7 +12315,7 @@ C_VS_UI_INFO::C_VS_UI_INFO()
 						Button_ID+i, this, i));
 				}
 
-				for(i=0 ;i<3;i++)
+				for(int i=0 ;i<3;i++)
 				{
 					m_pC_grade3_button_group->Add(new C_VS_UI_EVENT_BUTTON(
 						button_x+10+C_VS_UI_SKILL::m_C_spk[0].GetWidth()+(C_VS_UI_SKILL::m_C_spk[0].GetWidth()*(i/4))+gap_x*(i/4),
@@ -13989,7 +13991,7 @@ bool	C_VS_UI_INFO::CharacterInfoMouseControl(UINT message, int _x, int _y)
 				// 숫자사이에 ,넣기
 				wsprintf(temp, "%d", num2);
 				std::string sstr2 = temp;
-				for(i = 3; i <= 13; i += 4)
+				for(int i = 3; i <= 13; i += 4)
 				{
 					if(sstr2.size() > i)sstr2.insert(sstr2.size()-i, ",");
 				}
@@ -14276,7 +14278,7 @@ grade :			str[2]=NULL;
 				const __int64 goal_exp = g_pExperienceTable->GetVampireInfo(g_char_slot_ingame.level).GoalExp;
 				wsprintf(szTemp,"%d", (goal_exp - g_char_slot_ingame.EXP_REMAIN)*100/max(1, (goal_exp)));
 				temp[1] = szTemp;
-				for(i = 3; i <= 13; i += 4)
+				for(int i = 3; i <= 13; i += 4)
 					if(temp[1].size() > i)temp[1].insert(temp[1].size()-i, ",");
 				wsprintf(temp_str[0], (*g_pGameStringTable)[UI_STRING_MESSAGE_HPBAR_EXP_DESCRIPTION_NEW].GetString(), temp[0].c_str(), temp[1].c_str());
 				int fame = g_pFameInfoTable->GetFameForLevel( SKILLDOMAIN_VAMPIRE, g_char_slot_ingame.level );
@@ -14479,7 +14481,7 @@ grade :			str[2]=NULL;
 					const __int64 goal_exp = g_pExperienceTable->GetOustersInfo(g_char_slot_ingame.level).GoalExp;
 					wsprintf(szTemp,"%d", (goal_exp - g_char_slot_ingame.EXP_REMAIN)*100/max(1, (goal_exp)));
 					temp[1] = szTemp;
-					for(i = 3; i <= 13; i += 4)
+					for(int i = 3; i <= 13; i += 4)
 						if(temp[1].size() > i)temp[1].insert(temp[1].size()-i, ",");
 					wsprintf(temp_str[0], (*g_pGameStringTable)[UI_STRING_MESSAGE_HPBAR_EXP_DESCRIPTION_NEW].GetString(), temp[0].c_str(), temp[1].c_str());
 					int fame = g_pFameInfoTable->GetFameForLevel( SKILLDOMAIN_OUSTERS, g_char_slot_ingame.level );
@@ -14696,7 +14698,7 @@ bool	C_VS_UI_INFO::SkillInfoMouseControl(UINT message, int _x, int _y)
 						int level = (*g_pSkillManager)[m_skill_domain].GetDomainLevel();
 						int exp_remain = (*g_pSkillManager)[m_skill_domain].GetDomainExpRemain();
 						
-						if(level >= 0 && exp >= 0)
+						if(level >= 0 && exp_remain >= 0)
 						{
 							char sz_temp[100];
 							std::string sstr;
@@ -16220,7 +16222,8 @@ void	C_VS_UI_INFO::_Show1()
 					{
 						MSkillDomain::SKILL_STEP_LIST list = *((*g_pSkillManager)[SKILLDOMAIN_VAMPIRE].GetSkillStepList(step));
 						MSkillDomain::SKILL_STEP_LIST::iterator ss = list.begin()+max(m_pC_skill_scroll_bar->GetScrollPos(),0);
-						for(int i = 0; i < min( 8, list.size() - max(m_pC_skill_scroll_bar->GetScrollPos(),0)); i++)
+						int i;
+						for(i = 0; i < min( 8, list.size() - max(m_pC_skill_scroll_bar->GetScrollPos(),0)); i++)
 						{
 							const ACTIONINFO SkillID = (ACTIONINFO)*ss;
 							MSkillDomain::SKILLSTATUS status = (*g_pSkillManager)[SKILLDOMAIN_VAMPIRE].GetSkillStatus(SkillID);
@@ -17194,7 +17197,7 @@ void	C_VS_UI_INFO::_Show2()
 				gpC_global_resource->m_pC_info_spk->BltLocked(AddPosition.x + pSkin->GetPoint( slayerpos+ 4 + 3 ).x,   
 					AddPosition.y+field2_gap*4+ pSkin->GetPoint( slayerpos+ 4 + 3 ).y, C_GLOBAL_RESOURCE::TITLE_MP);
 
-				for(i = 5; i <= 8; i++ )
+				for(int i = 5; i <= 8; i++ )
 				{
 					gpC_global_resource->m_pC_info_spk->BltLocked(AddPosition.x + pSkin->GetPoint( slayerpos + i + 3 ).x,
 						AddPosition.y + pSkin->GetPoint( slayerpos + i + 3 ).y + field2_gap * i, C_GLOBAL_RESOURCE::TITLE_TOHIT + i - 5 );
@@ -17202,10 +17205,10 @@ void	C_VS_UI_INFO::_Show2()
 
 				AddPosition.x = x + field2_x2;
 
-				for( i = 0; i <= 2 ; i++ )
+				for(int i = 0; i <= 2 ; i++ )
 					gpC_global_resource->m_pC_info_spk->BltLocked(AddPosition.x, AddPosition.y+field2_gap*i, C_GLOBAL_RESOURCE::SMALL_BAR);
 				
-				for( i = 3; i <= 8 ; i++ )
+				for(int i = 3; i <= 8 ; i++ )
 					gpC_global_resource->m_pC_info_spk->BltLocked( AddPosition.x, AddPosition.y+field2_gap*i, C_GLOBAL_RESOURCE::SMALL_BAR2 );				
 				
 				
@@ -17599,7 +17602,7 @@ void	C_VS_UI_INFO::_Show2()
 				// str, dex, int, hp, mp, tohit, damage, defence, protection출력
 				AddPosition.x = x + field2_x;
 				AddPosition.y = y + field2_y;
-				for( int i = 0; i < 8 ; i ++ )
+				for(int i = 0; i < 8 ; i ++ )
 				{
 					gpC_global_resource->m_pC_info_spk->BltLocked( AddPosition.x + pSkin->GetPoint( vampirepos + 4+i ).x,
 						AddPosition.y + pSkin->GetPoint( vampirepos + 4 +i ).y + field2_gap * i,
@@ -17608,7 +17611,7 @@ void	C_VS_UI_INFO::_Show2()
 
 				AddPosition.x = x + field2_x2;
 				AddPosition.y = y + field2_y;
-				for( i = 0; i < 8 ; i++ )
+				for(int i = 0; i < 8 ; i++ )
 				{
 					gpC_global_resource->m_pC_info_spk->BltLocked( AddPosition.x, AddPosition.y + field2_gap * i, C_GLOBAL_RESOURCE::SMALL_BAR2 );
 				}
@@ -17975,10 +17978,10 @@ void	C_VS_UI_INFO::_Show2()
 				}
 				
 				// str, dex, int, hp, mp, tohit, damage, defence, protection출력
-				int line_count = 0; 
+				int line_count = 0, i;
 				AddPosition.x = x+ field2_x;
 				AddPosition.y = y+field2_y;
-				for( int i =0;i<4;i++ )
+				for(i = 0; i < 4; i++)
 				{
 					gpC_global_resource->m_pC_info_spk->BltLocked( AddPosition.x + pSkin->GetPoint( ousterspos + 10 + i).x,
 						AddPosition.y + pSkin->GetPoint( ousterspos+10+i).y + field2_gap*i, C_GLOBAL_RESOURCE::TITLE_STR + i );
@@ -17987,13 +17990,13 @@ void	C_VS_UI_INFO::_Show2()
 				gpC_global_resource->m_pC_info_spk->BltLocked(AddPosition.x + pSkin->GetPoint( ousterspos + 14 ).x, 
 					AddPosition.y + pSkin->GetPoint( ousterspos + 14 ).y + field2_gap * i, C_GLOBAL_RESOURCE::OUSTERS_EP );
 
-				for( i = 5; i <= 8; i ++)
+				for(i = 5; i <= 8; i++)
 				{
 					gpC_global_resource->m_pC_info_spk->BltLocked( AddPosition.x + pSkin->GetPoint( ousterspos + 10 + i ).x,
 						AddPosition.y + pSkin->GetPoint( ousterspos + 10 + i ).y + field2_gap * i, C_GLOBAL_RESOURCE::TITLE_TOHIT+i-5);
 				}
 				
-				for(i=0;i<9;i++)
+				for(i = 0; i < 9; i++)
 					gpC_global_resource->m_pC_info_spk->BltLocked(x +field2_x2, y+field2_y+field2_gap*i, C_GLOBAL_RESOURCE::SMALL_BAR2);
 //				
 //				//EXP BAR
@@ -22579,7 +22582,7 @@ void C_VS_UI_MINIMAP::MouseControlExtra(UINT message, int _x, int _y)
 				}
 			}
 			
-			for(i = 0; i < m_npc.size(); i++)
+			for(int i = 0; i < m_npc.size(); i++)
 			{
 				int x = m_map_start_point.x + m_npc[i].x*map_w/m_map_w;
 				int y = m_map_start_point.y + m_npc[i].y*map_h/m_map_h;
@@ -22610,7 +22613,7 @@ void C_VS_UI_MINIMAP::MouseControlExtra(UINT message, int _x, int _y)
 				}
 			}
 			
-			for(i = 0; i < m_shrine.size(); i++)
+			for(int i = 0; i < m_shrine.size(); i++)
 			{
 				int x = m_map_start_point.x + m_shrine[i].x*map_w/m_map_w;
 				int y = m_map_start_point.y + m_shrine[i].y*map_h/m_map_h;
@@ -22622,7 +22625,7 @@ void C_VS_UI_MINIMAP::MouseControlExtra(UINT message, int _x, int _y)
 				}
 			}
 
-			for(i = 0; i < g_pParty->GetSize(); i++)
+			for(int i = 0; i < g_pParty->GetSize(); i++)
 			{
 				PARTY_INFO *info = g_pParty->GetMemberInfo(i);
 				if(info != NULL && info->zoneID == GetZoneID())
@@ -22650,7 +22653,7 @@ void C_VS_UI_MINIMAP::MouseControlExtra(UINT message, int _x, int _y)
 				}
 			}
 			
-			for(i = 0; i < m_Flag.size(); i++)
+			for(int i = 0; i < m_Flag.size(); i++)
 			{
 				int x = m_map_start_point.x + m_Flag[i].x*map_w/m_map_w;
 				int y = m_map_start_point.y + m_Flag[i].y*map_h/m_map_h;
@@ -23288,9 +23291,10 @@ void C_VS_UI_MINIMAP::SetSafetyZone(RECT rect, bool my_zone)
 //-----------------------------------------------------------------------------
 void C_VS_UI_MINIMAP::SetNPC(MINIMAP_NPC npc)
 {
+	int i;
 	if(npc.id >= 560 && npc.id <= 563)	// 성 상징물 받침대
 	{
-		for(int i = 0; i < m_shrine.size(); i++)
+		for(i = 0; i < m_shrine.size(); i++)
 		{
 			if(npc.id == m_shrine[i].id)break;
 		}
@@ -23308,7 +23312,7 @@ void C_VS_UI_MINIMAP::SetNPC(MINIMAP_NPC npc)
 	}
 	else if(npc.id >= 526 && npc.id <= 537)	// 수호성단
 	{
-		for(int i = 0; i < m_shrine.size(); i++)
+		for(i = 0; i < m_shrine.size(); i++)
 		{
 			if(npc.id == m_shrine[i].id)break;
 		}
@@ -23326,7 +23330,7 @@ void C_VS_UI_MINIMAP::SetNPC(MINIMAP_NPC npc)
 	}
 	else if(npc.id >= 538 && npc.id <= 549)	// 성지 성단
 	{
-		for(int i = 0; i < m_shrine.size(); i++)
+		for(i = 0; i < m_shrine.size(); i++)
 		{
 			if(npc.id == m_shrine[i].id)break;
 		}
@@ -23352,7 +23356,7 @@ void C_VS_UI_MINIMAP::SetNPC(MINIMAP_NPC npc)
 	}
 	else
 	{
-		for(int i = 0; i < m_npc.size(); i++)
+		for(i = 0; i < m_npc.size(); i++)
 		{
 			if(npc.id == m_npc[i].id && npc.id != 659 && npc.id != 672 && npc.id != 673 )break; // 돼지 정령은 생까쟈
 		}
@@ -23375,8 +23379,9 @@ void C_VS_UI_MINIMAP::SetPortal(RECT rect, int id)
 	if(//g_pUserInformation->IsNetmarble && g_mapPremiumZone.find(id) != g_mapPremiumZone.end()
 		/*|| */!g_pSystemAvailableManager->ZoneFiltering( id ) )
 		return;
-	
-	for(int i = 0; i < m_portal.size(); i++)
+
+	int i;
+	for(i = 0; i < m_portal.size(); i++)
 	{
 		if(m_portal_zone_id[i] == id &&
 			m_portal[i].top <= rect.bottom +5 &&
@@ -23492,7 +23497,7 @@ void C_VS_UI_WINDOW_MANAGER::SetHotKey(int **hotkey)
 	}
 }
 
-void C_VS_UI_WINDOW_MANAGER::SaveToFile(ofstream &file)
+void C_VS_UI_WINDOW_MANAGER::SaveToFile(std::ofstream &file)
 {
 	int i = 0, j = 0;
 	
@@ -23543,7 +23548,7 @@ void C_VS_UI_WINDOW_MANAGER::SaveToFile(ofstream &file)
 	// 2004, 6, 4, sobeit add end
 }
 
-void C_VS_UI_WINDOW_MANAGER::LoadFromFile(ifstream &file)
+void C_VS_UI_WINDOW_MANAGER::LoadFromFile(std::ifstream &file)
 {
 	// 각각 개수가 늘거나 줄었을때에 대한 처리는.... 귀찮으니까 나중에 하쟈-.-;
 	int i = 0, j = 0;
@@ -24867,11 +24872,12 @@ void	C_VS_UI_TEAM_MEMBER_LIST::AddMemberList(const TEAM_MEMBER_LIST &member_list
 		m_v_member_list.push_back(member_list);
 	else
 	{
-		for(int i = 0; i < m_v_member_list.size(); i++)
+		int i;
+		for(i = 0; i < m_v_member_list.size(); i++)
 		{
 			if(convert_table[member_list.member_grade] < convert_table[m_v_member_list[i].member_grade])
 			{
-				m_v_member_list.insert(&m_v_member_list[i], member_list);
+				m_v_member_list.insert(m_v_member_list.begin() + i, member_list);
 				break;
 			}
 		}
@@ -25487,7 +25493,7 @@ void	C_VS_UI_FRIEND_INFO::Start(bool bl_set_load)
 //look by viva : friend show
 void	C_VS_UI_FRIEND_INFO::Show()
 {
-	const barHeight = scroll_down_y - (scroll_up_y+m_friend_spk.GetHeight(SCROLL_UP_BUTTON)) - m_friend_spk.GetHeight(SCROLL_TAG);
+	const int barHeight = scroll_down_y - (scroll_up_y+m_friend_spk.GetHeight(SCROLL_UP_BUTTON)) - m_friend_spk.GetHeight(SCROLL_TAG);
 
 	if(m_ButtonID_Down == KIND_ID)
 	{
@@ -26129,7 +26135,7 @@ void C_VS_UI_FRIEND_CHATTING_INFO::Show()
 //	//		m_v_pHistory_List.push_back(pHistory);
 //		}
 //	}
-	const barHeight = scroll_down_y - (scroll_up_y+m_chatting_spk.GetHeight(SCROLL_UP_BUTTON)) - m_chatting_spk.GetHeight(SCROLL_TAG);
+	const int barHeight = scroll_down_y - (scroll_up_y+m_chatting_spk.GetHeight(SCROLL_UP_BUTTON)) - m_chatting_spk.GetHeight(SCROLL_TAG);
 	if(m_pList->blIsShow == 1)
 	{
 		while(m_scroll+9 < m_pList->m_v_pHistory_List.size())
@@ -30815,7 +30821,7 @@ void	C_VS_UI_BRING_FEE::Show()
 		wsprintf(money_buf, "%d", m_BringFee);
 		sstr = money_buf;
 		
-		for(i = 3; i <= 13; i += 4)
+		for(int i = 3; i <= 13; i += 4)
 			if(sstr.size() > i)
 				sstr.insert(sstr.size()-i, ",");
 			
@@ -33980,8 +33986,8 @@ class EventGiftInfo
 public :
 	EventGiftInfo() { m_bActive = 1; m_Step = 1; m_Name = "";}
 	~EventGiftInfo(){}
-	void LoadFromFile(ifstream &file)	{		file.read((char*)&m_ID, sizeof(DWORD) );file.read((char*)&m_bActive, sizeof(char) );		file.read((char*)&m_Step, sizeof( DWORD ) );		m_Name.LoadFromFile( file );	}
-	void SaveToFile(ofstream &file)	{		file.write((const char*)&m_ID, sizeof(DWORD) );file.write((const char*)&m_bActive, sizeof(char) );		file.write((const char*)&m_Step, sizeof( int ) );		m_Name.SaveToFile( file );	}
+	void LoadFromFile(std::ifstream &file)	{		file.read((char*)&m_ID, sizeof(DWORD) );file.read((char*)&m_bActive, sizeof(char) );		file.read((char*)&m_Step, sizeof( DWORD ) );		m_Name.LoadFromFile( file );	}
+	void SaveToFile(std::ofstream &file)	{		file.write((const char*)&m_ID, sizeof(DWORD) );file.write((const char*)&m_bActive, sizeof(char) );		file.write((const char*)&m_Step, sizeof( int ) );		m_Name.SaveToFile( file );	}
 	char	m_bActive;	DWORD		m_Step;	MString	m_Name; DWORD m_ID;
 };
 typedef CTypeTable<EventGiftInfo> CEventGiftInfo;
@@ -34079,7 +34085,7 @@ void C_VS_UI_LOTTERY_CARD::LoadInfo(int &step)
 	GiftImage[52] = DARKEDEN_TICKET_2;
 
 	CEventGiftInfo *Event = new CEventGiftInfo;
-	ifstream info("data\\info\\EventQuest.inf", ios::binary );
+	std::ifstream info("data\\info\\EventQuest.inf", std::ios::binary );
 	Event->LoadFromFile ( info );
 	info.close();		
 	
@@ -34971,7 +34977,7 @@ void C_VS_UI_WORLDMAP::MouseControlExtra(UINT message, int _x, int _y)
 				}
 			}
 			
-			for(i = 0; i < m_npc.size(); i++)
+			for(int i = 0; i < m_npc.size(); i++)
 			{
 				int x = m_map_start_point.x + m_npc[i].x*map_w/m_map_w;
 				int y = m_map_start_point.y + m_npc[i].y*map_h/m_map_h;
@@ -35002,7 +35008,7 @@ void C_VS_UI_WORLDMAP::MouseControlExtra(UINT message, int _x, int _y)
 				}
 			}
 			
-			for(i = 0; i < m_shrine.size(); i++)
+			for(int i = 0; i < m_shrine.size(); i++)
 			{
 				int x = m_map_start_point.x + m_shrine[i].x*map_w/m_map_w;
 				int y = m_map_start_point.y + m_shrine[i].y*map_h/m_map_h;
@@ -35014,7 +35020,7 @@ void C_VS_UI_WORLDMAP::MouseControlExtra(UINT message, int _x, int _y)
 				}
 			}
 
-			for(i = 0; i < g_pParty->GetSize(); i++)
+			for(int i = 0; i < g_pParty->GetSize(); i++)
 			{
 				PARTY_INFO *info = g_pParty->GetMemberInfo(i);
 				if(info != NULL && info->zoneID == GetZoneID())
@@ -35042,7 +35048,7 @@ void C_VS_UI_WORLDMAP::MouseControlExtra(UINT message, int _x, int _y)
 				}
 			}
 			
-			for(i = 0; i < m_Flag.size(); i++)
+			for(int i = 0; i < m_Flag.size(); i++)
 			{
 				int x = m_map_start_point.x + m_Flag[i].x*map_w/m_map_w;
 				int y = m_map_start_point.y + m_Flag[i].y*map_h/m_map_h;
@@ -35681,7 +35687,8 @@ void C_VS_UI_WORLDMAP::SetNPC(MINIMAP_NPC npc)
 {
 	if(npc.id >= 560 && npc.id <= 563)	// 성 상징물 받침대
 	{
-		for(int i = 0; i < m_shrine.size(); i++)
+		int i;
+		for(i = 0; i < m_shrine.size(); i++)
 		{
 			if(npc.id == m_shrine[i].id)break;
 		}
@@ -35699,7 +35706,8 @@ void C_VS_UI_WORLDMAP::SetNPC(MINIMAP_NPC npc)
 	}
 	else if(npc.id >= 526 && npc.id <= 537)	// 수호성단
 	{
-		for(int i = 0; i < m_shrine.size(); i++)
+		int i;
+		for(i = 0; i < m_shrine.size(); i++)
 		{
 			if(npc.id == m_shrine[i].id)break;
 		}
@@ -35717,7 +35725,8 @@ void C_VS_UI_WORLDMAP::SetNPC(MINIMAP_NPC npc)
 	}
 	else if(npc.id >= 538 && npc.id <= 549)	// 성지 성단
 	{
-		for(int i = 0; i < m_shrine.size(); i++)
+		int i;
+		for(i = 0; i < m_shrine.size(); i++)
 		{
 			if(npc.id == m_shrine[i].id)break;
 		}
@@ -35743,7 +35752,8 @@ void C_VS_UI_WORLDMAP::SetNPC(MINIMAP_NPC npc)
 	}
 	else
 	{
-		for(int i = 0; i < m_npc.size(); i++)
+		int i;
+		for(i = 0; i < m_npc.size(); i++)
 		{
 			if(npc.id == m_npc[i].id && npc.id != 659 && npc.id != 672 && npc.id != 673 )break; // 돼지 정령은 생까쟈
 		}
@@ -35767,7 +35777,8 @@ void C_VS_UI_WORLDMAP::SetPortal(RECT rect, int id)
 		/*|| */!g_pSystemAvailableManager->ZoneFiltering( id ) )
 		return;
 	
-	for(int i = 0; i < m_portal.size(); i++)
+	int i;
+	for(i = 0; i < m_portal.size(); i++)
 	{
 		if(m_portal_zone_id[i] == id &&
 			m_portal[i].top <= rect.bottom +5 &&

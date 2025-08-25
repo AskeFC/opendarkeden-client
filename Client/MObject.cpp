@@ -3,6 +3,7 @@
 //----------------------------------------------------------------------
 #include "Client_PCH.h"
 #include "MObject.h"
+#include <fstream>
 
 //----------------------------------------------------------------------
 //
@@ -42,7 +43,7 @@ MObject::AddScreenRect(RECT* pRect)
 // Save to File
 //----------------------------------------------------------------------
 void	
-MObject::SaveToFile(ofstream& file)
+MObject::SaveToFile(std::ofstream& file)
 {
 	file.write((const char*)&m_ObjectType, 1);
 	file.write((const char*)&m_ID, SIZE_OBJECTID);
@@ -54,7 +55,7 @@ MObject::SaveToFile(ofstream& file)
 // Load from File
 //----------------------------------------------------------------------
 void	
-MObject::LoadFromFile(ifstream& file)
+MObject::LoadFromFile(std::ifstream& file)
 {
 	file.read((char*)&m_ObjectType, 1);
 	file.read((char*)&m_ID, SIZE_OBJECTID);	

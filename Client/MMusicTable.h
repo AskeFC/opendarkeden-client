@@ -16,6 +16,7 @@
 #include "MTypeDef.h"
 #include "CTypeTable.h"
 #include "MString.h"
+#include <fstream>
 
 //----------------------------------------------------------------------
 //
@@ -31,8 +32,8 @@ class MUSICTABLE_INFO {
 		//-------------------------------------------------------
 		// File I/O
 		//-------------------------------------------------------
-		void			SaveToFile(class ofstream& file);		
-		void			LoadFromFile(class ifstream& file);		
+		void			SaveToFile(std::ofstream& file);		
+		void			LoadFromFile(std::ifstream& file);		
 };
 
 typedef CTypeTable<MUSICTABLE_INFO>	MUSIC_TABLE;

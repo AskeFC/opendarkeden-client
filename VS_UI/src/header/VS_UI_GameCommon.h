@@ -21,6 +21,7 @@
 #include "VS_UI_description.h"
 #include "VS_UI_ExtraDialog.h"
 #include "VS_UI_Title.h" // for S_SLOT
+#include <fstream>
 
 //#include "VS_UI_GameSlayer.h"
 class C_VS_UI_SLAYER_QUICKITEM;
@@ -42,6 +43,8 @@ extern bool gbl_mine_progress;
 
 #define ITEM_DISABLE_COLOR_SET			40
 
+#pragma push_macro("SEARCH_ALL")
+#undef SEARCH_ALL
 //-----------------------------------------------------------------------------
 // class C_VS_UI_LEVELUP
 //
@@ -1740,7 +1743,7 @@ public:
 };
 ////////////////////////////////////////////////////////////////////////// end ->
 #define MARK_MAX 6
-extern char g_mark[MARK_MAX][9][3];
+extern char g_mark[MARK_MAX][9][5];
 
 #define BLANK_TIMER 500
 //-----------------------------------------------------------------------------
@@ -2659,8 +2662,8 @@ public:
 	void SetMainTab(int index) { m_i_main_tab = index; }
 	int	 GetMainTab() { return m_i_main_tab; }
 
-	void SaveToFile(class ofstream &file);
-	void LoadFromFile(class ifstream &file);
+	void SaveToFile(std::ofstream &file);
+	void LoadFromFile(std::ifstream &file);
 
 	void SetDefault();
 	void SetHotKey(int **hotkey = NULL);

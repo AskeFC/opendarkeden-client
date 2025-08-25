@@ -12,6 +12,7 @@
 #include <list>
 #include "DrawTypeDef.h"
 #include "CSprite.h"
+#include <fstream>
 
 typedef	std::list<CSprite*>		SPRITE_LIST;
 typedef std::list<CSpritePal*>	SPRITEPAL_LIST;
@@ -54,7 +55,7 @@ class CSpritePackList {
 		//---------------------------------------------------
 		// file I/O
 		//---------------------------------------------------
-		bool				SaveToFile(class ofstream& spkFile, class ofstream& indexFile);
+		bool				SaveToFile(std::ofstream& spkFile, std::ofstream& indexFile);
 		virtual void		LoadFromFile(class ifstream& file) = 0;
 
 	protected :		

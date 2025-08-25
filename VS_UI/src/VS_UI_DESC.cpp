@@ -232,7 +232,7 @@ bool	C_VS_UI_DESC::LoadDesc(const char *szFilename, int row, int col, bool bl_ti
 				SetSprite(0, atoi(m_rep_string[i].c_str()+1), 0);
 				w2 = ((*m_pC_inpicture[m_Sprite[0].pack_num])[m_Sprite[0].sprite_num].GetWidth() + PICTURE_INDENT -1)/ fontx-1;
 				h =  ((*m_pC_inpicture[m_Sprite[0].pack_num])[m_Sprite[0].sprite_num].GetHeight()-1)/ m_desc_y_distance +1;
-				m_rep_string.erase(&m_rep_string[i]);
+				m_rep_string.erase(m_rep_string.begin() + i);
 			}
 		}
 
@@ -254,7 +254,9 @@ bool	C_VS_UI_DESC::LoadDesc(const char *szFilename, int row, int col, bool bl_ti
 
 		temp_string = szLine;
 
-		for(int i = 0; i < m_ori_string.size(); i++)//문자열 대체
+		int i;
+
+		for(i = 0; i < m_ori_string.size(); i++)//문자열 대체
 		{
 			int re = temp_string.find(m_ori_string[i]);
 			if(re != -1)
@@ -436,16 +438,18 @@ bool	C_VS_UI_DESC::LoadDesc(const char *szFilename, int row, int col, bool bl_ti
 	if(bl_title)	// 상단의 첫줄을 타이틀로
 	{
 		m_desc_title = m_desc[0];
-		m_desc.erase(&m_desc[0]);
+		m_desc.erase(m_desc.begin());
 	}
 
 //	if(m_desc.size())###@@@
 	if(!m_desc.empty())
 	{
-		while(m_desc.front() == "")	// 상단 여백 제거
-			m_desc.erase(&m_desc.front());
-		while(m_desc.back() == "")	// 하단 여백 제거
-			m_desc.erase(&m_desc.back());
+		while(m_desc.front() == "")	{// 상단 여백 제거
+			m_desc.erase(m_desc.begin());
+		}
+		while(m_desc.back() == "")	{// 하단 여백 제거
+			m_desc.erase(m_desc.end() - 1);
+		}
 	}
 
 	return TRUE;
@@ -494,7 +498,7 @@ bool	C_VS_UI_DESC::LoadDescFromString(const char *szString, int row, int col, bo
 				SetSprite(0, atoi(m_rep_string[i].c_str()+1), 0);
 				w2 = ((*m_pC_inpicture[m_Sprite[0].pack_num])[m_Sprite[0].sprite_num].GetWidth() + PICTURE_INDENT -1)/ fontx-1;
 				h =  ((*m_pC_inpicture[m_Sprite[0].pack_num])[m_Sprite[0].sprite_num].GetHeight()-1)/ m_desc_y_distance +1;
-				m_rep_string.erase(&m_rep_string[i]);
+				m_rep_string.erase(m_rep_string.begin() + i);
 			}
 		}
 
@@ -698,16 +702,18 @@ bool	C_VS_UI_DESC::LoadDescFromString(const char *szString, int row, int col, bo
 	if(bl_title)	// 상단의 첫줄을 타이틀로
 	{
 		m_desc_title = m_desc[0];
-		m_desc.erase(&m_desc[0]);
+		m_desc.erase(m_desc.begin());
 	}
 
 //	if(m_desc.size())###@@@
 	if(!m_desc.empty())
 	{
-		while(m_desc.front() == "")	// 상단 여백 제거
-			m_desc.erase(&m_desc.front());
-		while(m_desc.back() == "")	// 하단 여백 제거
-			m_desc.erase(&m_desc.back());
+		while(m_desc.front() == "")	{ // 상단 여백 제거
+			m_desc.erase(m_desc.begin());
+		}
+		while(m_desc.back() == "") {	// 하단 여백 제거
+			m_desc.erase(m_desc.end() - 1);
+		}
 	}
 
 	return TRUE;

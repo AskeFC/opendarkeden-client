@@ -71,6 +71,8 @@ APICheck _APICheck;
 #include "UserInformation.h"
 #include "MFileDef.h"
 #include "SoundSetting.h"
+#include <fstream>
+#include <iostream>
 
 #ifdef OUTPUT_DEBUG
 #include "Packet/Gpackets/GCSystemMessage.h"
@@ -286,10 +288,10 @@ void get_rand_str(char s[],int number)
 bool
 GetFutecAddress(const char* pStr)
 {
-	char * pFutecStr = strstr(pStr, "Futec");
-	char * pLeftParen = strchr(pStr, '(');
-	char * pSeperator = strchr(pStr, ':');
-	char * pRightParen = strchr(pStr, ')');
+	char * pFutecStr = (char *)strstr(pStr, "Futec");
+	char * pLeftParen = (char *)strchr(pStr, '(');
+	char * pSeperator = (char *)strchr(pStr, ':');
+	char * pRightParen = (char *)strchr(pStr, ')');
 
 	if (pFutecStr==NULL
 		|| pLeftParen==NULL
@@ -600,14 +602,14 @@ ReadPatchLogFromFile()
 {
 	char strBuffer[256];
 
-	class ifstream file("PatchLog.txt", ios::nocreate);	// text file이다.
+	std::ifstream file("PatchLog.txt", std::ios::in);	// text file이다.
 
 	if (!file.is_open())
 	{
 		return false;
 	}
 
-	file.seekg( 0, ios::end );
+	file.seekg( 0, std::ios::end );
 	long fpEnd = file.tellg();
 
 	if (g_pPatchLogBuffer!=NULL)
@@ -1916,7 +1918,7 @@ CheckTerriblePatch()
 	//-----------------------------------------------------------------------------
 	// Load
 	//-----------------------------------------------------------------------------
-	class ifstream	fileAppendInfo;
+	std::ifstream	fileAppendInfo;
 	if (!FileOpenBinary(g_pFileDef->getProperty("FILE_INFO_APPENDPATCH").c_str(), fileAppendInfo))
 		return false;
 	apt.LoadFromFile( fileAppendInfo );
@@ -2869,8 +2871,8 @@ ApplyPatch()
 			{
 				sprintf(filename, "Log\\%s", FileData.name);
 				
-				class ifstream file( filename, ios::binary );
-				file.seekg( 0, ios::end );
+				std::ifstream file( filename, std::ios::binary );
+				file.seekg( 0, std::ios::end );
 				
 				long fp = file.tellg();
 				
@@ -2881,7 +2883,7 @@ ApplyPatch()
 				}
 				else
 				{
-					file.seekg( -41, ios::end );
+					file.seekg( -41, std::ios::end );
 					file.read((char*)buffer, 24);
 					buffer[24] = '\0';
 					file.close();

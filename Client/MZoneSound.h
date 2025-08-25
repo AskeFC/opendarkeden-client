@@ -27,6 +27,7 @@
 #include <Windows.h>
 #include "MTypeDef.h"
 #include "ShowTimeChecker.h"
+#include <fstream>
 
 //-----------------------------------------------------------------------------
 // Zone에서의 한 가지 소리에 대한 정보
@@ -39,8 +40,8 @@ class ZONESOUND_INFO : public ShowTimeChecker {
 		//---------------------------------------------------------------
 		// File I/O
 		//---------------------------------------------------------------
-		void					SaveToFile(class ofstream& file);
-		void					LoadFromFile(class ifstream& file);
+		void					SaveToFile(std::ofstream& file);
+		void					LoadFromFile(std::ifstream& file);
 
 	public :
 		//---------------------------------------------------------------

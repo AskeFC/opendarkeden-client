@@ -21,6 +21,7 @@
 #include "UserInformation.h"
 //#include "minTR.H" 
 #include <fstream>
+#include <iostream>
 
 #include "DebugKit.h"
 extern CMessageStringTable g_MessageStringTable;
@@ -28,7 +29,7 @@ extern BOOL g_bMsgOutPutFlag;
 extern BOOL g_bMsgDetailFlag;
 extern BOOL g_bMsgContentFlag;
 
-extern void PrintMessageDetail(ofstream file, char *strMsg, int length);
+extern void PrintMessageDetail(std::ofstream file, char *strMsg, int length);
 
 void	SendBugReport(const char *bug, ...);
 //--------------------------------------------------------------------------------
@@ -149,10 +150,10 @@ void ClientPlayer::processCommand ()
 				byte seq = header[szPacketID+szPacketSize];
 
 #ifdef __DEBUG_OUTPUT__
-				ofstream file("packetID.log", ios::out | ios::app);
-				file << "*** RECEIVED PacketID=" << packetID << ", PacketSize=" << packetSize << ", Seq=" << (int)seq << endl;
+				std::ofstream file("packetID.log", std::ios::out | std::ios::app);
+				file << "*** RECEIVED PacketID=" << packetID << ", PacketSize=" << packetSize << ", Seq=" << (int)seq << std::endl;
 				if (packetID == 0) {
-					file << " StreamLength " << m_pInputStream->length() << endl;
+					file << " StreamLength " << m_pInputStream->length() << std::endl;
 				}
 				file.close();
 #endif

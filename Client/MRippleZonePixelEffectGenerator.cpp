@@ -181,7 +181,7 @@ MRippleZonePixelEffectGenerator::Generate( const EFFECTGENERATOR_INFO& egInfo )
 			cy = sy - ty;
 		}
 
-		int currentPixel = sqrt(cx*cx + cy*cy);
+		int currentPixel = sqrt((double)cx*cx + cy*cy);
 
 		float basis = ((cx==0)? 0 : (float)cy / (float)cx);
 

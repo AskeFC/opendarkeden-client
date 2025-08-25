@@ -3,6 +3,7 @@
 //----------------------------------------------------------------------
 #include "Frame_PCH.h"
 #include "CFramePack.h"
+#include <fstream>
 
 //----------------------------------------------------------------------
 // Info To File
@@ -47,7 +48,7 @@ CEffectFramePack::InfoToFile(const char* filename)
 void		
 CCreatureFramePack::InfoToFile(const char* filename)
 {
-	ofstream file(filename);	
+	std::ofstream file(filename);
 
 	for (int type=0; type<m_Size; type++)
 	{
@@ -75,7 +76,7 @@ CCreatureFramePack::InfoToFile(const char* filename)
 					int spriteID = m_pData[type][action][dir][frame].GetSpriteID();
 					int cx = m_pData[type][action][dir][frame].GetCX();
 					int cy = m_pData[type][action][dir][frame].GetCY();
-					file << "[" << type << "][" << action << "][" << dir << "][" << frame << "] = ( " << spriteID << ",  " << cx << ", " << cy << " ) " << endl;
+					file << "[" << type << "][" << action << "][" << dir << "][" << frame << "] = ( " << spriteID << ",  " << cx << ", " << cy << " ) " << std::endl;
 				}
 			}
 		}

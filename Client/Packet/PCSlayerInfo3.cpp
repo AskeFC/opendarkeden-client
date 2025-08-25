@@ -39,7 +39,7 @@ void PCSlayerInfo3::read ( SocketInputStream & iStream )
 		// read outlook bitset
 		DWORD outlook;
 		iStream.read( outlook);
-		m_Outlook = std::bitset<SLAYER_BIT_MAX>(outlook);
+		m_Outlook = std::bitset<SLAYER_BIT_MAX>((long)outlook);
 		
 		// read colors
 		for ( uint i = 0 ; i < SLAYER_COLOR_MAX ; i ++ )
@@ -61,7 +61,7 @@ void PCSlayerInfo3::read ( SocketInputStream & iStream )
 	}
 	catch ( Throwable & t ) 
 	{
-		cout << t.toString().c_str() << endl;
+		std::cout << t.toString().c_str() << std::endl;
 	}
 	
 	__END_CATCH
@@ -124,7 +124,7 @@ void PCSlayerInfo3::write ( SocketOutputStream & oStream ) const
 	} 
 	catch ( Throwable & t ) 
 	{
-		cout << t.toString().c_str() << endl;
+		std::cout << t.toString().c_str() << std::endl;
 	}
 
 	__END_CATCH

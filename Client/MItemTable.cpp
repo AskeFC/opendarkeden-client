@@ -12,6 +12,7 @@
 #include "SkillDef.h"
 #include "SoundDef.h"
 #include "MGameStringTable.h"
+#include <fstream>
 
 #ifdef __GAME_CLIENT__
 	#include "DebugInfo.h"
@@ -176,7 +177,7 @@ ITEMTABLE_INFO::SetValue(int v1, int v2, int v3, int v4, int v5, int v6, int v7)
 // Save
 //----------------------------------------------------------------------
 void			
-ITEMTABLE_INFO::SaveToFile(class ofstream& file)
+ITEMTABLE_INFO::SaveToFile(std::ofstream& file)
 {
 	// 이름 저장
 	EName.SaveToFile( file );
@@ -267,7 +268,7 @@ ITEMTABLE_INFO::SaveToFile(class ofstream& file)
 // Load
 //----------------------------------------------------------------------
 void			
-ITEMTABLE_INFO::LoadFromFile(class ifstream& file)
+ITEMTABLE_INFO::LoadFromFile(std::ifstream& file)
 {
 	EName.LoadFromFile( file );
 	HName.LoadFromFile( file );
@@ -355,7 +356,7 @@ ITEMTABLE_INFO::LoadFromFile(class ifstream& file)
 //
 //----------------------------------------------------------------------
 void
-ITEMTYPE_TABLE::LoadFromFile(class ifstream& file)
+ITEMTYPE_TABLE::LoadFromFile(std::ifstream& file)
 {
 	CTypeTable<ITEMTABLE_INFO>::LoadFromFile(file);
 

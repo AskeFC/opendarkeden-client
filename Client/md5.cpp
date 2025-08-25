@@ -6,6 +6,8 @@
 #include "md5.h"
 #include <conio.h>
 #include <stdexcept>
+#include <fstream>
+#include <iostream>
 using namespace std;
 
 const ULONG CMd5::Context[4]={  0x67452301,
@@ -127,7 +129,7 @@ bool CMd5::Init()
 }
 bool CMd5::OpenFile()
 {
-	Sfile.open(fname,ios::in|ios::nocreate|ios::binary);
+	Sfile.open(fname, std::ios::in | std::ios::binary);
 	if(!Sfile)
 	{   
 		SetErr(0);

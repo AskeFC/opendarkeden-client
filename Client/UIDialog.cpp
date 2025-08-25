@@ -1004,8 +1004,9 @@ UIDialog::PopupFreeMessageDlg(const char* msg, int x, int y, WORD fButton, bool 
 	{
 		dlgSizeY = 1;
 		char* str = (char*)msg + 40;
+		int i;
 
-		for (int i=40; i>0; i--)
+		for (i=40; i>0; i--)
 		{
 			if (*str==' ')
 			{

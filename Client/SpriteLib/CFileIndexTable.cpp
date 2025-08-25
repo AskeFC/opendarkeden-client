@@ -3,6 +3,7 @@
 //----------------------------------------------------------------------
 #include "Client_PCH.h"
 #include "CFileIndexTable.h"
+#include <fstream>
 //----------------------------------------------------------------------
 //
 // constructor/destructor
@@ -67,7 +68,7 @@ CFileIndexTable::Release()
 // Load From File
 //----------------------------------------------------------------------
 bool		
-CFileIndexTable::LoadFromFile(ifstream& indexFile)
+CFileIndexTable::LoadFromFile(std::ifstream& indexFile)
 {
 	//------------------------------------------------------
 	// index개수를 읽어들인다.

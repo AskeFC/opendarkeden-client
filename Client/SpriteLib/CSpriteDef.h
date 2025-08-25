@@ -9,8 +9,7 @@
 #include <list>
 #include "DrawTypeDef.h"
 #include "TArray.h"
-class ifstream;
-class ofstream;
+#include <fstream>
 
 // int list
 typedef	std::list<int>	INT_LIST;
@@ -25,8 +24,8 @@ class SPRITE_FILEPOSITION_NODE
 		long				FilePosition;
 
 	public :
-		void		SaveToFile(class ofstream& file);
-		void		LoadFromFile(class ifstream& file);
+		void		SaveToFile(std::ofstream& file);
+		void		LoadFromFile(std::ifstream& file);
 
 };
 

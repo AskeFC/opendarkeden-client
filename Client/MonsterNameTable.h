@@ -8,6 +8,7 @@
 #include <Windows.h>
 #include "MString.h"
 #include "CTypeTable.h"
+#include <fstream>
 
 class MonsterNameTable {
 	public :
@@ -32,7 +33,7 @@ class MonsterNameTable {
 		// File I/O
 		//------------------------------------------------------------
 		//void		SaveToFile(class ofstream& file);	// 서버에서 읽어온걸 쓴다는 가정하에.. 
-		void		LoadFromFile(class ifstream& file);
+		void		LoadFromFile(std::ifstream& file);
 
 	public :
 		STRING_TABLE	m_FirstNames;

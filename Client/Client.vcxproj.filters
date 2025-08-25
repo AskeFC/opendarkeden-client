@@ -2,110 +2,110 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <Filter Include="Source Files">
-      <UniqueIdentifier>{5afd6701-079c-40ae-8c80-4ec4962b8800}</UniqueIdentifier>
+      <UniqueIdentifier>{a2684261-a903-4344-81e6-6d086331d112}</UniqueIdentifier>
       <Extensions>cpp;c;cxx;rc;def;r;odl;idl;hpj;bat</Extensions>
     </Filter>
     <Filter Include="Source Files\GameObject Source">
-      <UniqueIdentifier>{c8d74874-b4a4-4f86-a1e7-20793dd5045c}</UniqueIdentifier>
+      <UniqueIdentifier>{31e13671-5356-496d-8f7b-e4c798baaaab}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\GameObject Source\EffectGenerator">
-      <UniqueIdentifier>{828db10f-48c3-4bb3-a8a1-d7054e41263d}</UniqueIdentifier>
+      <UniqueIdentifier>{82498d4e-8d1c-40fd-a43d-e02e251bbe82}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\GameObject Source\Object class source">
-      <UniqueIdentifier>{6069d4c9-75d7-438c-bf7c-cd0ed988be52}</UniqueIdentifier>
+      <UniqueIdentifier>{fd72629b-a14a-4d99-8109-642aee359332}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\GameObject Source\Effect class source">
-      <UniqueIdentifier>{e8ebaa5c-becf-43ae-8e6f-b2394615fdb8}</UniqueIdentifier>
+      <UniqueIdentifier>{405371c8-f1f0-45d8-9995-a8d79eb6d997}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\GameObject Source\Information class No. 1">
-      <UniqueIdentifier>{2e680a79-4bba-40e9-9e41-dd3fc828d720}</UniqueIdentifier>
+      <UniqueIdentifier>{95f89a75-d917-44f7-98ea-d226a82fc664}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\GameObject Source\ItemManager source">
-      <UniqueIdentifier>{19f681a4-8737-4e23-8d28-56b2e24da3a7}</UniqueIdentifier>
+      <UniqueIdentifier>{2782ed10-5132-4102-a40e-328f810176c3}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\GameObject Source\Shop Source">
-      <UniqueIdentifier>{5b3cd460-0a8c-4467-9709-c97e21061b9c}</UniqueIdentifier>
+      <UniqueIdentifier>{9bb9f832-d9e5-4ac6-aae4-c85e90dfa55a}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\GameObject Source\World source">
-      <UniqueIdentifier>{567143dc-a092-4a68-b099-7b3b0c45fb98}</UniqueIdentifier>
+      <UniqueIdentifier>{a1c54881-1451-497e-abee-6c687481de4a}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\GameObject Source\Help source">
-      <UniqueIdentifier>{b7f6ff91-2809-4ce0-ac23-ac878b3209f6}</UniqueIdentifier>
+      <UniqueIdentifier>{2d3775e8-c4f8-49f9-a435-24b839d25fc5}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\GameObject Source\Party&amp;Guild">
-      <UniqueIdentifier>{05e9c10d-f06d-4e37-bf10-7997a5206b30}</UniqueIdentifier>
+      <UniqueIdentifier>{ee69caea-8682-42c9-895e-fc42560e8cb0}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Utility source">
-      <UniqueIdentifier>{bec83710-3180-44d8-a60e-3d40f30b2c13}</UniqueIdentifier>
+      <UniqueIdentifier>{e25511a5-570f-4fe3-b55f-7fc3c312038c}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\GameLoop source">
-      <UniqueIdentifier>{46bf8e00-52b7-4dca-8ece-fd4f715e6b6d}</UniqueIdentifier>
+      <UniqueIdentifier>{8c06e50c-aa36-4fd4-8b9d-3b878f539c92}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Player/Zone/View source">
-      <UniqueIdentifier>{bb349623-4061-4b46-a5f6-133b781842c9}</UniqueIdentifier>
+      <UniqueIdentifier>{e3e53ede-bb39-43c9-b52d-d62fce02526b}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Packet source">
-      <UniqueIdentifier>{920459bd-fe09-415d-8e05-8b59b4bb9e84}</UniqueIdentifier>
+      <UniqueIdentifier>{8998fd2d-e1df-4466-8cf1-bf41436f5636}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Patch source">
-      <UniqueIdentifier>{2742c466-588d-424e-bd95-ed34a6e1e9d5}</UniqueIdentifier>
+      <UniqueIdentifier>{59de8055-b839-4537-94bb-4eba29ba2804}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\ZLib source">
-      <UniqueIdentifier>{36e24ecb-7f0d-4a01-a318-bba250f62201}</UniqueIdentifier>
+      <UniqueIdentifier>{914b1b7f-a49d-4196-8a91-efabed0b92c5}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\RequestPlayer">
-      <UniqueIdentifier>{8f63507a-6caa-405c-bd45-dd92f3b6c66e}</UniqueIdentifier>
+      <UniqueIdentifier>{4559ecb7-0726-47d6-8e90-f72120f19c78}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files">
-      <UniqueIdentifier>{acbaad85-86ed-421a-81f4-4734b5b713f9}</UniqueIdentifier>
+      <UniqueIdentifier>{d22d0599-970a-4b94-a9bf-bce6ad24c225}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\GameObject Header">
-      <UniqueIdentifier>{5704e051-350f-4f98-b7f1-de1739a244f6}</UniqueIdentifier>
+      <UniqueIdentifier>{dc353dcf-d193-40e3-8c20-419a473242ac}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\GameObject Header\EffectGenerator No. 1">
-      <UniqueIdentifier>{2b0b2645-3f00-464b-8b3e-68c0834041cd}</UniqueIdentifier>
+      <UniqueIdentifier>{63821e57-3937-4285-b8c8-aa2063e2370f}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\GameObject Header\Effect class">
-      <UniqueIdentifier>{83490c42-c5d8-4942-930c-9649506561bf}</UniqueIdentifier>
+      <UniqueIdentifier>{66c22c00-b495-45b0-b4d3-1360ce815496}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\GameObject Header\Object class">
-      <UniqueIdentifier>{9adebac4-d76b-45ab-9455-2e0319f6a44b}</UniqueIdentifier>
+      <UniqueIdentifier>{e3ce5973-2599-4a8e-bcf7-7d65922ed73b}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\GameObject Header\Information class">
-      <UniqueIdentifier>{c5ec9880-4de1-44a4-82a5-00cf3b4905c3}</UniqueIdentifier>
+      <UniqueIdentifier>{6df4e5b2-e1c6-4a9e-bcac-92739b719342}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\GameObject Header\ItemManager">
-      <UniqueIdentifier>{4e6fd3b3-dc36-4ace-84e6-779c3681096d}</UniqueIdentifier>
+      <UniqueIdentifier>{5d67af91-f4c5-4153-a38c-8166310331ce}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\GameObject Header\Shop">
-      <UniqueIdentifier>{4867dfd3-7d8a-4a39-adfb-5abfda9f90ae}</UniqueIdentifier>
+      <UniqueIdentifier>{dfd00bba-6a71-4b0a-84b9-6325dc3ed26a}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\GameObject Header\Help header">
-      <UniqueIdentifier>{4adfd37a-3698-42d4-ab2c-43c69b6c7348}</UniqueIdentifier>
+      <UniqueIdentifier>{832a33ac-67a5-46f0-8945-936e7fd2630d}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\GameObject Header\World header">
-      <UniqueIdentifier>{c9899b22-bc8c-4318-a6cc-d26670bddddb}</UniqueIdentifier>
+      <UniqueIdentifier>{fa3fb6c4-f12a-45f2-ae83-88864dfa5b17}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\GameObject Header\Party&amp;Guild header">
-      <UniqueIdentifier>{b687bf4b-2b75-4897-a78c-1e548249523b}</UniqueIdentifier>
+      <UniqueIdentifier>{8afc9384-2d18-4249-b3d4-0f8f34ac7203}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\GameLoop">
-      <UniqueIdentifier>{af583c7b-6e38-4ec1-a43c-fd30013087fe}</UniqueIdentifier>
+      <UniqueIdentifier>{81464e15-9f28-4728-aa90-3b5b1472a0d7}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\Utility">
-      <UniqueIdentifier>{c5b36158-0b5c-4544-91ee-f4b7c52339f9}</UniqueIdentifier>
+      <UniqueIdentifier>{eb1b7c76-52c3-436c-822a-cdebc031c555}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\Player/Zone/View">
-      <UniqueIdentifier>{88b40fea-994d-40cf-9142-32e7bb0d27c9}</UniqueIdentifier>
+      <UniqueIdentifier>{458160d5-4726-4731-b28e-5ae579c93908}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\Packet Header">
-      <UniqueIdentifier>{3ee21f4f-884d-49d9-a870-85c2e09c55ed}</UniqueIdentifier>
+      <UniqueIdentifier>{81d90309-06ac-4dfd-a808-1c01b7868901}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\Patch">
-      <UniqueIdentifier>{b9585419-15eb-4693-8cb8-e0ee5b928d77}</UniqueIdentifier>
+      <UniqueIdentifier>{c3b49779-e5c9-4153-93ac-ba5284cfc0a0}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\RequestPlayer header">
-      <UniqueIdentifier>{b28a24af-7951-4f50-85cb-fe0b375a57c3}</UniqueIdentifier>
+      <UniqueIdentifier>{d4152f1e-68fd-4ae7-8c8d-d2bb752d5ef9}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -3280,12 +3280,6 @@
     <ClCompile Include="Packet\Gpackets\GCOtherModifyInfo.cpp">
       <Filter>Header Files\Packet Header</Filter>
     </ClCompile>
-    <ClCompile Include="Client_PCH.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Packet\Exception.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MemoryPool.h">
@@ -5460,7 +5454,13 @@
     <ClInclude Include="Packet\Gpackets\SweeperBonusInfo.h">
       <Filter>Header Files\Packet Header</Filter>
     </ClInclude>
+    <ClInclude Include="Packet\Types\SystemTypes.h">
+      <Filter>Header Files\Packet Header</Filter>
+    </ClInclude>
     <ClInclude Include="Packet\TextInfo.h">
+      <Filter>Header Files\Packet Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Packet\Types.h">
       <Filter>Header Files\Packet Header</Filter>
     </ClInclude>
     <ClInclude Include="Packet\Upackets\UCRequestLoginMode.h">
@@ -5476,6 +5476,9 @@
       <Filter>Header Files\Packet Header</Filter>
     </ClInclude>
     <ClInclude Include="Packet\WorldInfo.h">
+      <Filter>Header Files\Packet Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Packet\Types\ZoneTypes.h">
       <Filter>Header Files\Packet Header</Filter>
     </ClInclude>
     <ClInclude Include="Updater\Update.h">
@@ -5653,19 +5656,11 @@
     <ClInclude Include="ShrineInfoManager.h" />
     <ClInclude Include="SoundNode.h" />
     <ClInclude Include="SystemAvailabilities.h" />
-    <ClInclude Include="Client_PCH.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
       <Filter>Source Files</Filter>
     </ResourceCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="darkeden.ico" />
-    <Image Include="darkeden1.ico" />
-    <Image Include="fengshen.ico" />
   </ItemGroup>
   <ItemGroup>
     <Library Include="NPGameLib.lib" />
@@ -5675,5 +5670,8 @@
     <CustomBuild Include="MTopViewDraw.inl">
       <Filter>Source Files\Player/Zone/View source</Filter>
     </CustomBuild>
+    <CustomBuild Include="darkeden.ico" />
+    <CustomBuild Include="darkeden1.ico" />
+    <CustomBuild Include="fengshen.ico" />
   </ItemGroup>
 </Project>

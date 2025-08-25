@@ -19,6 +19,8 @@
 #include <Windows.h>
 #include <list>
 #include "DrawTypeDef.h"
+#include <iostream>
+#include <fstream>
 
 template <class DataType, class SizeType>
 class CSetManager {
@@ -43,8 +45,8 @@ class CSetManager {
 		//--------------------------------------------------------
 		// file I/O		
 		//--------------------------------------------------------		
-		bool		SaveToFile(class ofstream& file);
-		bool		LoadFromFile(class ifstream& file);
+		bool		SaveToFile(std::ofstream& file);
+		bool		LoadFromFile(std::ifstream& file);
 
 		//--------------------------------------------------------
 		// Get functions
@@ -52,7 +54,7 @@ class CSetManager {
 		SizeType	GetSize() const	{ return m_List.size(); }
 		
 		// 첫번째 위치의 List Iterater를 넘겨준다.
-		DATA_LIST::const_iterator	GetIterator() const	{ return m_List.begin(); }
+		typename DATA_LIST::const_iterator	GetIterator() const { return m_List.begin(); }
 
 	protected :			
 		DATA_LIST			m_List;		// Data pointer들을 저장해둔다.
@@ -193,7 +195,7 @@ CSetManager<DataType, SizeType>::Remove(const DataType data)
 //----------------------------------------------------------------------
 template <class DataType, class SizeType>
 bool
-CSetManager<DataType, SizeType>::SaveToFile(class ofstream& file)
+CSetManager<DataType, SizeType>::SaveToFile(std::ofstream& file)
 {
 	// size
 	SizeType size = m_List.size();
@@ -232,7 +234,7 @@ CSetManager<DataType, SizeType>::SaveToFile(class ofstream& file)
 //----------------------------------------------------------------------
 template <class DataType, class SizeType>
 bool
-CSetManager<DataType, SizeType>::LoadFromFile(class ifstream& file)
+CSetManager<DataType, SizeType>::LoadFromFile(std::ifstream& file)
 {
 	// 이전에 있던 list를 지운다.
 	Release();

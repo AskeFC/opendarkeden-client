@@ -4,6 +4,7 @@
 #include "Client_PCH.h"
 #include "MObject.h"
 #include "MImageObject.h"
+#include <fstream>
 
 #ifdef __GAME_CLIENT__
 	#include "MTopView.h"
@@ -78,7 +79,7 @@ MImageObject::Set(TYPE_OBJECTID ImageObjectID, TYPE_SPRITEID SpriteID, int pX, i
 // Save To File
 //----------------------------------------------------------------------
 void	
-MImageObject::SaveToFile(ofstream& file)
+MImageObject::SaveToFile(std::ofstream& file)
 {
 	MObject::SaveToFile(file);	
 
@@ -95,7 +96,7 @@ MImageObject::SaveToFile(ofstream& file)
 // Load From File
 //----------------------------------------------------------------------
 void	
-MImageObject::LoadFromFile(ifstream& file)
+MImageObject::LoadFromFile(std::ifstream& file)
 {
 	MObject::LoadFromFile(file);
 

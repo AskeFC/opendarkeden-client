@@ -5,6 +5,7 @@
 #include "MString.h"
 #include "RankBonusTable.h"
 #include "RankBonusDef.h"
+#include <fstream>
 
 //---------------------------------------------------------------------------------
 // Global
@@ -27,7 +28,7 @@ RankBonusInfo::RankBonusInfo()
 }
 
 void				
-RankBonusInfo::LoadFromFile(class ifstream& file)
+RankBonusInfo::LoadFromFile(std::ifstream& file)
 {
 	file.read((char*)&m_type, 2);
 	m_Name.LoadFromFile(file);
@@ -39,7 +40,7 @@ RankBonusInfo::LoadFromFile(class ifstream& file)
 
 #ifndef __GAME_CLIENT__
 void		
-RankBonusInfo::SaveToFile(class ofstream& file)
+RankBonusInfo::SaveToFile(std::ofstream& file)
 {
 	file.write((const char*)&m_type, 2);
 	m_Name.SaveToFile(file);

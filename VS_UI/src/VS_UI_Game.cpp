@@ -1,5 +1,7 @@
 // VS_UI_Game.cpp
 
+#include <fstream>
+#include <iostream>
 #include "client_PCH.h"
 #include "VS_UI_Game.h"
 #include "VS_UI_filepath.h"
@@ -644,7 +646,7 @@ void C_VS_UI_GAME::ChangeToSlayerInterface()
 	wsprintf(sz_filename2,"UserSet\\%s-%d.set", g_char_slot_ingame.sz_name.c_str(),g_pUserInformation->WorldID);
 	wsprintf(sz_filename3,"UserSet\\%s-%d-%d.set", g_char_slot_ingame.sz_name.c_str(),g_Dimension,g_pUserInformation->WorldID);
 		
-	ifstream file(sz_filename3, ios::binary | ios::nocreate);
+	std::ifstream file(sz_filename3, std::ios::binary);
 	
 	if(file.is_open())
 	{
@@ -652,7 +654,7 @@ void C_VS_UI_GAME::ChangeToSlayerInterface()
 		file.close();
 	} else
 	{
-		file.open(sz_filename2, ios::binary | ios::nocreate);
+		file.open(sz_filename2, std::ios::binary);
 
 		if(file.is_open())
 		{
@@ -660,7 +662,7 @@ void C_VS_UI_GAME::ChangeToSlayerInterface()
 			file.close();
 		} else
 		{
-			file.open(sz_filename, ios::binary | ios::nocreate);
+			file.open(sz_filename, std::ios::binary);
 
 			if(file.is_open())
 			{
@@ -714,7 +716,7 @@ void C_VS_UI_GAME::ChangeToVampireInterface()
 	wsprintf(sz_filename2, "UserSet\\%s-%d.set", g_char_slot_ingame.sz_name.c_str(),g_pUserInformation->WorldID);
 	wsprintf(sz_filename3, "UserSet\\%s-%d-%d.set", g_char_slot_ingame.sz_name.c_str(),g_Dimension,g_pUserInformation->WorldID);
 	
-	ifstream file(sz_filename3, ios::binary | ios::nocreate);
+	std::ifstream file(sz_filename3, std::ios::binary);
 	
 	if(file.is_open())
 	{
@@ -722,14 +724,14 @@ void C_VS_UI_GAME::ChangeToVampireInterface()
 		file.close();
 	} else
 	{
-		file.open(sz_filename2, ios::binary | ios::nocreate);
+		file.open(sz_filename2, std::ios::binary);
 		if(file.is_open())
 		{
 			gpC_vs_ui_window_manager->LoadFromFile(file);
 			file.close();
 		} else
 		{
-			file.open(sz_filename, ios::binary | ios::nocreate);
+			file.open(sz_filename, std::ios::binary);
 			if(file.is_open())
 			{
 				gpC_vs_ui_window_manager->LoadFromFile(file);
@@ -1011,7 +1013,7 @@ C_VS_UI_GAME::~C_VS_UI_GAME()
 		g_Dimension,g_pUserInformation->WorldID);
 
 	
-	ofstream file(sz_filename, ios::binary);
+	std::ofstream file(sz_filename, std::ios::binary);
 	
 	if(file)
 	{
@@ -4621,7 +4623,7 @@ void C_VS_UI_GAME::Start()
 	m_pC_mailbox->LoadFromFile(mailFileName.GetString());
 
 	bool IsTestServer = false;
-	ifstream IsTestServerFile(FILE_INFO_TESTSERVER, ios::binary);
+	std::ifstream IsTestServerFile(FILE_INFO_TESTSERVER, std::ios::binary);
 	IsTestServerFile.read((char *)&IsTestServer, 1);
 	IsTestServerFile.close();
 	g_pUserInformation->IsTestServer = IsTestServer;
@@ -5636,7 +5638,7 @@ void C_VS_UI_GAME::ChangeToOustersInterface()
 	wsprintf(sz_filename2, "UserSet\\%s-%d.set", g_char_slot_ingame.sz_name.c_str(),g_pUserInformation->WorldID);
 	wsprintf(sz_filename3, "UserSet\\%s-%d-%d.set", g_char_slot_ingame.sz_name.c_str(),g_Dimension,g_pUserInformation->WorldID);
 	
-	ifstream file(sz_filename3, ios::binary | ios::nocreate);
+	std::ifstream file(sz_filename3, std::ios::binary);
 	
 	if(file.is_open())
 	{
@@ -5644,14 +5646,14 @@ void C_VS_UI_GAME::ChangeToOustersInterface()
 		file.close();
 	} else
 	{
-		file.open(sz_filename2, ios::binary | ios::nocreate);
+		file.open(sz_filename2, std::ios::binary);
 		if(file.is_open())
 		{
 			gpC_vs_ui_window_manager->LoadFromFile(file);
 			file.close();
 		} else
 		{
-			file.open(sz_filename, ios::binary | ios::nocreate);
+			file.open(sz_filename, std::ios::binary);
 			if(file.is_open())
 			{
 				gpC_vs_ui_window_manager->LoadFromFile(file);

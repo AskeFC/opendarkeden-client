@@ -7,6 +7,7 @@
 
 #include "DebugInfo.h"
 #include "Packet.h"
+#include <fstream>
 //#include "ScriptParameter.h"
 
 
@@ -31,7 +32,7 @@ MNPCScriptTable*		g_pNPCScriptTable = NULL;
 // Save To File
 //---------------------------------------------------------------------------
 void				
-NPC_SCRIPT::SaveToFile(class ofstream& file)
+NPC_SCRIPT::SaveToFile(std::ofstream& file)
 {
 	//file.write((const char*)&ScriptID, 4);
 	OwnerID.SaveToFile( file );
@@ -44,7 +45,7 @@ NPC_SCRIPT::SaveToFile(class ofstream& file)
 // Load From File
 //---------------------------------------------------------------------------
 void				
-NPC_SCRIPT::LoadFromFile(class ifstream& file)
+NPC_SCRIPT::LoadFromFile(std::ifstream& file)
 {
 	//file.read((char*)&ScriptID, 4);
 	OwnerID.LoadFromFile( file );
@@ -138,7 +139,7 @@ MNPCScriptTable::GetContent(int scriptID, int contentID) const
 // Save To File
 //----------------------------------------------------------------------
 void		
-MNPCScriptTable::SaveToFile(class ofstream& file)
+MNPCScriptTable::SaveToFile(std::ofstream& file)
 {
 	TYPE_MAP::iterator iData = begin();
 
@@ -167,7 +168,7 @@ MNPCScriptTable::SaveToFile(class ofstream& file)
 // Load From File
 //----------------------------------------------------------------------
 void		
-MNPCScriptTable::LoadFromFile(class ifstream& file)
+MNPCScriptTable::LoadFromFile(std::ifstream& file)
 {
 	//-----------------------------------------------------
 	// 기존에 있던것 제거

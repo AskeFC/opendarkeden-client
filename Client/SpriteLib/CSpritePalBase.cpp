@@ -1,7 +1,7 @@
 #include "client_PCH.h"
 #include "CSpritePalBase.h"
 #include "CSpriteSurface.h"
-
+#include <fstream>
 
 BYTE CSpritePalBase::s_Colorkey = 0xFF;
 
@@ -46,7 +46,7 @@ void CSpritePalBase::SetEmptySprite()
 	m_bInit = true;
 }
 
-bool CSpritePalBase::LoadFromFile(class ifstream &file)
+bool CSpritePalBase::LoadFromFile(std::ifstream &file)
 {
 	Release();
 	
@@ -85,7 +85,7 @@ bool CSpritePalBase::LoadFromFile(class ifstream &file)
 	return true;
 }
 
-bool CSpritePalBase::SaveToFile(class ofstream &file)
+bool CSpritePalBase::SaveToFile(std::ofstream &file)
 {
 	if(IsNotInit())
 	{
