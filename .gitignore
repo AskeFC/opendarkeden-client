@@ -33,6 +33,7 @@ ReleaseLog/*
 *.lib
 *.dll
 Darkeden
+DARKEDEN
 *.plg
 *.exp
 *.scc
@@ -48,3 +49,8 @@ ipch/
 *.sdf
 *.cachefile
 *.VC.db
+
+TEST Clients
+TOOLS
+DARKEDEN - Kopi
+infLoad
