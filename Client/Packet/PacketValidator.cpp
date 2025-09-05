@@ -19,6 +19,7 @@ PacketValidator::PacketValidator ()
 	__BEGIN_TRY
 
 	m_PacketIDSets.reserve(PLAYER_STATUS_MAX);
+	m_PacketIDSets.resize(PLAYER_STATUS_MAX);
 
 	for ( uint i = 0 ; i < PLAYER_STATUS_MAX ; i ++ ) {
 		m_PacketIDSets[i] = NULL;

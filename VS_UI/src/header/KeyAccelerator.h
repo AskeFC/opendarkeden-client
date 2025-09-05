@@ -73,6 +73,7 @@ class KeyAccelerator {
 		// Init
 		//------------------------------------------------------------
 		void				Init( int max );
+		void				SetAllDefaultAccelerators(unsigned short keys);
 
 		//------------------------------------------------------------
 		// Set AcceleratorKey

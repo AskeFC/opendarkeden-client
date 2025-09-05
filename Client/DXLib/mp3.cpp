@@ -284,7 +284,8 @@ int MP3_Decode(MP3* mp3)
 	for ( int gr = 0 ; gr < 2 ; gr++ )
 	{
 //		DispDebugMsg("%d번 그룹을 디코딩합니다.", gr) ;
-		for ( int ch = 0 ; ch < channel ; ch++ )
+        int ch = 0;
+		for ( ch = 0; ch < channel ; ch++ )
 		{
 			mp3->part2Start = br->hsstell() ;
 
@@ -297,7 +298,7 @@ int MP3_Decode(MP3* mp3)
 		}
 		stereodecode(mp3, gr);
 		
-		for (int ch=0; (unsigned int)ch<mp3->channels; ch++)
+		for (ch=0; (unsigned int)ch<mp3->channels; ch++)
 		{
 			reorder (mp3, mp3->lr[ch], ch, gr);
 			antialias(mp3, ch, gr);

@@ -669,13 +669,14 @@ MCreature::MCreature()
 	// Chatting String
 	//-------------------------------------------------------
 	m_ChatString = new char* [g_pClientConfig->MAX_CHATSTRING];
-	for (int i=0; i<g_pClientConfig->MAX_CHATSTRING; i++)
+    int i=0;
+	for (i=0; i<g_pClientConfig->MAX_CHATSTRING; i++)
 	{
 		m_ChatString[i] = new char [g_pClientConfig->MAX_CHATSTRINGLENGTH_PLUS1];
 	}
 	
 	m_ChatStringCurrent = 0;
-	for (int i=0; i<g_pClientConfig->MAX_CHATSTRING; i++)
+	for (i=0; i<g_pClientConfig->MAX_CHATSTRING; i++)
 	{
 		m_ChatString[i][0] = NULL;
 	}
@@ -695,13 +696,13 @@ MCreature::MCreature()
 	// 캐릭터에 붙어 있는 Effect종류
 	//-------------------------------------------------------
 	m_bAttachEffect = new bool [(*g_pEffectSpriteTypeTable).GetSize()];
-	for (int i=0; i<(*g_pEffectSpriteTypeTable).GetSize(); i++)
+	for (i=0; i<(*g_pEffectSpriteTypeTable).GetSize(); i++)
 	{
 		m_bAttachEffect[i] = false;
 	}
 
 	m_bEffectStatus = new bool [(*g_pEffectStatusTable).GetSize()];
-	for (int i=0; i<(*g_pEffectStatusTable).GetSize(); i++)
+	for (i=0; i<(*g_pEffectStatusTable).GetSize(); i++)
 	{
 		m_bEffectStatus[i] = false;
 	}

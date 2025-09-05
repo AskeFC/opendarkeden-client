@@ -647,11 +647,13 @@ CIndexSprite::SetPixel(WORD* pSource, WORD sourcePitch,
 	WORD	*pSourceTemp2;
 	pSourceTemp = pSource;
 
-	for (register int i=0; i<height; i++)
+    int i=0;
+    int j=0;
+	for (i=0; i<height; i++)
 	{
 		pSourceTemp2 = pSourceTemp;
 
-		for (register int j=0; j<width; j++)
+		for (j=0; j<width; j++)
 		{
 			// 투명색
 			if (*pSourceTemp2==s_Colorkey)
@@ -689,7 +691,7 @@ CIndexSprite::SetPixel(WORD* pSource, WORD sourcePitch,
 	//--------------------------------------------------
 	// 체크 체크~
 	//--------------------------------------------------
-	for (int i=0; i<height; i++)
+	for (i=0; i<height; i++)
 	{
 		//--------------------------------------------------
 		// 메모리 잡기
@@ -715,7 +717,7 @@ CIndexSprite::SetPixel(WORD* pSource, WORD sourcePitch,
 		//--------------------------------------------------
 		// 줄 단위 체크..
 		//--------------------------------------------------
-		for (register int j=0; j<width; j++)
+		for (j=0; j<width; j++)
 		{
 			//--------------------------------------------------
 			// 투명색이라면..
@@ -799,7 +801,7 @@ CIndexSprite::SetPixel(WORD* pSource, WORD sourcePitch,
 	//--------------------------------------------------
 	// ppColor와 ppIndex를 지워준다.
 	//--------------------------------------------------
-	for (int i=0; i<height; i++)
+	for (i=0; i<height; i++)
 	{
 		delete [] ppColor[i];
 		delete [] ppIndex[i];

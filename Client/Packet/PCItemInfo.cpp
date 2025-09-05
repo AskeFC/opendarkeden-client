@@ -70,7 +70,8 @@ void PCItemInfo::read ( SocketInputStream & iStream )
 	iStream.read( optionSize );
 
 	m_OptionType.clear();
-	for (int i = 0; i < optionSize; i++) 
+    int i = 0;
+	for (i = 0; i < optionSize; i++) 
 	{
 		OptionType_t optionType;
 		iStream.read( optionType );
@@ -85,7 +86,7 @@ void PCItemInfo::read ( SocketInputStream & iStream )
 	iStream.read( m_MainColor );
 	iStream.read( m_ListNum );
 
-	for (int i = 0; i < m_ListNum; i++) 
+	for (i = 0; i < m_ListNum; i++) 
 	{
 		SubItemInfo* pSubItemInfo = new SubItemInfo();
 		pSubItemInfo->read(iStream);

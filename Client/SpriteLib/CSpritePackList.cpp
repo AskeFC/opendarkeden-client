@@ -170,7 +170,8 @@ CSpritePackList::ChangeSprite(TYPE_SPRITEID n, TYPE_SPRITEID m)
 	//------------------------------------------------------
 	// n번째 sprite에 접근한다.
 	//------------------------------------------------------
-	for (TYPE_SPRITEID i=0; i<n; i++)
+	TYPE_SPRITEID i=0;
+    for (i=0; i<n; i++)
 		iFirstSprite++;
 
 	//------------------------------------------------------
@@ -178,7 +179,7 @@ CSpritePackList::ChangeSprite(TYPE_SPRITEID n, TYPE_SPRITEID m)
 	//------------------------------------------------------
 	temp = m-n;
 	SPRITE_LIST::iterator	iSecondSprite = iFirstSprite;
-	for (int i=n; i<temp; i++)
+	for (i = n; i<temp; i++)
 		iSecondSprite++;
 	
 	//------------------------------------------------------

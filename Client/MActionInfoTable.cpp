@@ -127,7 +127,8 @@ MActionInfo::MActionInfo()
 
 	m_bUseRepeatFrame = false;
 
-	for (int i=0; i<3; i++)
+    int i=0;
+	for (i=0; i<3; i++)
 	{
 		m_CastingStartFrame[i] = 0;	// casting effect의 시작 frame
 		m_CastingFrames[i]		= 0;	// casting effect의 지속 frame
@@ -161,7 +162,7 @@ MActionInfo::MActionInfo()
 	m_bUseGrade = false;
 	m_bUseActionStep = false;
 	
-	for(int i = 0 ; i< MAX_ACTION_STEP ;i ++ )
+	for(i = 0 ; i< MAX_ACTION_STEP ;i ++ )
 	{
 		m_ActionStep[i] = 0;
 	}

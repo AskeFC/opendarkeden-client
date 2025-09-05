@@ -3,22 +3,21 @@
 <pre>
 <h1>Build Log</h1>
 <h3>
---------------------Configuration: VolumeLib - Win32 Release--------------------
+--------------------Configuration: VolumeLib - Win32 Debug--------------------
 </h3>
 <h3>Command Lines</h3>
-Creating temporary file "C:\Users\Mandrake\AppData\Local\Temp\RSPCEED.tmp" with contents
+Creating temporary file "C:\Users\Mandrake\AppData\Local\Temp\RSP4A64.tmp" with contents
 [
-/nologo /MT /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_MBCS" /D "_LIB" /D "__TEST_SUB_INVENTORY__" /Fo"Release/" /Fd"Release/" /FD /c 
+/nologo /MTd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_MBCS" /D "_LIB" /D "__TEST_SUB_INVENTORY__" /Fp"Debug/VolumeLib.pch" /YX /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
 "C:\Dev\Projects\opendarkeden-client\Client\VolumeLib\VolumeOutMaster.cpp"
 "C:\Dev\Projects\opendarkeden-client\Client\VolumeLib\VolumeOutWave.cpp"
 ]
-Creating command line "cl.exe @C:\Users\Mandrake\AppData\Local\Temp\RSPCEED.tmp" 
-Creating command line "link.exe -lib /nologo /out:"Release\Volume.lib"  ".\Release\VolumeOutMaster.obj" ".\Release\VolumeOutWave.obj" "
+Creating command line "cl.exe @C:\Users\Mandrake\AppData\Local\Temp\RSP4A64.tmp" 
+Creating command line "link.exe -lib /nologo /out:"Debug\Volume.lib"  ".\Debug\VolumeOutMaster.obj" ".\Debug\VolumeOutWave.obj" "
 <h3>Output Window</h3>
 Compiling...
 VolumeOutMaster.cpp
 VolumeOutWave.cpp
-Generating Code...
 Creating library...
 
 

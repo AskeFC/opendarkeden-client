@@ -21,13 +21,14 @@ void GCRegenZoneStatusHandler::execute ( GCRegenZoneStatus * pPacket , Player * 
 	if( g_pRegenTowerInfoManager == NULL )
 		return;
 
-	for(int i = 0; i < 8 ; i++ )
+    int i = 0;
+	for(i = 0; i < 8 ; i++ )
 	{
 		RegenTowerInfo& pInfo = g_pRegenTowerInfoManager->Get( i );		
 		pInfo.owner = (int)pPacket->getStatus( i );
 	}
 
-	for(int i = 0; i < g_pRegenTowerInfoManager->GetSize(); i++)
+	for(i = 0; i < g_pRegenTowerInfoManager->GetSize(); i++)
 	{
 		RegenTowerInfo& pInfo = g_pRegenTowerInfoManager->Get( i );
 		if( i >= 8 && i <= 11 )

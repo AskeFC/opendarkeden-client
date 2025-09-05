@@ -216,7 +216,8 @@ CPartManager<IndexType, PartIndexType, DataType>::Init(IndexType maxIndex, PartI
 	m_nIndex = maxIndex;
 	m_pPartIndex = new PartIndexType [m_nIndex];
 
-	for (int i=0; i<m_nIndex; i++)
+    int i=0;
+	for (i=0; i<m_nIndex; i++)
 	{
 		m_pPartIndex[i] = m_PartIndexNULL;
 	}
@@ -236,7 +237,7 @@ CPartManager<IndexType, PartIndexType, DataType>::Init(IndexType maxIndex, PartI
 	m_listLRU.clear();
 	m_pPartIterator		= new PARTINDEX_LIST_ITERATOR [m_nPart];	// iterator
 
-	for (int i=0; i<m_nPart; i++)
+	for (i=0; i<m_nPart; i++)
 	{
 		m_pData[i] = NULL;
 		m_pParentIndex[i] = m_IndexNULL;
@@ -490,7 +491,8 @@ CPartManager<IndexType, PartIndexType, DataType>::GetData(IndexType index, DataT
 		// 그 시간을 0으로 만든다. --> 모두 그 시간만큼 뺀다.
 		int leastTimeIndex = 0;
 		int maxTimeIndex = 0;
-		for (int i=1; i<m_nPart; i++)
+        int i=1;
+		for (i=1; i<m_nPart; i++)
 		{
 			// 가장 적은 시간
 			if (m_pLastTime[i] < m_pLastTime[leastTimeIndex])
@@ -507,7 +509,7 @@ CPartManager<IndexType, PartIndexType, DataType>::GetData(IndexType index, DataT
 
 		// 모두 가장 작은 시간만큼 뺀다.
 		int leastTime = m_pLastTime[leastTimeIndex];
-		for (int i=0; i<m_nPart; i++)
+		for (i=0; i<m_nPart; i++)
 		{
 			m_pLastTime[i] -= m_pLastTime[leastTimeIndex];
 		}

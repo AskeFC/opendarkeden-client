@@ -769,12 +769,13 @@ WORD SocketInputStream::EncryptData(WORD EncryptKey, char* buf, int len)
 {
 	return EncryptKey;
 
-	for(int i = 0; i<len; i++)
+    int i = 0;
+	for(i = 0; i<len; i++)
 		*(buf + i) ^= 0xCC;
 	
 	if(m_HashTable == NULL) return EncryptKey;
 
-	for(int i = 0; i<len; i++)
+	for(i = 0; i<len; i++)
 	{
 		*(buf + i) ^= m_HashTable[EncryptKey];
 		if(++EncryptKey == 512)	EncryptKey = 0;

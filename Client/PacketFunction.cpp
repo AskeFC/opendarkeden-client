@@ -2252,7 +2252,8 @@ void SetBloodBibleSlot(BloodBibleSignInfo* pBloodBibleInfo)
 	{
 	case RACE_SLAYER:
 		{
-			for(int i = 0; i<g_pSlayerGear->GetBloodBibleOpenSlot() ; i++)
+            int i = 0;
+			for(i = 0; i<g_pSlayerGear->GetBloodBibleOpenSlot() ; i++)
 			{
 				MItem* pItem = g_pSlayerGear->RemoveItem((MSlayerGear::GEAR_SLAYER)(MSlayerGear::GEAR_SLAYER_BLOOD_BIBLE1+i));
 				SAFE_DELETE(pItem);
@@ -2260,7 +2261,7 @@ void SetBloodBibleSlot(BloodBibleSignInfo* pBloodBibleInfo)
 
 			g_pSlayerGear->SetBloodBibleOpenSlot(pBloodBibleInfo->getOpenNum());
 
-			for(int i = 0; i<TempSignList.size() ; i++)
+			for(i = 0; i<TempSignList.size() ; i++)
 			{
 				MItem* pItem = MItem::NewItem( ITEM_CLASS_BLOOD_BIBLE_SIGN );
 				pItem->SetItemType(	TempSignList[i] );
@@ -2273,14 +2274,15 @@ void SetBloodBibleSlot(BloodBibleSignInfo* pBloodBibleInfo)
 
 	case RACE_VAMPIRE:
 		{
-			for(int i = 0; i<g_pVampireGear->GetBloodBibleOpenSlot() ; i++)
+            int i = 0;
+			for(i = 0; i<g_pVampireGear->GetBloodBibleOpenSlot() ; i++)
 			{
 				MItem* pItem = g_pVampireGear->RemoveItem((MVampireGear::GEAR_VAMPIRE)(MVampireGear::GEAR_VAMPIRE_BLOOD_BIBLE1+i));
 				SAFE_DELETE(pItem);
 			}
 			g_pVampireGear->SetBloodBibleOpenSlot(pBloodBibleInfo->getOpenNum());
 
-			for(int i = 0; i<TempSignList.size() ; i++)
+			for(i = 0; i<TempSignList.size() ; i++)
 			{
 				MItem* pItem = MItem::NewItem( ITEM_CLASS_BLOOD_BIBLE_SIGN );
 				pItem->SetItemType(	TempSignList[i] );
@@ -2293,14 +2295,15 @@ void SetBloodBibleSlot(BloodBibleSignInfo* pBloodBibleInfo)
 
 	case RACE_OUSTERS:
 		{
-			for(int i = 0; i<g_pOustersGear->GetBloodBibleOpenSlot() ; i++)
+            int i = 0;
+			for(i = 0; i<g_pOustersGear->GetBloodBibleOpenSlot() ; i++)
 			{
 				MItem* pItem = g_pOustersGear->RemoveItem((MOustersGear::GEAR_OUSTERS)(MOustersGear::GEAR_OUSTERS_BLOOD_BIBLE1+i));
 				SAFE_DELETE(pItem);
 			}
 			g_pOustersGear->SetBloodBibleOpenSlot(pBloodBibleInfo->getOpenNum());
 
-			for(int i = 0; i<TempSignList.size() ; i++)
+			for(i = 0; i<TempSignList.size() ; i++)
 			{ 
 				MItem* pItem = MItem::NewItem( ITEM_CLASS_BLOOD_BIBLE_SIGN );
 				pItem->SetItemType(	TempSignList[i] );

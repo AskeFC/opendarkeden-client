@@ -801,7 +801,8 @@ void CDirectDraw::SetGammaRamp(WORD step)
 		int maxValue[3];
 		int stepValue[3];
 
-		for(int i = 0; i < 3; i++)
+        int i = 0;
+		for(i = 0; i < 3; i++)
 		{
 			WORD addGammaStep = max(-100, min(100, m_AddGammaStep[i]));
 			if(m_AddGammaStep[i] > 0)
@@ -823,7 +824,7 @@ void CDirectDraw::SetGammaRamp(WORD step)
 
 		WORD r, g, b;
 		 
-		for (int i=0; i<256; i++)
+		for (i=0; i<256; i++)
 		{
 			r = m_DDGammaRamp.red[i];
 			g = m_DDGammaRamp.green[i];

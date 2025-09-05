@@ -2723,7 +2723,8 @@ LoadZone(int n)
 		//-------------------------------------------------------
 		//g_ThreadJob = THREADJOB_LOAD_IMAGEOBJECT_SMALLZONE;				
 		//SetEvent(g_hFileEvent);
-		MString filename = (*g_pZoneTable).Get(g_nZoneLarge)->TeenFilename;
+		MString filename = (*g_pZoneTable).Get(g_nZoneLarge)->Filename;
+
 		if(g_pUserInformation->GoreLevel == false)
 		{
 			if((*g_pZoneTable).Get(g_nZoneLarge)->TeenFilename.GetLength() > 0)
@@ -3087,8 +3088,9 @@ LoadZoneInfo(int n)
 
 			MPortal portal;
 			RECT rect;
-				
-			for (int i=0; i<numPortal; i++)
+
+            int i=0;
+			for (i=0; i<numPortal; i++)
 			{			
 				portal.LoadFromFile( zoneInfoFile );
 
@@ -3146,7 +3148,7 @@ LoadZoneInfo(int n)
 			Race MyRace = g_pPlayer->GetRace();
 			DEBUG_ADD("bSlayer OK");
 
-			for (int i=0; i<numSafe; i++)
+			for (i=0; i<numSafe; i++)
 			{			
 				zoneInfoFile.read((char*)&rect2, SIZE_B_RECT);
 
@@ -3211,7 +3213,7 @@ LoadZoneInfo(int n)
 			// ousters horn을 맵에 심는다
 			UI_PORTAL_LIST portalList;
 			
-			for(int i = 0; i < g_pZone->GetHorn().size(); i++)
+			for(i = 0; i < g_pZone->GetHorn().size(); i++)
 			{
 				portalList = g_pZone->GetHorn()[i];
 				

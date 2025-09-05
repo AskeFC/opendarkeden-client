@@ -91,7 +91,8 @@ void PCSlayerInfo2::read ( SocketInputStream & iStream )
 		iStream.read( m_Gold );
 
 		// read skills
-		for ( uint i = 0 ; i < SKILL_DOMAIN_VAMPIRE ; i ++ ) {
+        uint i = 0;
+		for ( i = 0; i < SKILL_DOMAIN_VAMPIRE ; i ++ ) {
 			iStream.read( m_DomainLevels[i] );
 			iStream.read( m_DomainExps[i] );
 		}
@@ -100,7 +101,7 @@ void PCSlayerInfo2::read ( SocketInputStream & iStream )
 		iStream.read( m_Sight );
 
 		// read sight
-		for( int i = 0 ; i < 4 ; i++ ) 
+		for( i = 0 ; i < 4 ; i++ ) 
 		{
 			iStream.read( m_HotKey[i] );
 		}
@@ -206,7 +207,8 @@ void PCSlayerInfo2::write ( SocketOutputStream & oStream ) const
 		oStream.write( m_Gold );
 
 		// write skills
-		for ( uint i = 0 ; i < SKILL_DOMAIN_VAMPIRE ; i ++ ) {
+        uint i = 0;
+		for ( i = 0; i < SKILL_DOMAIN_VAMPIRE ; i ++ ) {
 			oStream.write( m_DomainLevels[i] );
 			oStream.write( m_DomainExps[i] );
 		}
@@ -215,7 +217,7 @@ void PCSlayerInfo2::write ( SocketOutputStream & oStream ) const
 		oStream.write( m_Sight );
 
 		// write HotKey
-		for(int i = 0; i < 4; i++ ) 
+		for(i = 0; i < 4; i++ ) 
 		{
 			oStream.write( m_HotKey[i] );
 		}

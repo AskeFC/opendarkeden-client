@@ -108,7 +108,8 @@ void PCSlayerInfo::read ( SocketInputStream & iStream )
 	//--------------------------------------------------
 	// read skills
 	//--------------------------------------------------
-	for ( uint i = 0 ; i < SKILL_DOMAIN_VAMPIRE; i ++ ) {
+    uint i = 0;
+	for ( i = 0; i < SKILL_DOMAIN_VAMPIRE; i ++ ) {
 		iStream.read( m_DomainLevels[i] );
 	}
 
@@ -127,7 +128,7 @@ void PCSlayerInfo::read ( SocketInputStream & iStream )
 	//--------------------------------------------------------------------------------
 	// read colors
 	//--------------------------------------------------------------------------------
-	for ( int i = 0 ; i < SLAYER_COLOR_MAX ; i ++ )
+	for ( i = 0 ; i < SLAYER_COLOR_MAX ; i ++ )
 		iStream.read( m_Colors[i] );
 
 
@@ -206,7 +207,8 @@ void PCSlayerInfo::write ( SocketOutputStream & oStream ) const
 	//--------------------------------------------------
 	// write skills
 	//--------------------------------------------------
-	for ( uint i = 0 ; i < SKILL_DOMAIN_VAMPIRE; i ++ ) {
+    uint i = 0;
+	for ( i = 0; i < SKILL_DOMAIN_VAMPIRE; i ++ ) {
 		oStream.write( m_DomainLevels[i] );
 	}
 
@@ -224,7 +226,7 @@ void PCSlayerInfo::write ( SocketOutputStream & oStream ) const
 	//--------------------------------------------------------------------------------
 	// write colors
 	//--------------------------------------------------------------------------------
-	for ( int i = 0 ; i < SLAYER_COLOR_MAX ; i ++ )
+	for ( i = 0 ; i < SLAYER_COLOR_MAX ; i ++ )
 		oStream.write( m_Colors[i] );
 
 	} catch (Throwable & t ) {
@@ -250,7 +252,7 @@ std::string PCSlayerInfo::toString () const
 		<< ",Name:" << m_Name 
 		<< ",Slot:" << Slot2String[m_Slot]
 		<< ",Alignment:" << m_Alignment
-		<< ",Rank:" << m_Rank
+		<< ",Rank:" << (int)m_Rank
 		<< ",STR[BASIC]:" << (int)m_STR 
 		<< ",DEX[BASIC]:" << (int)m_DEX
 		<< ",INT[BASIC]:" << (int)m_INT

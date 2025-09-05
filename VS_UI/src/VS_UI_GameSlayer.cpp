@@ -1651,7 +1651,8 @@ void C_VS_UI_SLAYER::Show()
 				domain[1] = -1;
 				domain[2] = -1;
 				
-				for(int i = 0; i < 3; i++)
+                int i = 0;
+				for(i = 0; i < 3; i++)
 				{
 					int high_level = -1;
 					
@@ -1742,7 +1743,7 @@ void C_VS_UI_SLAYER::Show()
 				wsprintf(sz_temp, "%d", g_char_slot_ingame.INT_CUR);
 				g_PrintColorStrShadow(x+num_x, y+bar_y+bar_gap*2, sz_temp, gpC_base->m_chatting_pi, RGB_WHITE, RGB_BLACK);
 				
-				for(int i = 0; i < 3; i++)
+				for(i = 0; i < 3; i++)
 				{
 					g_PrintColorStrShadow(x+str_x, y+bar_y+bar_gap*(3+i), domain_string[domain[i]-SKILLDOMAIN_BLADE], gpC_base->m_chatting_pi, RGB_WHITE, RGB_BLACK);
 					const int domain_level = (*g_pSkillManager)[domain[i]].GetDomainLevel();

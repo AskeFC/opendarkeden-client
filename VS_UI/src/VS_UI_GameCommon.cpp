@@ -2453,7 +2453,8 @@ bool C_VS_UI_TRIBE::MouseControl(UINT message, int _x, int _y)
 					char szTemp[256]={0,};
 					wsprintf(szTemp,"%d",g_char_slot_ingame.EXP_REMAIN);
 					temp[0] = szTemp;
-					for(int i = 3; i <= 13; i += 4)
+                    int i = 3;
+					for(i = 3; i <= 13; i += 4)
 					{
 						if(temp[0].size() > i) temp[0].insert(temp[0].size()-i, ",");
 					}
@@ -2462,7 +2463,7 @@ bool C_VS_UI_TRIBE::MouseControl(UINT message, int _x, int _y)
 					wsprintf(szTemp,"%d",(goal_exp-g_char_slot_ingame.EXP_REMAIN)*100/max(1, (goal_exp)));
 					
 					temp[1] = szTemp;
-					for(int i = 3; i <= 13; i += 4)
+					for(i = 3; i <= 13; i += 4)
 					{
 						if(temp[1].size() > i)temp[1].insert(temp[1].size()-i, ",");
 					}
@@ -4451,7 +4452,7 @@ void C_VS_UI_CHATTING::KeyboardControl(UINT message, UINT key, long extra)
 				{
 					if(m_history.size() == 20)
 					{
-						m_history.erase(m_history.cbegin());
+						m_history.erase(m_history.begin());
 					}
 					
 					PAPERING_HISTORY temp_history;
@@ -4476,11 +4477,11 @@ void C_VS_UI_CHATTING::KeyboardControl(UINT message, UINT key, long extra)
 						}
 						else
 						{
-							temp_history.m_timer.erase(temp_history.m_timer.cbegin());
+							temp_history.m_timer.erase(temp_history.m_timer.begin());
 						}
 					}
 
-					m_history.erase(m_history.cbegin());
+					m_history.erase(m_history.begin());
 					temp_history.m_string = sz_chat_str;
 					temp_history.m_timer.push_back(GetTickCount());
 					m_history.push_back(temp_history);
@@ -8853,8 +8854,8 @@ bool C_VS_UI_INVENTORY::Click(int grid_start_x, int grid_start_y)
 				else
 					bCanUpgrade = false;
 			} else
-			// add by svi 2009-07-01   ÈÃ»Æ «Ë®µÎ¿ÉÒÔ ý¼?ÊôÐÔºÍ2ÊôÐÔ×°±¸
-			if(pMouseItem->GetItemType() == 22)			// »Æ «Ë®µÎ
+			// add by svi 2009-07-01   ÈÃ»Æ.«Ë®µÎ¿ÉÒÔ.ý¼?ÊôÐÔºÍ2ÊôÐÔ×°±¸
+			if(pMouseItem->GetItemType() == 22)			// »Æ.«Ë®µÎ
 			{
 				if(p_cur_item->GetItemOptionListCount() == 1 || p_cur_item->GetItemOptionListCount() == 2)
 					bCanUpgrade = true;
@@ -12165,7 +12166,8 @@ C_VS_UI_INFO::C_VS_UI_INFO()
 			
 			if(C_VS_UI_SKILL::m_C_spk[0].IsInit())
 			{
-				for(int i=0;i<3;i++)
+                int i=0;
+				for(i=0;i<3;i++)
 				{
 					int aaa = button_x+(C_VS_UI_SKILL::m_C_spk[0].GetWidth()*(i/4))+gap_x*(i/4);
 					m_pC_grade3_button_group->Add(new C_VS_UI_EVENT_BUTTON(
@@ -12175,7 +12177,7 @@ C_VS_UI_INFO::C_VS_UI_INFO()
 						Button_ID+i, this, i));
 				}
 
-				for(int i=0 ;i<3;i++)
+				for(i=0 ;i<3;i++)
 				{
 					int eeg = button_x+10+C_VS_UI_SKILL::m_C_spk[0].GetWidth()+(C_VS_UI_SKILL::m_C_spk[0].GetWidth()*(i/4))+gap_x*(i/4);
 					m_pC_grade3_button_group->Add(new C_VS_UI_EVENT_BUTTON(
@@ -12262,7 +12264,8 @@ C_VS_UI_INFO::C_VS_UI_INFO()
 
 			if(C_VS_UI_SKILL::m_C_spk[0].IsInit())
 			{
-				for(int i=0;i<3;i++)
+                int i=0;
+				for(i=0;i<3;i++)
 				{
 					
 					m_pC_grade3_button_group->Add(new C_VS_UI_EVENT_BUTTON(
@@ -12273,7 +12276,7 @@ C_VS_UI_INFO::C_VS_UI_INFO()
 						Button_ID+i, this, i));			
 				}
 				
-				for(int i=0 ;i<3;i++)
+				for(i=0 ;i<3;i++)
 				{
 					m_pC_grade3_button_group->Add(new C_VS_UI_EVENT_BUTTON(
 						button_x+10+C_VS_UI_SKILL::m_C_spk[0].GetWidth()+(C_VS_UI_SKILL::m_C_spk[0].GetWidth()*(i/4))+gap_x*(i/4),
@@ -12306,7 +12309,8 @@ C_VS_UI_INFO::C_VS_UI_INFO()
 			
 			if(C_VS_UI_SKILL::m_C_spk[0].IsInit())
 			{
-				for(int i=0;i<8;i++)
+                int i=0;
+				for(i=0;i<8;i++)
 				{
 					m_pC_grade1_button_group->Add(new C_VS_UI_EVENT_BUTTON(
 						button_x+(C_VS_UI_SKILL::m_C_spk[0].GetWidth()*(i&0x3))+gap_x*(i&0x3),
@@ -12315,7 +12319,7 @@ C_VS_UI_INFO::C_VS_UI_INFO()
 						Button_ID+i, this, i));
 				}
 
-				for(int i=0 ;i<3;i++)
+				for(i=0 ;i<3;i++)
 				{
 					m_pC_grade3_button_group->Add(new C_VS_UI_EVENT_BUTTON(
 						button_x+10+C_VS_UI_SKILL::m_C_spk[0].GetWidth()+(C_VS_UI_SKILL::m_C_spk[0].GetWidth()*(i/4))+gap_x*(i/4),
@@ -13983,7 +13987,8 @@ bool	C_VS_UI_INFO::CharacterInfoMouseControl(UINT message, int _x, int _y)
 				// ¼ýÀÚ»çÀÌ¿¡ ,³Ö±â
 				wsprintf(temp, "%d", num1);
 				std::string sstr1 = temp;
-				for(int i = 3; i <= 13; i += 4)
+                int i = 3;
+				for(i = 3; i <= 13; i += 4)
 				{
 					if(sstr1.size() > i)sstr1.insert(sstr1.size()-i, ",");
 				}
@@ -13991,7 +13996,7 @@ bool	C_VS_UI_INFO::CharacterInfoMouseControl(UINT message, int _x, int _y)
 				// ¼ýÀÚ»çÀÌ¿¡ ,³Ö±â
 				wsprintf(temp, "%d", num2);
 				std::string sstr2 = temp;
-				for(int i = 3; i <= 13; i += 4)
+				for(i = 3; i <= 13; i += 4)
 				{
 					if(sstr2.size() > i)sstr2.insert(sstr2.size()-i, ",");
 				}
@@ -14271,14 +14276,15 @@ grade :			str[2]=NULL;
 
 				wsprintf(szTemp,"%d", g_char_slot_ingame.EXP_REMAIN);
 				temp[0] = szTemp;
-				for(int i = 3; i <= 13; i += 4)
+                int i = 3;
+				for(i = 3; i <= 13; i += 4)
 				{
 					if(temp[0].size() > i)temp[0].insert(temp[0].size()-i, ",");
 				}
 				const __int64 goal_exp = g_pExperienceTable->GetVampireInfo(g_char_slot_ingame.level).GoalExp;
 				wsprintf(szTemp,"%d", (goal_exp - g_char_slot_ingame.EXP_REMAIN)*100/max(1, (goal_exp)));
 				temp[1] = szTemp;
-				for(int i = 3; i <= 13; i += 4)
+				for(i = 3; i <= 13; i += 4)
 					if(temp[1].size() > i)temp[1].insert(temp[1].size()-i, ",");
 				wsprintf(temp_str[0], (*g_pGameStringTable)[UI_STRING_MESSAGE_HPBAR_EXP_DESCRIPTION_NEW].GetString(), temp[0].c_str(), temp[1].c_str());
 				int fame = g_pFameInfoTable->GetFameForLevel( SKILLDOMAIN_VAMPIRE, g_char_slot_ingame.level );
@@ -14474,14 +14480,15 @@ grade :			str[2]=NULL;
 
 					wsprintf(szTemp,"%d", g_char_slot_ingame.EXP_REMAIN);
 					temp[0] = szTemp;
-					for(int i = 3; i <= 13; i += 4)
+                    int i = 3;
+					for(i = 3; i <= 13; i += 4)
 					{
 						if(temp[0].size() > i)temp[0].insert(temp[0].size()-i, ",");
 					}
 					const __int64 goal_exp = g_pExperienceTable->GetOustersInfo(g_char_slot_ingame.level).GoalExp;
 					wsprintf(szTemp,"%d", (goal_exp - g_char_slot_ingame.EXP_REMAIN)*100/max(1, (goal_exp)));
 					temp[1] = szTemp;
-					for(int i = 3; i <= 13; i += 4)
+					for(i = 3; i <= 13; i += 4)
 						if(temp[1].size() > i)temp[1].insert(temp[1].size()-i, ",");
 					wsprintf(temp_str[0], (*g_pGameStringTable)[UI_STRING_MESSAGE_HPBAR_EXP_DESCRIPTION_NEW].GetString(), temp[0].c_str(), temp[1].c_str());
 					int fame = g_pFameInfoTable->GetFameForLevel( SKILLDOMAIN_OUSTERS, g_char_slot_ingame.level );
@@ -17188,7 +17195,8 @@ void	C_VS_UI_INFO::_Show2()
 				AddPosition.x = x + field2_x;
 				AddPosition.y = y + field2_y;
 
-				for(int i = 0; i < 4; i++ )
+                int i = 0;
+				for(i = 0; i < 4; i++ )
 				{
 					gpC_global_resource->m_pC_info_spk->BltLocked(AddPosition.x + pSkin->GetPoint( slayerpos + i + 3 ).x,
 						AddPosition.y + pSkin->GetPoint( slayerpos + i + 3 ).y + field2_gap * i, C_GLOBAL_RESOURCE::TITLE_STR + i );
@@ -17197,7 +17205,7 @@ void	C_VS_UI_INFO::_Show2()
 				gpC_global_resource->m_pC_info_spk->BltLocked(AddPosition.x + pSkin->GetPoint( slayerpos+ 4 + 3 ).x,   
 					AddPosition.y+field2_gap*4+ pSkin->GetPoint( slayerpos+ 4 + 3 ).y, C_GLOBAL_RESOURCE::TITLE_MP);
 
-				for(int i = 5; i <= 8; i++ )
+				for(i = 5; i <= 8; i++ )
 				{
 					gpC_global_resource->m_pC_info_spk->BltLocked(AddPosition.x + pSkin->GetPoint( slayerpos + i + 3 ).x,
 						AddPosition.y + pSkin->GetPoint( slayerpos + i + 3 ).y + field2_gap * i, C_GLOBAL_RESOURCE::TITLE_TOHIT + i - 5 );
@@ -17205,10 +17213,10 @@ void	C_VS_UI_INFO::_Show2()
 
 				AddPosition.x = x + field2_x2;
 
-				for(int i = 0; i <= 2 ; i++ )
+				for(i = 0; i <= 2 ; i++ )
 					gpC_global_resource->m_pC_info_spk->BltLocked(AddPosition.x, AddPosition.y+field2_gap*i, C_GLOBAL_RESOURCE::SMALL_BAR);
 				
-				for(int i = 3; i <= 8 ; i++ )
+				for(i = 3; i <= 8 ; i++ )
 					gpC_global_resource->m_pC_info_spk->BltLocked( AddPosition.x, AddPosition.y+field2_gap*i, C_GLOBAL_RESOURCE::SMALL_BAR2 );				
 				
 				
@@ -17602,7 +17610,8 @@ void	C_VS_UI_INFO::_Show2()
 				// str, dex, int, hp, mp, tohit, damage, defence, protectionÃâ·Â
 				AddPosition.x = x + field2_x;
 				AddPosition.y = y + field2_y;
-				for(int i = 0; i < 8 ; i ++ )
+                int i = 0;
+				for(i = 0; i < 8 ; i ++ )
 				{
 					gpC_global_resource->m_pC_info_spk->BltLocked( AddPosition.x + pSkin->GetPoint( vampirepos + 4+i ).x,
 						AddPosition.y + pSkin->GetPoint( vampirepos + 4 +i ).y + field2_gap * i,
@@ -17611,7 +17620,7 @@ void	C_VS_UI_INFO::_Show2()
 
 				AddPosition.x = x + field2_x2;
 				AddPosition.y = y + field2_y;
-				for(int i = 0; i < 8 ; i++ )
+				for(i = 0; i < 8 ; i++ )
 				{
 					gpC_global_resource->m_pC_info_spk->BltLocked( AddPosition.x, AddPosition.y + field2_gap * i, C_GLOBAL_RESOURCE::SMALL_BAR2 );
 				}
@@ -22549,8 +22558,8 @@ void C_VS_UI_MINIMAP::MouseControlExtra(UINT message, int _x, int _y)
 			//				if(m_map_w > m_map_h)map_h = map_h * m_map_h / m_map_w;
 			//				if(m_map_h > m_map_w)map_w = map_w * m_map_w / m_map_h;
 			//			}
-			
-			for(int i = 0; i < m_portal.size(); i++)
+			int i = 0;
+			for(i = 0; i < m_portal.size(); i++)
 			{
 				int x = m_map_start_point.x + (m_portal[i].left+m_portal[i].right)/2*map_w/m_map_w;
 				int y = m_map_start_point.y + (m_portal[i].top+m_portal[i].bottom)/2*map_h/m_map_h;
@@ -22582,7 +22591,7 @@ void C_VS_UI_MINIMAP::MouseControlExtra(UINT message, int _x, int _y)
 				}
 			}
 			
-			for(int i = 0; i < m_npc.size(); i++)
+			for(i = 0; i < m_npc.size(); i++)
 			{
 				int x = m_map_start_point.x + m_npc[i].x*map_w/m_map_w;
 				int y = m_map_start_point.y + m_npc[i].y*map_h/m_map_h;
@@ -22613,7 +22622,7 @@ void C_VS_UI_MINIMAP::MouseControlExtra(UINT message, int _x, int _y)
 				}
 			}
 			
-			for(int i = 0; i < m_shrine.size(); i++)
+			for(i = 0; i < m_shrine.size(); i++)
 			{
 				int x = m_map_start_point.x + m_shrine[i].x*map_w/m_map_w;
 				int y = m_map_start_point.y + m_shrine[i].y*map_h/m_map_h;
@@ -22625,7 +22634,7 @@ void C_VS_UI_MINIMAP::MouseControlExtra(UINT message, int _x, int _y)
 				}
 			}
 
-			for(int i = 0; i < g_pParty->GetSize(); i++)
+			for(i = 0; i < g_pParty->GetSize(); i++)
 			{
 				PARTY_INFO *info = g_pParty->GetMemberInfo(i);
 				if(info != NULL && info->zoneID == GetZoneID())
@@ -22653,7 +22662,7 @@ void C_VS_UI_MINIMAP::MouseControlExtra(UINT message, int _x, int _y)
 				}
 			}
 			
-			for(int i = 0; i < m_Flag.size(); i++)
+			for(i = 0; i < m_Flag.size(); i++)
 			{
 				int x = m_map_start_point.x + m_Flag[i].x*map_w/m_map_w;
 				int y = m_map_start_point.y + m_Flag[i].y*map_h/m_map_h;
@@ -30800,7 +30809,8 @@ void	C_VS_UI_BRING_FEE::Show()
 		wsprintf(money_buf, "%d", m_TotalFee);
 		std::string sstr = money_buf;
 		
-		for(int i = 3; i <= 13; i += 4)
+        int i = 3;
+		for(i = 3; i <= 13; i += 4)
 			if(sstr.size() > i)
 				sstr.insert(sstr.size()-i, ",");
 			
@@ -30821,7 +30831,7 @@ void	C_VS_UI_BRING_FEE::Show()
 		wsprintf(money_buf, "%d", m_BringFee);
 		sstr = money_buf;
 		
-		for(int i = 3; i <= 13; i += 4)
+		for(i = 3; i <= 13; i += 4)
 			if(sstr.size() > i)
 				sstr.insert(sstr.size()-i, ",");
 			
@@ -34944,8 +34954,8 @@ void C_VS_UI_WORLDMAP::MouseControlExtra(UINT message, int _x, int _y)
 			//				if(m_map_w > m_map_h)map_h = map_h * m_map_h / m_map_w;
 			//				if(m_map_h > m_map_w)map_w = map_w * m_map_w / m_map_h;
 			//			}
-			
-			for(int i = 0; i < m_portal.size(); i++)
+			int i = 0;
+			for(i = 0; i < m_portal.size(); i++)
 			{
 				int x = m_map_start_point.x + (m_portal[i].left+m_portal[i].right)/2*map_w/m_map_w;
 				int y = m_map_start_point.y + (m_portal[i].top+m_portal[i].bottom)/2*map_h/m_map_h;
@@ -34977,7 +34987,7 @@ void C_VS_UI_WORLDMAP::MouseControlExtra(UINT message, int _x, int _y)
 				}
 			}
 			
-			for(int i = 0; i < m_npc.size(); i++)
+			for(i = 0; i < m_npc.size(); i++)
 			{
 				int x = m_map_start_point.x + m_npc[i].x*map_w/m_map_w;
 				int y = m_map_start_point.y + m_npc[i].y*map_h/m_map_h;
@@ -35008,7 +35018,7 @@ void C_VS_UI_WORLDMAP::MouseControlExtra(UINT message, int _x, int _y)
 				}
 			}
 			
-			for(int i = 0; i < m_shrine.size(); i++)
+			for(i = 0; i < m_shrine.size(); i++)
 			{
 				int x = m_map_start_point.x + m_shrine[i].x*map_w/m_map_w;
 				int y = m_map_start_point.y + m_shrine[i].y*map_h/m_map_h;
@@ -35020,7 +35030,7 @@ void C_VS_UI_WORLDMAP::MouseControlExtra(UINT message, int _x, int _y)
 				}
 			}
 
-			for(int i = 0; i < g_pParty->GetSize(); i++)
+			for(i = 0; i < g_pParty->GetSize(); i++)
 			{
 				PARTY_INFO *info = g_pParty->GetMemberInfo(i);
 				if(info != NULL && info->zoneID == GetZoneID())
@@ -35048,7 +35058,7 @@ void C_VS_UI_WORLDMAP::MouseControlExtra(UINT message, int _x, int _y)
 				}
 			}
 			
-			for(int i = 0; i < m_Flag.size(); i++)
+			for(i = 0; i < m_Flag.size(); i++)
 			{
 				int x = m_map_start_point.x + m_Flag[i].x*map_w/m_map_w;
 				int y = m_map_start_point.y + m_Flag[i].y*map_h/m_map_h;

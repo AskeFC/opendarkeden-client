@@ -2,113 +2,200 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <Filter Include="Source Files">
-      <UniqueIdentifier>{a2684261-a903-4344-81e6-6d086331d112}</UniqueIdentifier>
+      <UniqueIdentifier>{231e3600-607b-4e1e-85e2-9c8011e9de24}</UniqueIdentifier>
       <Extensions>cpp;c;cxx;rc;def;r;odl;idl;hpj;bat</Extensions>
     </Filter>
     <Filter Include="Source Files\GameObject Source">
-      <UniqueIdentifier>{31e13671-5356-496d-8f7b-e4c798baaaab}</UniqueIdentifier>
+      <UniqueIdentifier>{9da7a655-2192-4cb7-8e4d-e9ac1b81c275}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\GameObject Source\EffectGenerator">
-      <UniqueIdentifier>{82498d4e-8d1c-40fd-a43d-e02e251bbe82}</UniqueIdentifier>
+      <UniqueIdentifier>{c6660442-1aca-40ef-9d35-9feb40cbd305}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\GameObject Source\Object class source">
-      <UniqueIdentifier>{fd72629b-a14a-4d99-8109-642aee359332}</UniqueIdentifier>
+      <UniqueIdentifier>{9ff92480-dbcf-4ac9-bf5d-9f4e428f60d1}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\GameObject Source\Effect class source">
-      <UniqueIdentifier>{405371c8-f1f0-45d8-9995-a8d79eb6d997}</UniqueIdentifier>
+      <UniqueIdentifier>{51f498a3-25c0-4531-9b05-ba541f242f6e}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\GameObject Source\Information class No. 1">
-      <UniqueIdentifier>{95f89a75-d917-44f7-98ea-d226a82fc664}</UniqueIdentifier>
+      <UniqueIdentifier>{070ae6fa-a423-4463-b49e-7472b535050a}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\GameObject Source\ItemManager source">
-      <UniqueIdentifier>{2782ed10-5132-4102-a40e-328f810176c3}</UniqueIdentifier>
+      <UniqueIdentifier>{cf7eebf5-a47c-4958-8f08-787f5e02430a}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\GameObject Source\Shop Source">
-      <UniqueIdentifier>{9bb9f832-d9e5-4ac6-aae4-c85e90dfa55a}</UniqueIdentifier>
+      <UniqueIdentifier>{74c86b5b-41c2-4d62-84df-01d780f6b5f8}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\GameObject Source\World source">
-      <UniqueIdentifier>{a1c54881-1451-497e-abee-6c687481de4a}</UniqueIdentifier>
+      <UniqueIdentifier>{bc2ccd98-01e0-4f96-b5ec-69c5d89ead72}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\GameObject Source\Help source">
-      <UniqueIdentifier>{2d3775e8-c4f8-49f9-a435-24b839d25fc5}</UniqueIdentifier>
+      <UniqueIdentifier>{56f9663d-3e9c-44b8-82b5-cee7a7c26b29}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\GameObject Source\Party&amp;Guild">
-      <UniqueIdentifier>{ee69caea-8682-42c9-895e-fc42560e8cb0}</UniqueIdentifier>
+      <UniqueIdentifier>{2e0940b3-92c2-471b-9a00-a3f19e0fd3af}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Utility source">
-      <UniqueIdentifier>{e25511a5-570f-4fe3-b55f-7fc3c312038c}</UniqueIdentifier>
+      <UniqueIdentifier>{3132508f-a8f9-468e-bae7-d4132826b810}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\GameLoop source">
-      <UniqueIdentifier>{8c06e50c-aa36-4fd4-8b9d-3b878f539c92}</UniqueIdentifier>
+      <UniqueIdentifier>{934bcfb5-6efd-43b2-bde1-45cddea3df1e}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Player/Zone/View source">
-      <UniqueIdentifier>{e3e53ede-bb39-43c9-b52d-d62fce02526b}</UniqueIdentifier>
+      <UniqueIdentifier>{e4f00ca3-7078-4cc5-8148-b127561e9e3a}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Packet source">
-      <UniqueIdentifier>{8998fd2d-e1df-4466-8cf1-bf41436f5636}</UniqueIdentifier>
+      <UniqueIdentifier>{121254b8-f2a5-4ac5-9e39-311baef0250d}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Patch source">
-      <UniqueIdentifier>{59de8055-b839-4537-94bb-4eba29ba2804}</UniqueIdentifier>
+      <UniqueIdentifier>{a915b8d8-f46c-4288-8dd3-cf7766373c1e}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\ZLib source">
-      <UniqueIdentifier>{914b1b7f-a49d-4196-8a91-efabed0b92c5}</UniqueIdentifier>
+      <UniqueIdentifier>{c1664b45-b467-4537-8054-b866e3bc94a1}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\RequestPlayer">
-      <UniqueIdentifier>{4559ecb7-0726-47d6-8e90-f72120f19c78}</UniqueIdentifier>
+      <UniqueIdentifier>{f74f5a7f-daa0-4982-b3f4-41f32ea0d121}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files">
-      <UniqueIdentifier>{d22d0599-970a-4b94-a9bf-bce6ad24c225}</UniqueIdentifier>
+      <UniqueIdentifier>{286a1162-0c37-4b6b-96f4-2e3af9db227d}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\GameObject Header">
-      <UniqueIdentifier>{dc353dcf-d193-40e3-8c20-419a473242ac}</UniqueIdentifier>
+      <UniqueIdentifier>{1192d1ce-3744-4f86-951e-8b40128a129b}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\GameObject Header\EffectGenerator No. 1">
-      <UniqueIdentifier>{63821e57-3937-4285-b8c8-aa2063e2370f}</UniqueIdentifier>
+      <UniqueIdentifier>{28685773-5746-451c-8f2d-50fcab5c3f67}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\GameObject Header\Effect class">
-      <UniqueIdentifier>{66c22c00-b495-45b0-b4d3-1360ce815496}</UniqueIdentifier>
+      <UniqueIdentifier>{4b3a6e43-ae5c-4a8b-ad42-f22393007f40}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\GameObject Header\Object class">
-      <UniqueIdentifier>{e3ce5973-2599-4a8e-bcf7-7d65922ed73b}</UniqueIdentifier>
+      <UniqueIdentifier>{08420df1-492e-4cb4-923a-14214e50ecb3}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\GameObject Header\Information class">
-      <UniqueIdentifier>{6df4e5b2-e1c6-4a9e-bcac-92739b719342}</UniqueIdentifier>
+      <UniqueIdentifier>{3d5d1759-378c-426b-8128-efb999f5d810}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\GameObject Header\ItemManager">
-      <UniqueIdentifier>{5d67af91-f4c5-4153-a38c-8166310331ce}</UniqueIdentifier>
+      <UniqueIdentifier>{86f011bf-103f-4aa9-9a19-33c5b9bf5b28}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\GameObject Header\Shop">
-      <UniqueIdentifier>{dfd00bba-6a71-4b0a-84b9-6325dc3ed26a}</UniqueIdentifier>
+      <UniqueIdentifier>{656d57a9-06a3-43b6-bd0c-b7efed2557f4}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\GameObject Header\Help header">
-      <UniqueIdentifier>{832a33ac-67a5-46f0-8945-936e7fd2630d}</UniqueIdentifier>
+      <UniqueIdentifier>{92812184-8100-4407-8da9-253ac8aefc7e}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\GameObject Header\World header">
-      <UniqueIdentifier>{fa3fb6c4-f12a-45f2-ae83-88864dfa5b17}</UniqueIdentifier>
+      <UniqueIdentifier>{7416fdf6-4ff3-4e71-a748-5eceb930c095}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\GameObject Header\Party&amp;Guild header">
-      <UniqueIdentifier>{8afc9384-2d18-4249-b3d4-0f8f34ac7203}</UniqueIdentifier>
+      <UniqueIdentifier>{961d5e31-b946-4d53-9911-4bef017b95ed}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\GameLoop">
-      <UniqueIdentifier>{81464e15-9f28-4728-aa90-3b5b1472a0d7}</UniqueIdentifier>
+      <UniqueIdentifier>{d7a713e7-2b1b-41f3-8ff1-8607c43753e0}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\Utility">
-      <UniqueIdentifier>{eb1b7c76-52c3-436c-822a-cdebc031c555}</UniqueIdentifier>
+      <UniqueIdentifier>{4d60a18a-e3c5-440b-90e4-c789c1f3dd6c}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\Player/Zone/View">
-      <UniqueIdentifier>{458160d5-4726-4731-b28e-5ae579c93908}</UniqueIdentifier>
+      <UniqueIdentifier>{1dc64080-829d-4266-976f-1d1ef2429f17}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\Packet Header">
-      <UniqueIdentifier>{81d90309-06ac-4dfd-a808-1c01b7868901}</UniqueIdentifier>
+      <UniqueIdentifier>{5dfe7279-6457-46ca-bed5-20261461e088}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\Patch">
-      <UniqueIdentifier>{c3b49779-e5c9-4153-93ac-ba5284cfc0a0}</UniqueIdentifier>
+      <UniqueIdentifier>{61a9b99a-058d-4f64-91f4-74d1bbd67da2}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\RequestPlayer header">
-      <UniqueIdentifier>{d4152f1e-68fd-4ae7-8c8d-d2bb752d5ef9}</UniqueIdentifier>
+      <UniqueIdentifier>{3035f6a1-50de-4d95-b307-6d0fffb2f884}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="spritelib\CAlphaSprite.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SpriteLib\CFileIndexTable.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Packet\Cpackets\CGConnectSetKey.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Packet\Cpackets\CGConnectSetKeyHandler.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ClientConfig.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ClientFunction.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CMP3.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CNormalSpriteTexturePartManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CSystemInfo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\vs_ui\DebugInfo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DebugKit.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EXECryptor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GAME1024.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="md5.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MTestDef.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OtherClass\RequestClientPacketFactoryManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OtherClass\RequestServerPacketFactoryManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ServerInfoFileParser.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ShrineInfoManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SkillDef.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MChatManager.cpp">
+      <Filter>Source Files\GameObject Source</Filter>
+    </ClCompile>
+    <ClCompile Include="MJusticeAttackManager.cpp">
+      <Filter>Source Files\GameObject Source</Filter>
+    </ClCompile>
+    <ClCompile Include="MObjectSelector.cpp">
+      <Filter>Source Files\GameObject Source</Filter>
+    </ClCompile>
+    <ClCompile Include="ModifyStatusManager.cpp">
+      <Filter>Source Files\GameObject Source</Filter>
+    </ClCompile>
+    <ClCompile Include="MRequestMode.cpp">
+      <Filter>Source Files\GameObject Source</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundNode.cpp">
+      <Filter>Source Files\GameObject Source</Filter>
+    </ClCompile>
+    <ClCompile Include="TalkBox.cpp">
+      <Filter>Source Files\GameObject Source</Filter>
+    </ClCompile>
+    <ClCompile Include="UIDialog.cpp">
+      <Filter>Source Files\GameObject Source</Filter>
+    </ClCompile>
+    <ClCompile Include="UIMessageManager.cpp">
+      <Filter>Source Files\GameObject Source</Filter>
+    </ClCompile>
     <ClCompile Include="MAroundZoneEffectGenerator.cpp">
       <Filter>Source Files\GameObject Source\EffectGenerator</Filter>
     </ClCompile>
@@ -513,33 +600,6 @@
     </ClCompile>
     <ClCompile Include="MParty.cpp">
       <Filter>Source Files\GameObject Source\Party&amp;Guild</Filter>
-    </ClCompile>
-    <ClCompile Include="MChatManager.cpp">
-      <Filter>Source Files\GameObject Source</Filter>
-    </ClCompile>
-    <ClCompile Include="MJusticeAttackManager.cpp">
-      <Filter>Source Files\GameObject Source</Filter>
-    </ClCompile>
-    <ClCompile Include="MObjectSelector.cpp">
-      <Filter>Source Files\GameObject Source</Filter>
-    </ClCompile>
-    <ClCompile Include="ModifyStatusManager.cpp">
-      <Filter>Source Files\GameObject Source</Filter>
-    </ClCompile>
-    <ClCompile Include="MRequestMode.cpp">
-      <Filter>Source Files\GameObject Source</Filter>
-    </ClCompile>
-    <ClCompile Include="SoundNode.cpp">
-      <Filter>Source Files\GameObject Source</Filter>
-    </ClCompile>
-    <ClCompile Include="TalkBox.cpp">
-      <Filter>Source Files\GameObject Source</Filter>
-    </ClCompile>
-    <ClCompile Include="UIDialog.cpp">
-      <Filter>Source Files\GameObject Source</Filter>
-    </ClCompile>
-    <ClCompile Include="UIMessageManager.cpp">
-      <Filter>Source Files\GameObject Source</Filter>
     </ClCompile>
     <ClCompile Include="AppendPatchInfo.cpp">
       <Filter>Source Files\Utility source</Filter>
@@ -3217,69 +3277,14 @@
     <ClCompile Include="WhisperManager.cpp">
       <Filter>Source Files\RequestPlayer</Filter>
     </ClCompile>
-    <ClCompile Include="spritelib\CAlphaSprite.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="SpriteLib\CFileIndexTable.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Packet\Cpackets\CGConnectSetKey.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Packet\Cpackets\CGConnectSetKeyHandler.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ClientConfig.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ClientFunction.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CMP3.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CNormalSpriteTexturePartManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CSystemInfo.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\vs_ui\DebugInfo.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="DebugKit.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="EXECryptor.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GAME1024.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="md5.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="MTestDef.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="OtherClass\RequestClientPacketFactoryManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="OtherClass\RequestServerPacketFactoryManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ServerInfoFileParser.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ShrineInfoManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="SkillDef.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Packet\Gpackets\GCOtherModifyInfo.cpp">
       <Filter>Header Files\Packet Header</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Resource.rc">
+      <Filter>Source Files</Filter>
+    </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MemoryPool.h">
@@ -3290,6 +3295,153 @@
     </ClInclude>
     <ClInclude Include="Packet\Rpackets\RCPositionInfo.h">
       <Filter>Source Files\Packet source</Filter>
+    </ClInclude>
+    <ClInclude Include="ACProtect.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AddonDef.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Packet\Cpackets\CGConnectSetKey.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ClientConfig.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ClientDef.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ClientFunction.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CSystemInfo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DebugInfo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DebugKit.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DrawItemNameNode.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DrawTextNode.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EffectSpriteTypeDef.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ItemClassDef.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MActionResultDef.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="md5.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MEffectGeneratorDef.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MEffectStatusDef.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MEventManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MFileDef.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MGameDef.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MGuildType.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MHelpDef.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MQuestInfo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MTestDef.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MTopView.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MTypeDef.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MusicDef.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="NMCrypt.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PacketFunction.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PacketFunction2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RankBonusDef.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="OtherClass\RequestClientPacketFactoryManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="OtherClass\RequestServerPacketFactoryManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ServerInfo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ServerInfoFileParser.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SkillDef.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundDef.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundSetting.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SpriteIDDef.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UIDialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UIFunction.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MChatManager.h">
+      <Filter>Header Files\GameObject Header</Filter>
+    </ClInclude>
+    <ClInclude Include="MJusticeAttackManager.h">
+      <Filter>Header Files\GameObject Header</Filter>
+    </ClInclude>
+    <ClInclude Include="MObjectSelector.h">
+      <Filter>Header Files\GameObject Header</Filter>
+    </ClInclude>
+    <ClInclude Include="ModifyStatusManager.h">
+      <Filter>Header Files\GameObject Header</Filter>
+    </ClInclude>
+    <ClInclude Include="MRequestMode.h">
+      <Filter>Header Files\GameObject Header</Filter>
+    </ClInclude>
+    <ClInclude Include="SectorSoundInfo.h">
+      <Filter>Header Files\GameObject Header</Filter>
+    </ClInclude>
+    <ClInclude Include="TalkBox.h">
+      <Filter>Header Files\GameObject Header</Filter>
+    </ClInclude>
+    <ClInclude Include="UIMessageManager.h">
+      <Filter>Header Files\GameObject Header</Filter>
     </ClInclude>
     <ClInclude Include="MAroundZoneEffectGenerator.h">
       <Filter>Header Files\GameObject Header\EffectGenerator No. 1</Filter>
@@ -3701,30 +3853,6 @@
     </ClInclude>
     <ClInclude Include="MParty.h">
       <Filter>Header Files\GameObject Header\Party&amp;Guild header</Filter>
-    </ClInclude>
-    <ClInclude Include="MChatManager.h">
-      <Filter>Header Files\GameObject Header</Filter>
-    </ClInclude>
-    <ClInclude Include="MJusticeAttackManager.h">
-      <Filter>Header Files\GameObject Header</Filter>
-    </ClInclude>
-    <ClInclude Include="MObjectSelector.h">
-      <Filter>Header Files\GameObject Header</Filter>
-    </ClInclude>
-    <ClInclude Include="ModifyStatusManager.h">
-      <Filter>Header Files\GameObject Header</Filter>
-    </ClInclude>
-    <ClInclude Include="MRequestMode.h">
-      <Filter>Header Files\GameObject Header</Filter>
-    </ClInclude>
-    <ClInclude Include="SectorSoundInfo.h">
-      <Filter>Header Files\GameObject Header</Filter>
-    </ClInclude>
-    <ClInclude Include="TalkBox.h">
-      <Filter>Header Files\GameObject Header</Filter>
-    </ClInclude>
-    <ClInclude Include="UIMessageManager.h">
-      <Filter>Header Files\GameObject Header</Filter>
     </ClInclude>
     <ClInclude Include="APICheck.h">
       <Filter>Header Files\GameLoop</Filter>
@@ -5526,129 +5654,6 @@
     <ClInclude Include="WhisperManager.h">
       <Filter>Header Files\RequestPlayer header</Filter>
     </ClInclude>
-    <ClInclude Include="ACProtect.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="AddonDef.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Packet\Cpackets\CGConnectSetKey.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ClientConfig.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ClientDef.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ClientFunction.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="CSystemInfo.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="DebugInfo.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="DebugKit.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="DrawItemNameNode.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="DrawTextNode.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="EffectSpriteTypeDef.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ItemClassDef.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="MActionResultDef.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="md5.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="MEffectGeneratorDef.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="MEffectStatusDef.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="MEventManager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="MFileDef.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="MGameDef.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="MGuildType.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="MHelpDef.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="MQuestInfo.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="MTestDef.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="MTopView.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="MTypeDef.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="MusicDef.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="NMCrypt.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="PacketFunction.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="PacketFunction2.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="RankBonusDef.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="OtherClass\RequestClientPacketFactoryManager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="OtherClass\RequestServerPacketFactoryManager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ServerInfo.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ServerInfoFileParser.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="SkillDef.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="SoundDef.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="SoundSetting.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="SpriteIDDef.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="UIDialog.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="UIFunction.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="DXLib\CDirectDraw.h" />
     <ClInclude Include="SpriteLib\CFileIndexTable.h" />
     <ClInclude Include="EXECryptor.h" />
@@ -5658,20 +5663,15 @@
     <ClInclude Include="SystemAvailabilities.h" />
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="Resource.rc">
-      <Filter>Source Files</Filter>
-    </ResourceCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <Library Include="NPGameLib.lib" />
-    <Library Include="NMCrypt.lib" />
-  </ItemGroup>
-  <ItemGroup>
-    <CustomBuild Include="MTopViewDraw.inl">
+    <None Include="MTopViewDraw.inl">
       <Filter>Source Files\Player/Zone/View source</Filter>
-    </CustomBuild>
-    <CustomBuild Include="darkeden.ico" />
-    <CustomBuild Include="darkeden1.ico" />
-    <CustomBuild Include="fengshen.ico" />
+    </None>
+    <None Include="darkeden.ico" />
+    <None Include="darkeden1.ico" />
+    <None Include="fengshen.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="NMCrypt.lib" />
+    <Library Include="NPGameLib.lib" />
   </ItemGroup>
 </Project>

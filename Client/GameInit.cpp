@@ -1569,13 +1569,30 @@ InitGame()
 					FileData.cFileName[j] = tolower(FileData.cFileName[j]);
 			}
 			InvalidDll = FileData.cFileName;
-			
+
 			if(InvalidDll != "timer.dll" &&
 				InvalidDll != "msvcrtd.dll" &&
 				InvalidDll != "msvcrt.dll" &&
+				InvalidDll != "msvcr70.dll" &&
+				InvalidDll != "msvcr71.dll" &&
 				InvalidDll != "msvcp60.dll" &&
+				InvalidDll != "msvcp70.dll" &&
+				InvalidDll != "msvcp71.dll" &&
+				InvalidDll != "msvcp80.dll" &&
+				InvalidDll != "msvcp80.dll" &&
+				InvalidDll != "msvcp90.dll" &&
+				InvalidDll != "msvcp90.dll" &&
+				InvalidDll != "msvcp100.dll" &&
+				InvalidDll != "msvcp100.dll" &&
+			 	InvalidDll != "msvcp110.dll" &&
+				InvalidDll != "msvcp110.dll" &&
+				InvalidDll != "msvcp120.dll" &&
+				InvalidDll != "msvcp120.dll" &&
+				InvalidDll != "msvcp140.dll" &&
+				InvalidDll != "msvcp150.dll" &&
 				InvalidDll != "msvcirt.dll" &&
 				InvalidDll != "ifc22.dll" &&
+				InvalidDll != "ifc23.dll" &&
 				InvalidDll != "gl.dll" &&
 				InvalidDll != "dsetup32.dll" &&
 				InvalidDll != "dsetup.dll" &&
@@ -1592,9 +1609,39 @@ InitGame()
 				InvalidDll != "dbghelp.dll" &&
 				InvalidDll != "darkedenweb.dll" &&
 				InvalidDll != "npchk.dll" &&
-				InvalidDll != "xerces-c_2_4_0.dll")
+				InvalidDll != "dxwrapper.dll" &&
+				InvalidDll != "dinput.dll" &&
+				InvalidDll != "dinput8.dll" &&
+				InvalidDll != "ddraw.dll" &&
+				InvalidDll != "dsound.dll" &&
+				InvalidDll != "d3d8.dll" &&
+				InvalidDll != "d3d9.dll" &&
+				InvalidDll != "d3dimm.dll" &&
+				InvalidDll != "glide.dll" &&
+				InvalidDll != "glide2x.dll" &&
+				InvalidDll != "glide3x.dll" &&
+				InvalidDll != "opengl32.dll" &&
+				InvalidDll != "xerces-c_2_4_0.dll" &&
+				InvalidDll != "xerces-c_2_5_0.dll" &&
+				InvalidDll != "xerces-c_2_6_0.dll" &&
+				InvalidDll != "xerces-c_2_7_0.dll" &&
+				InvalidDll != "xerces-c_2_8_0.dll" &&
+				InvalidDll != "xerces-c_3_0_0.dll" &&
+				InvalidDll != "xerces-c_3_0_1.dll" &&
+				InvalidDll != "xerces-c_3_1_0.dll" &&
+				InvalidDll != "xerces-c_3_1_1.dll" &&
+				InvalidDll != "xerces-c_3_1_2.dll" &&
+				InvalidDll != "xerces-c_3_1_3.dll" &&
+				InvalidDll != "xerces-c_3_1_4.dll" &&
+				InvalidDll != "xerces-c_3_2_0.dll" &&
+				InvalidDll != "xerces-c_3_2_1.dll" &&
+				InvalidDll != "xerces-c_3_2_2.dll" &&
+				InvalidDll != "xerces-c_3_2_3.dll" &&
+				InvalidDll != "xerces-c_3_2_4.dll" &&
+				InvalidDll != "xerces-c_3_2_5.dll" &&
+				InvalidDll != "xerces-c_3_3_0.dll")
 				break;
-			
+
 			if (!FindNextFile(hSearch, &FileData)) 
 			{
 				fFinished = true; 

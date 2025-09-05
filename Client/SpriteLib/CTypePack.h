@@ -246,7 +246,8 @@ bool CTypePack<Type>::SaveToFile(std::ofstream &dataFile, std::ofstream &indexFi
 	WORD realSize = m_Size;
 	DWORD index = 0;
 
-	for(int i = 0; i < m_Size; i++)
+    int i = 0;
+	for(i = 0; i < m_Size; i++)
 	{
 		index = dataFile.tellp();
 		if(m_pData[i].SaveToFile(dataFile) == false)
@@ -274,7 +275,7 @@ bool CTypePack<Type>::SaveToFile(std::ofstream &dataFile, std::ofstream &indexFi
 	//--------------------------------------------------
 	// index 저장
 	//--------------------------------------------------
-	for (int i=0; i<vIndex.size(); i++)
+	for (i=0; i<vIndex.size(); i++)
 	{
 		indexFile.write((const char*)&vIndex[i], 4);
 	}
@@ -634,8 +635,9 @@ bool CTypePack2<TypeBase, Type1, Type2>::SaveToFile(std::ofstream &dataFile, std
 	indexFile.write((const char *)&m_Size, 2); 
 	WORD realSize = m_Size;
 	DWORD index = 0;
+    int i = 0;
 
-	for(int i = 0; i < m_Size; i++)
+	for(i = 0; i < m_Size; i++)
 	{
 		index = dataFile.tellp();
 		if(m_pData[i].SaveToFile(dataFile) == false)
@@ -663,7 +665,7 @@ bool CTypePack2<TypeBase, Type1, Type2>::SaveToFile(std::ofstream &dataFile, std
 	//--------------------------------------------------
 	// index 저장
 	//--------------------------------------------------
-	for (int i=0; i<vIndex.size(); i++)
+	for (i = 0; i < vIndex.size(); i++)
 	{
 		indexFile.write((const char*)&vIndex[i], 4);
 	}

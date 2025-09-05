@@ -48,7 +48,8 @@ void ModifyInfo::read ( SocketInputStream & iStream )
 
 	iStream.read(m_ShortCount);
 
-	for (BYTE s=0; s<m_ShortCount; s++)
+    BYTE s=0;
+	for (s=0; s<m_ShortCount; s++)
 	{
 		iStream.read(short_data.type);
 		iStream.read(short_data.value);
@@ -58,7 +59,7 @@ void ModifyInfo::read ( SocketInputStream & iStream )
 
 	iStream.read(m_LongCount);
 
-	for (BYTE s=0; s<m_LongCount; s++)
+	for (s=0; s<m_LongCount; s++)
 	{
 		iStream.read(long_data.type);
 		iStream.read(long_data.value);

@@ -20,6 +20,7 @@
 #include "SkinManager.h"
 #include "MGameStringTable.h"
 //#include "ex\DebugInfo.h"
+#include "DebugInfo.h"
 
 
 #define	MAX_SOUND_VOLUME		16
@@ -6586,15 +6587,15 @@ void C_VS_UI_GAME::SetNickNameList(void* pData)
 {
 	if(NULL == pData)
 		return;
-	if(m_NickNameList.size())
-	{
+	if((int)m_NickNameList.size() > 0)
+	{/* by Mandrake - while loop was buggy and .clear() seemed to do the same.
 		std::vector<C_VS_UI_NicknameInfo*>::iterator itr = m_NickNameList.begin();
 		while(itr != m_NickNameList.end())
 		{
 			C_VS_UI_NicknameInfo * TempInfo2 = (*itr);
 			m_NickNameList.erase(itr);
 			DeleteNew(TempInfo2);
-		}
+		}*/
 		m_NickNameList.clear();
 	}
 
@@ -6615,7 +6616,7 @@ void C_VS_UI_GAME::SetNickNameList(void* pData)
 		m_NickNameList.push_back(FirstInfo);
 		// 리스트의 젤 첨엔 닉네임 없애는 걸 추가한다. -end
 
-		while(itr != TempList->end())
+		while(itr < TempList->end())
 		{
 			C_VS_UI_NicknameInfo * TempInfo2 = (*itr);
 			C_VS_UI_NicknameInfo * TempInfo = new C_VS_UI_NicknameInfo;

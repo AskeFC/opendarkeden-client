@@ -101,9 +101,12 @@ SetDefaultAccelerator()
 		DIK_D,
 	};
 
+	g_pKeyAccelerator->SetAllDefaultAccelerators((unsigned short)keys);
+/* by Mandrake - loop did not work, so above is setting all the defaults.
 	for (int accel=1; accel<MAX_ACCELERATOR; accel++)
 	{
 		g_pKeyAccelerator->SetAcceleratorKey( accel, keys[accel] );
 	}
+*/
 }
 

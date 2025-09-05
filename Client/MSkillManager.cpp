@@ -1524,7 +1524,8 @@ MSkillSet::SetAvailableSkills()
 	// 피의 성서 보너스 맘대로 추가-ㅅ-
 	//
 	//-----------------------------------------------------
-	for(int i = 0; i < HOLYLAND_BONUS_MAX; i++)
+    int i = 0;
+	for(i = 0; i < HOLYLAND_BONUS_MAX; i++)
 	{
 		if(g_abHolyLandBonusSkills[i] == true)
 		{
@@ -1532,7 +1533,7 @@ MSkillSet::SetAvailableSkills()
 		}
 	}
 
-	for(int i = 0; i < SWEEPER_BONUS_MAX; i++)
+	for(i = 0; i < SWEEPER_BONUS_MAX; i++)
 	{
 		if( g_abSweeperBonusSkills[i] == true )
 		{

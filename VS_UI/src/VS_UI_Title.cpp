@@ -2877,7 +2877,6 @@ void C_VS_UI_CHAR_MANAGER::Start(bool back)
 //-----------------------------------------------------------------------------
 void C_VS_UI_CHAR_MANAGER::Finish()
 {
-
 	PI_Processor::Finish();
 
 	gpC_window_manager->DisappearWindow(this);
@@ -2963,7 +2962,6 @@ C_VS_UI_CHAR_MANAGER::C_VS_UI_CHAR_MANAGER()
 	m_desc_y_distance = 16;
 
 	m_focused_help = HELP_DEFAULT;
-
 }
 
 /*-----------------------------------------------------------------------------
@@ -3316,7 +3314,6 @@ void C_VS_UI_CHAR_MANAGER::ShowButtonDescription(C_VS_UI_EVENT_BUTTON * p_button
 void C_VS_UI_CHAR_MANAGER::ShowButtonWidget(C_VS_UI_EVENT_BUTTON * p_button)
 {
 //	int index = p_button->m_image_index;
-
 	if(p_button->GetID() == BACK_ID || p_button->GetID() == NEXT_ID)
 	{
 		if(p_button->GetFocusState())
@@ -5557,21 +5554,22 @@ C_VS_UI_OPTION::C_VS_UI_OPTION(bool IsTitle)
 		m_pC_control_button_group->Add( new C_VS_UI_EVENT_BUTTON(m_check_x+10, m_check_y, m_pC_etc_spk->GetWidth(RADIO_BACK_DISABLE), m_pC_etc_spk->GetHeight(RADIO_BACK_DISABLE), CHECK_NORMAL_CHAT, this, RADIO_BACK_DISABLE) );
 		m_pC_control_button_group->Add( new C_VS_UI_EVENT_BUTTON(m_check_x+120, m_check_y, m_pC_etc_spk->GetWidth(RADIO_BACK_DISABLE), m_pC_etc_spk->GetHeight(RADIO_BACK_DISABLE), CHECK_ENTER_CHAT, this, RADIO_BACK_DISABLE) );
 
-		for(int i = 0; i < CHECK_CONTROL_MAX; i++)
+        int i = 0;
+		for(i = 0; i < CHECK_CONTROL_MAX; i++)
 			m_pC_control_button_group->Add( new C_VS_UI_EVENT_BUTTON(m_check_x, m_check_y+m_check_gap*(8+i), m_pC_etc_spk->GetWidth(CHECK_BACK_DISABLE), m_pC_etc_spk->GetHeight(CHECK_BACK_DISABLE), CHECK_CONTROL_TAB+i+2, this, CHECK_BACK_DISABLE) );
 
 		// graphic_tab 버튼들
 		m_pC_graphic_button_group = new ButtonGroup(this);
-		for(int i = 0; i < CHECK_GRAPHIC_MAX; i++)
+		for(i = 0; i < CHECK_GRAPHIC_MAX; i++)
 			m_pC_graphic_button_group->Add( new C_VS_UI_EVENT_BUTTON(m_check_x, m_check_y+m_check_gap*i, m_pC_etc_spk->GetWidth(CHECK_BACK_DISABLE), m_pC_etc_spk->GetHeight(CHECK_BACK_DISABLE), CHECK_GRAPHIC_TAB+i, this, CHECK_BACK_DISABLE) );
 		// sound_tab 버튼들
 		m_pC_sound_button_group = new ButtonGroup(this);
-		for(int i = 0; i < CHECK_SOUND_MAX; i++)
+		for(i = 0; i < CHECK_SOUND_MAX; i++)
 			m_pC_sound_button_group->Add( new C_VS_UI_EVENT_BUTTON(m_check_x, m_check_y+m_check_gap*i, m_pC_etc_spk->GetWidth(CHECK_BACK_DISABLE), m_pC_etc_spk->GetHeight(CHECK_BACK_DISABLE), CHECK_SOUND_TAB+i, this, CHECK_BACK_DISABLE) );
 
 		// game_tab 버튼들
 		m_pC_game_button_group = new ButtonGroup(this);
-		for(int i = 0; i < CHECK_GAME_MAX; i++)
+		for(i = 0; i < CHECK_GAME_MAX; i++)
 			m_pC_game_button_group->Add( new C_VS_UI_EVENT_BUTTON(m_check_x, m_check_y+m_check_gap*i, m_pC_etc_spk->GetWidth(CHECK_BACK_DISABLE), m_pC_etc_spk->GetHeight(CHECK_BACK_DISABLE), CHECK_GAME_TAB+i, this, CHECK_BACK_DISABLE) );
 
 		m_rt_value[1].Set(m_check_x+120, m_check_y+m_check_gap*(CHECK_GAMMA-CHECK_GRAPHIC_TAB) , m_pC_etc_spk->GetWidth(VOLUME_BAR), 15);
@@ -5582,7 +5580,8 @@ C_VS_UI_OPTION::C_VS_UI_OPTION(bool IsTitle)
 	}
 	else
 	{
-		for(int i = 0; i<4; i++)
+        int i = 0;
+		for(i = 0; i<4; i++)
 			Tab_X[i] = 46 + (i*69);
 		Tab_Y = 29;
 		if(g_MyFull)
@@ -5603,20 +5602,20 @@ C_VS_UI_OPTION::C_VS_UI_OPTION(bool IsTitle)
 		m_pC_control_button_group->Add( new C_VS_UI_EVENT_BUTTON(m_check_x+10, m_check_y, m_pC_main_spk->GetWidth(TITLE_RADIO_BACK), m_pC_main_spk->GetHeight(TITLE_RADIO_BACK), CHECK_NORMAL_CHAT, this, TITLE_RADIO_BACK) );
 		m_pC_control_button_group->Add( new C_VS_UI_EVENT_BUTTON(m_check_x+120, m_check_y, m_pC_main_spk->GetWidth(TITLE_RADIO_BACK), m_pC_main_spk->GetHeight(TITLE_RADIO_BACK), CHECK_ENTER_CHAT, this, TITLE_RADIO_BACK) );
 
-		for(int i = 0; i < CHECK_CONTROL_MAX; i++)
+		for(i = 0; i < CHECK_CONTROL_MAX; i++)
 			m_pC_control_button_group->Add( new C_VS_UI_EVENT_BUTTON(m_check_x, m_check_y+m_check_gap*(8+i), m_pC_main_spk->GetWidth(TITLE_CHECK_BACK), m_pC_main_spk->GetHeight(TITLE_CHECK_BACK), CHECK_CONTROL_TAB+i+2, this, TITLE_CHECK_BACK) );
 
 		// graphic_tab 버튼들
 		m_pC_graphic_button_group = new ButtonGroup(this);
-		for(int i = 0; i < CHECK_GRAPHIC_MAX; i++)
+		for(i = 0; i < CHECK_GRAPHIC_MAX; i++)
 			m_pC_graphic_button_group->Add( new C_VS_UI_EVENT_BUTTON(m_check_x, m_check_y+m_check_gap*i, m_pC_main_spk->GetWidth(TITLE_CHECK_BACK), m_pC_main_spk->GetHeight(TITLE_CHECK_BACK), CHECK_GRAPHIC_TAB+i, this, TITLE_CHECK_BACK) );
 		// sound_tab 버튼들
 		m_pC_sound_button_group = new ButtonGroup(this);
-		for(int i = 0; i < CHECK_SOUND_MAX; i++)
+		for(i = 0; i < CHECK_SOUND_MAX; i++)
 			m_pC_sound_button_group->Add( new C_VS_UI_EVENT_BUTTON(m_check_x, m_check_y+m_check_gap*i, m_pC_main_spk->GetWidth(TITLE_CHECK_BACK), m_pC_main_spk->GetHeight(TITLE_CHECK_BACK), CHECK_SOUND_TAB+i, this, TITLE_CHECK_BACK) );
 		// game_tab 버튼들
 		m_pC_game_button_group = new ButtonGroup(this);
-		for(int i = 0; i < CHECK_GAME_MAX; i++)
+		for(i = 0; i < CHECK_GAME_MAX; i++)
 			m_pC_game_button_group->Add( new C_VS_UI_EVENT_BUTTON(m_check_x, m_check_y+m_check_gap*i, m_pC_main_spk->GetWidth(TITLE_CHECK_BACK), m_pC_main_spk->GetHeight(TITLE_CHECK_BACK), CHECK_GAME_TAB+i, this, TITLE_CHECK_BACK) );
 
 		m_rt_value[1].Set(m_check_x+120, m_check_y+m_check_gap*(CHECK_GAMMA-CHECK_GRAPHIC_TAB) , m_pC_main_spk->GetWidth(TITLE_VOLUME_BAR), 15);

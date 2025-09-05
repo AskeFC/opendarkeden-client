@@ -7,6 +7,9 @@
 #include "KeyAccelerator.h"
 #include "CDirectInput.h"
 #include <cstdio>
+#include <iostream>
+#include <algorithm>
+
 //----------------------------------------------------------------------
 // define functions
 //----------------------------------------------------------------------
@@ -51,6 +54,13 @@ KeyAccelerator::Init( int max )
 	m_Accelerators.clear();
 
 	m_Accelerators.reserve( max );
+	m_Accelerators.resize(max);
+}
+
+void
+KeyAccelerator::SetAllDefaultAccelerators(unsigned short keys)
+{
+	std::copy_n( &keys, m_Accelerators.capacity(), m_Accelerators.begin() );
 }
 
 //----------------------------------------------------------------------
@@ -67,17 +77,20 @@ KeyAccelerator::SetAcceleratorKey(BYTE accel, WORD key)
 		return;
 	}
 
-	KEY_MAP::iterator iKey = m_Keys.find( m_Accelerators[accel] );
+	KEY_MAP::iterator iKey;
 
-	if (iKey != m_Keys.end())
-	{
-		// 이미 설정된 key가 있었다면 제거한다.
-		m_Keys.erase( iKey );
+	if (!m_Accelerators.empty()) {
+		iKey = m_Keys.find(m_Accelerators.at(accel) );
+		if (iKey != m_Keys.end())
+		{
+			// 이미 설정된 key가 있었다면 제거한다.
+			m_Keys.erase( iKey );
+		}
+
 	}
 
 	m_Keys[key] = accel;
-	
-	m_Accelerators[accel] = key;
+	m_Accelerators.at(accel) = key;
 }
 
 //----------------------------------------------------------------------

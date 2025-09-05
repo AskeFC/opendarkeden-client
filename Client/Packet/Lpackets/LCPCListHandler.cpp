@@ -278,8 +278,8 @@ void LCPCListHandler::execute ( LCPCList * pPacket , Player * pPlayer )
 	//------------------------------------------------------------
 	// Characer 선택 창을 띄워야 한다.
 	//------------------------------------------------------------
-	UI_StartCharacterManager();				
-			
+	UI_StartCharacterManager();
+
 
 	for (int i=0; i<SLOT_MAX; i++)
 	{
@@ -305,7 +305,7 @@ void LCPCListHandler::execute ( LCPCList * pPacket , Player * pPlayer )
 					g_pUserInformation->Race[i]	= RACE_SLAYER;
 					g_pUserInformation->FaceStyleSlot[i] = pPCSlayerInfo->getHairStyle();
 
-					UI_SetCharacter( i, pPCSlayerInfo );		
+					UI_SetCharacter( i, pPCSlayerInfo );
 				}
 				break;
 

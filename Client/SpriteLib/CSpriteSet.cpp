@@ -86,6 +86,7 @@ bool
 CSpriteSet::LoadFromFile(std::ifstream& indexFile, std::ifstream& packFile)
 {
 	TYPE_SPRITEID	count;
+    TYPE_SPRITEID i = 0;
 	
 	//------------------------------------------------------
 	// SpriteSet의 Sprite개수를 읽어들인다.
@@ -98,7 +99,7 @@ CSpriteSet::LoadFromFile(std::ifstream& indexFile, std::ifstream& packFile)
 	//------------------------------------------------------
 	// SpriteSet IndexFile을 모두 읽어들인다.
 	//------------------------------------------------------
-	for (TYPE_SPRITEID i=0; i<count; i++)
+	for (i=0; i<count; i++)
 	{		
 		indexFile.read((char*)&pIndex[i], 4);
 	}
@@ -117,7 +118,7 @@ CSpriteSet::LoadFromFile(std::ifstream& indexFile, std::ifstream& packFile)
 	// Index(File Position)를 이용해서 SpritePack에서
 	// 특정 Sprite들을 Load한다.
 	//------------------------------------------------------
-	for (int i=0; i<count; i++)
+	for (i=0; i<count; i++)
 	{
 		packFile.seekg(pIndex[i], std::ios::beg);
 		m_pSprites[i].LoadFromFile( packFile );

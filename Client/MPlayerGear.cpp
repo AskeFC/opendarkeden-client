@@ -342,7 +342,8 @@ MPlayerGear::ModifyDurability(BYTE n, int changeValue)
 void			
 MPlayerGear::CheckItemStatusAll()
 {
-	for (BYTE i=0; i<m_Size; i++)
+    BYTE i=0;
+	for (i=0; i<m_Size; i++)
 	{
 		m_pItemStatus[i] = ITEM_STATUS_OK;
 	}
@@ -352,7 +353,7 @@ MPlayerGear::CheckItemStatusAll()
 	//---------------------------------------------------
 	// 모두 체크
 	//---------------------------------------------------
-	for (int i=0; i<m_Size; i++)
+	for (i=0; i<m_Size; i++)
 	{
 		if (m_ItemSlot[i]!=NULL)
 		{

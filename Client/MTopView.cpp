@@ -3525,12 +3525,13 @@ MTopView::InitFilters()
 		};
 		*/
 
-		for (int i=0; i<SCREENLIGHT_WIDTH; i++)
+        int i=0;
+		for (i=0; i<SCREENLIGHT_WIDTH; i++)
 		{
 			m_p2DLightPixelWidth[i] = pPixelWidth[i];
 		}
 
-		for (int i=0; i<SCREENLIGHT_HEIGHT; i++)
+		for (i=0; i<SCREENLIGHT_HEIGHT; i++)
 		{
 			m_p2DLightPixelHeight[i] = pPixelHeight[i];
 		}
@@ -6515,7 +6516,8 @@ MTopView::ReleaseUselessCreatureSPKExcept(const INT_ORDERED_LIST& listUse)
 	//--------------------------------------------------------
 	INT_ORDERED_LIST::DATA_LIST::const_iterator iSpriteType = m_listLoadedCreatureSprite.GetIterator();
 
-	for (int i=0; i<m_listLoadedCreatureSprite.GetSize(); i++)
+    int i=0;
+	for (i=0; i<m_listLoadedCreatureSprite.GetSize(); i++)
 	{
 		int spriteType = *iSpriteType;
 		
@@ -6594,7 +6596,7 @@ MTopView::ReleaseUselessCreatureSPKExcept(const INT_ORDERED_LIST& listUse)
 	
 	INT_ORDERED_LIST::DATA_LIST::const_iterator iUse = listUse.GetIterator();
 
-	for (int i=0; i<listUse.GetSize(); i++)
+	for (i=0; i<listUse.GetSize(); i++)
 	{
 		int useSpriteType = *iUse;
 
@@ -10794,7 +10796,8 @@ MTopView::DrawInformation()
 	//-----------------------------------------------------------------
 
 	strY = y+20;
-	for (int c=0; c<g_pSystemMessage->GetSize(); c++)
+    int c=0;
+	for (c=0; c<g_pSystemMessage->GetSize(); c++)
 	{
 		if ((*g_pSystemMessage)[c][0] != NULL)
 		{
@@ -10823,7 +10826,7 @@ MTopView::DrawInformation()
 	int iColorType = 0;
 	char* pColorType=NULL;
 	char message[300];
-	for (int c=0; c<g_pPlayerMessage->GetSize(); c++)
+	for (c=0; c<g_pPlayerMessage->GetSize(); c++)
 	{
 		if ((*g_pPlayerMessage)[c][0] != NULL)
 		{
@@ -10860,7 +10863,7 @@ MTopView::DrawInformation()
 	PrintInfo* pNoticeInfo = g_ClientPrintInfo[FONTID_LARGE_CHAT];	
 	
 	
-	for(int c = 0; c< g_pNoticeMessage->GetSize(); c++ )
+	for(c = 0; c< g_pNoticeMessage->GetSize(); c++ )
 	{
 		if( (*g_pNoticeMessage)[c][0] != NULL )
 		{
@@ -10947,7 +10950,7 @@ MTopView::DrawInformation()
 		break;
 	}
 
-	for (int c=g_pGameMessage->GetSize()-1; c>=0; c--)
+	for (c=g_pGameMessage->GetSize()-1; c>=0; c--)
 	{
 		if ((*g_pGameMessage)[c][0] != NULL)
 		{
@@ -16930,7 +16933,8 @@ int
 	int maxLen = 0;
 	int numString = g_pClientConfig->MAX_CHATSTRING;
 	int maxWidth = 0;
-	for (register int i=g_pClientConfig->MAX_CHATSTRING_MINUS_1; i>=0; i--)
+    register int i=g_pClientConfig->MAX_CHATSTRING_MINUS_1;
+	for (i=g_pClientConfig->MAX_CHATSTRING_MINUS_1; i>=0; i--)
 	{
 		const char *str = pCreature->GetChatString(i);		
 
@@ -17041,7 +17045,7 @@ int
 	//  °¢ string Ãâ·Â...
 	//---------------------------------------------------------
 	int start = g_pClientConfig->MAX_CHATSTRING-numString; 
-	for (int i=start; i<g_pClientConfig->MAX_CHATSTRING; i++)
+	for (i=start; i<g_pClientConfig->MAX_CHATSTRING; i++)
 	{
 		const char *str = pCreature->GetChatString(i);
 		

@@ -75,7 +75,8 @@ void GCAddItemToZone::read ( SocketInputStream & iStream )
 
 	BYTE optionSize;
 	iStream.read( optionSize );
-	for (int i=0; i<optionSize; i++)
+    int i=0;
+	for (i=0; i<optionSize; i++)
 	{
 		OptionType_t optionType;
 		iStream.read( optionType );
@@ -90,7 +91,7 @@ void GCAddItemToZone::read ( SocketInputStream & iStream )
 
 	// Sub 아이템 정보를 읽어 들인다.
     iStream.read( m_ListNum );
-	for(int i = 0; i < m_ListNum; i++ ) {
+	for(i = 0; i < m_ListNum; i++ ) {
 		SubItemInfo * pSubItemInfo = new SubItemInfo();
 		pSubItemInfo->read( iStream );
 		m_SubItemInfoList.push_back( pSubItemInfo );

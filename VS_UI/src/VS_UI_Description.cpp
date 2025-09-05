@@ -226,10 +226,11 @@ void	_Item_Description_Show(Rect rect, void * void_ptr, long left, long right)
 
 	if(!p_item->IsIdentified())
 	{
-		for(int i = 0; i < strlen(sz_name); i++)
+        int i = 0;
+		for(i = 0; i < strlen(sz_name); i++)
 			sz_name[i] = '?';
 		
-		for(int i = 0; i < strlen(sz_ename); i++)
+		for(i = 0; i < strlen(sz_ename); i++)
 			sz_ename[i] = '?';
 	}
 

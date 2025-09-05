@@ -460,7 +460,8 @@ UI_SetWorldList()
 		//-----------------------------------------------------
 		// UI에 넘겨줄 server정보 생성
 		//-----------------------------------------------------
-		for (int i=0; i<numGroup; i++)
+        int i=0;
+		for (i=0; i<numGroup; i++)
 		{			
 			const char* groupNameOrg = iGroup->second->GetGroupName();
 			int status = iGroup->second->GetGroupStatus();
@@ -483,7 +484,7 @@ UI_SetWorldList()
 		//-----------------------------------------------------
 		// 메모리에서 제거
 		//-----------------------------------------------------
-		for (int i=0; i<numGroup; i++)
+		for (i=0; i<numGroup; i++)
 		{
 			delete [] groupName[i];
 		}
@@ -529,8 +530,9 @@ UI_SetServerList()
 
 		//-----------------------------------------------------
 		// UI에 넘겨줄 server정보 생성
-		//-----------------------------------------------------		
-		for (int i=0; i<numServer; i++)
+		//-----------------------------------------------------
+        int i=0;
+		for (i=0; i<numServer; i++)
 		{			
 			SERVER_INFO* pServerInfo = iServer->second;
 
@@ -555,7 +557,7 @@ UI_SetServerList()
 		//-----------------------------------------------------
 		// 메모리에서 제거
 		//-----------------------------------------------------
-		for (int i=0; i<numServer; i++)
+		for (i=0; i<numServer; i++)
 		{
 			delete [] serverName[i];
 		}
@@ -2102,7 +2104,6 @@ UI_SetCharacter(int slotID, PCSlayerInfo * pInfo)
 	// set character
 	S_SLOT slot;
 	ZeroMemory(&slot, sizeof(S_SLOT));
-
 	slot.sz_name = g_pUserInformation->Character[slotID];
 	slot.sz_guild_name = "";
 	slot.Race = RACE_SLAYER;
@@ -2129,7 +2130,9 @@ UI_SetCharacter(int slotID, PCSlayerInfo * pInfo)
 	slot.STR_EXP_REMAIN = pInfo->getSTRExp();
 	slot.DEX_EXP_REMAIN = pInfo->getDEXExp();
 	slot.INT_EXP_REMAIN = pInfo->getINTExp();
-	slot.STATUS.clear();
+	if(!slot.STATUS.empty()) {
+		slot.STATUS.clear();
+	}
 
 	SKILLDOMAIN weaponDomain[] =
 	{

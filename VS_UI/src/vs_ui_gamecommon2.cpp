@@ -402,7 +402,8 @@ void	C_VS_UI_ITEM_LIST::Show()
 	const int line_num = 8;
 	int line_gap = 20;	
 
-	for(int i=0;i<line_num -1 ;i++)
+    int i=0;
+	for(i=0;i<line_num -1 ;i++)
 	{
 		if( m_CurrentItem >= m_pC_scroll_bar->GetScrollPos() && m_CurrentItem < m_pC_scroll_bar->GetScrollPos() + 8 )
 		{
@@ -417,7 +418,7 @@ void	C_VS_UI_ITEM_LIST::Show()
 
 	g_FL2_GetDC();	
 	g_PrintColorStr(x+35, y+200, (*g_pGameStringTable)[UI_STRING_MESSAGE_ITEM_SHOP].GetString(), gpC_base->m_chatting_pi, RGB_WHITE);
-	for(int i=0;i<line_num;i++)
+	for(i=0;i<line_num;i++)
 	{
 		COLORREF TitleColor,ShadowColor;
 		const COLORREF required_rgb = RGB(255, 128, 64);
@@ -8506,7 +8507,8 @@ void C_VS_UI_CRAZY_MINE::InitMineBoard(int size, int mine)
 		m_MineCount = mine;
 	}
 
-	for ( int i=0; i<size; ++i )
+    int i=0;
+	for ( i=0; i<size; ++i )
 	{
 		for ( int j=0; j<size; ++j )
 		{
@@ -8517,7 +8519,7 @@ void C_VS_UI_CRAZY_MINE::InitMineBoard(int size, int mine)
 		}
 	}
 
-	for ( int i=0; i<m_MineCount; ++i )
+	for ( i=0; i<m_MineCount; ++i )
 	{
 		int x,y;
 
@@ -9336,7 +9338,8 @@ void	C_VS_UI_STATUS_CTF::Show()
 	if( g_FL2_GetDC() )
 	{
 		int topscore = 1;
-		for(int i=0;i<3;i++)
+        int i=0;
+		for(i=0;i<3;i++)
 		{
 			if( topscore < m_num_flag[i] )
 				topscore = m_num_flag[i];			
@@ -9365,7 +9368,7 @@ void	C_VS_UI_STATUS_CTF::Show()
 			y+rectRemainTime.top+(rectRemainTime.bottom - rectRemainTime.top)/2 - g_GetStringHeight( szBuffer, gpC_base->m_chatting_pi.hfont)/2, 
 			szBuffer, gpC_base->m_chatting_pi, RGB_WHITE);
 
-		for( int i =0 ; i< 3; i++ )
+		for( i =0 ; i< 3; i++ )
 		{
 			wsprintf( szBuffer, "%d",m_num_flag[i]);
 			if( m_num_flag[i] == topscore )

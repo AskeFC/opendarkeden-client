@@ -89,7 +89,8 @@ CTexturePartManager::Init(const char* aspkFilename, WORD partSize)
 	CPartManager<WORD, WORD, CSpriteSurface*>::Init( allSize, partSize );
 	
 	// NULL로 초기화
-	for (int i=0; i<m_nPart; i++)
+    int i=0;
+	for (i=0; i<m_nPart; i++)
 	{
 		m_pData[i] = NULL;
 	}
@@ -98,7 +99,7 @@ CTexturePartManager::Init(const char* aspkFilename, WORD partSize)
 	m_pWidth = new int [allSize];
 	m_pHeight = new int [allSize];
 
-	for (int i=0; i<allSize; i++)
+	for (i=0; i<allSize; i++)
 	{
 		m_pWidth[i] = 0;
 		m_pHeight[i] = 0;
@@ -253,7 +254,8 @@ CTexturePartManager::Clear()
 	DeleteRemoved();
 
 	// video memory를 날려~준다.
-	for (int i=0; i<m_nPart; i++)
+    int i=0;
+	for (i=0; i<m_nPart; i++)
 	{
 		if (m_pData[i] != NULL)			
 		{
@@ -268,7 +270,7 @@ CTexturePartManager::Clear()
 	CPartManager<WORD, WORD, CSpriteSurface*>::Init( m_nIndex, m_nPart );
 
 	// NULL로 초기화
-	for (int i=0; i<m_nPart; i++)
+	for (i=0; i<m_nPart; i++)
 	{
 		m_pData[i] = NULL;
 	}

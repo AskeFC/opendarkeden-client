@@ -4,6 +4,7 @@
 #include "Client_PCH.h"
 #include "MCreatureTable.h"
 #include <fstream>
+#include <vector>
 
 //----------------------------------------------------------------------
 // Global
@@ -280,13 +281,14 @@ CREATURETABLE_INFO::SaveToFile(std::ofstream& file)
 	
 	// 각각의 soundID를 저장한다.
 	int max = GetActionMax();
-	for (int i=0; i<max; i++)
+    int i=0;
+	for (i=0; i<max; i++)
 	{
 		file.write((const char*)&m_pActionSound[i], SIZE_SOUNDID);
 	}
 
 	// 각각의 CountID를 저장한다.
-	for (int i=0; i<max; i++)
+	for (i=0; i<max; i++)
 	{
 		file.write((const char*)&m_pActionCount[i], 4);
 	}
@@ -362,13 +364,14 @@ CREATURETABLE_INFO::LoadFromFile(std::ifstream& file)
 
 	// 각각의 SoundID를 load한다.
 	int max = GetActionMax();
-	for (int i=0; i<max; i++)
+    int i=0;
+	for (i=0; i<max; i++)
 	{
 		file.read((char*)&m_pActionSound[i], SIZE_SOUNDID);
 	}
 
 	// 각각의 SoundID를 load한다.
-	for (int i=0; i<max; i++)
+	for (i=0; i<max; i++)
 	{
 		file.read((char*)&m_pActionCount[i], 4);
 	}
@@ -376,7 +379,7 @@ CREATURETABLE_INFO::LoadFromFile(std::ifstream& file)
 	bool isread=true;
 	if(m_CreatureTribe==4||m_CreatureTribe==5)
 	{
-		char temp[24];
+//		char temp[24];
 //		file.read(temp,24);
 		isread = false;
 	}
@@ -431,13 +434,14 @@ CREATURETABLE_INFO::operator = (const CREATURETABLE_INFO& creatureInfo)
 
 	// 각각의 SoundID를 load한다.
 	int max = GetActionMax();
-	for (int i=0; i<max; i++)
+    int i=0;
+	for (i=0; i<max; i++)
 	{
 		m_pActionSound[i] = creatureInfo.m_pActionSound[i];
 	}
 
 	// 각각의 SoundID를 load한다.
-	for (int i=0; i<max; i++)
+	for (i=0; i<max; i++)
 	{
 		m_pActionCount[i] = creatureInfo.m_pActionCount[i];
 	}
@@ -479,11 +483,14 @@ CreatureSpriteTypeMapper::Init(int numSpriteTypes)
 	Release();
 
 	m_CreatureSpriteTypes.reserve( numSpriteTypes );
+	m_CreatureSpriteTypes.resize(numSpriteTypes, NULL);
 
+/* by Mandrake - loop did not work, so above fills the vector
 	for (int i=0; i<numSpriteTypes; i++)
 	{
 		m_CreatureSpriteTypes[i] = NULL;
 	}
+*/
 }
 
 //----------------------------------------------------------------------
@@ -593,7 +600,7 @@ void
 CreatureSpriteTypeMapper::LoadFromFile(std::ifstream& file)
 {
 	int numSpriteTypes;
-	
+
 	file.read((char*)&numSpriteTypes, 4);
 	
 	Init( numSpriteTypes );
@@ -602,13 +609,12 @@ CreatureSpriteTypeMapper::LoadFromFile(std::ifstream& file)
 	{
 		CREATURE_TYPES* pCreatureTypes = new CREATURE_TYPES;
 		
-		m_CreatureSpriteTypes[i] = pCreatureTypes;
-
 		int numCreatureTypes;
 		
 		file.read((char*)&numCreatureTypes, 4);
 
 		pCreatureTypes->reserve( numCreatureTypes );
+		pCreatureTypes->resize( numCreatureTypes );
 
 		for (int j=0; j<numCreatureTypes; j++)
 		{
@@ -617,5 +623,7 @@ CreatureSpriteTypeMapper::LoadFromFile(std::ifstream& file)
 
 			(*pCreatureTypes)[j] = creatureType;
 		}
+
+		m_CreatureSpriteTypes[i] = pCreatureTypes;
 	}
 }
