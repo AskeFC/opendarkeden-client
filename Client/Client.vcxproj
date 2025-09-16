@@ -18,6 +18,7 @@
     <ProjectGuid>{07B0C646-7D69-4D33-AA70-E267C2156BEB}</ProjectGuid>
     <SccProjectName>"$/Client", BAAAAAAA</SccProjectName>
     <SccLocalPath>.</SccLocalPath>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseLog|Win32'" Label="Configuration">

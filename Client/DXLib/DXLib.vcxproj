@@ -15,6 +15,7 @@
     <ProjectGuid>{0773245F-A40D-4D25-847D-E0A3EF4463F0}</ProjectGuid>
     <SccProjectName>"$/Client/DirectXLib", FVFAAAAA</SccProjectName>
     <SccLocalPath>.</SccLocalPath>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
